@@ -1,0 +1,45 @@
+name: Deploy Storybooks
+
+on:
+  push:
+    branches:
+      - main-sb
+      - dev-sb
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Storybook
+        run: |
+          if [ "${{ github.ref_name }}" == "main-sb" ]; then
+            pnpx nx run micro-ui:build-storybook --output-dir=storybook-static/micro-ui/main --skip-nx-cache
+          elif [ "${{ github.ref_name }}" == "dev-sb" ]; then
+            pnpx nx run micro-ui:build-storybook --output-dir=storybook-static/micro-ui/dev --skip-nx-cache
+          fi
+
+      - name: Check folders
+        run: ls -la && ls -la apps/ && ls -la apps/micro-ui/ && ls -la apps/micro-ui/storybook-static
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: apps/micro-ui/storybook-static
+          keep_files: true
