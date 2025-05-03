@@ -1,5 +1,8 @@
 {
   "name": "@fs/micro-ui",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "nx": {
+    "name": "micro-ui"
+  }
 }
