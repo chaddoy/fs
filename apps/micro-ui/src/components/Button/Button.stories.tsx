@@ -18,12 +18,18 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: 'simple',
+    variant: 'primary',
   },
 };
 
 export const Pill: Story = {
   args: {
-    variant: 'pill',
+    pill: true,
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    outline: true,
   },
 };
