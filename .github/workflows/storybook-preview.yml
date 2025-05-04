@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy-storybook:
-    if: github.head_ref != 'dev'
+    if: github.head_ref != 'dev' && github.head_ref != 'main'
     runs-on: ubuntu-latest
 
     steps:
@@ -39,5 +39,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: apps/micro-ui/storybook-static
-          destination_dir: sb/${{ github.event.pull_request.head.ref }}-${{ github.event.pull_request.number }}
+          destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
