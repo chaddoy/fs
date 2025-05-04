@@ -43,15 +43,32 @@ jobs:
           keep_files: true
 
       - name: Add Storybook Preview Link to PR Description
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
         run: |
-          PR_URL="https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }}"
-          STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }}"
-          PR_BODY="### Storybook Preview\n\nView the Storybook preview here: [Storybook Preview](${STORYBOOK_URL})\n\n$(
-            curl -s -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}" \
-            | jq -r .body
-          )"
+          STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${PR_NUMBER}"
+          PREVIEW_SECTION="---
 
-          curl -s -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -d "{\"body\": \"$PR_BODY\"}" \
-          "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}"
+### Storybook Preview 🚀
+
+View the live preview here: [Storybook Preview](${STORYBOOK_URL})"
+
+          # Get the existing PR description
+          ORIGINAL_BODY=$(curl -s -H "Authorization: token ${GH_TOKEN}" \
+            https://api.github.com/repos/${REPO}/pulls/${PR_NUMBER} | jq -r .body)
+
+          # Remove any existing Storybook preview section (if job re-runs)
+          CLEAN_BODY=$(echo "$ORIGINAL_BODY" | awk '/^---/{exit} {print}')
+
+          # Append new section
+          UPDATED_BODY="${CLEAN_BODY}\n\n${PREVIEW_SECTION}"
+
+          # Update PR
+          jq -n --arg body "$UPDATED_BODY" '{body: $body}' > pr_body.json
+
+          curl -s -X PATCH -H "Authorization: token ${GH_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d @pr_body.json \
+            https://api.github.com/repos/${REPO}/issues/${PR_NUMBER}
