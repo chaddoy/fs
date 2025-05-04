@@ -7,6 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
+    if: github.head_ref != 'dev'
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +33,6 @@ jobs:
         run: pnpx nx run micro-ui:build-storybook --skip-nx-cache
 
       - name: Deploy to GitHub Pages
-        if: github.ref != 'refs/heads/gh-pages'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
