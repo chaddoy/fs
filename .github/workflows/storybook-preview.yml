@@ -42,7 +42,7 @@ jobs:
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
 
-      - name: Add Storybook Preview Link to PR Description
+      - name: Add Storybook Preview Link
         if: github.event.pull_request.base.ref == 'sb'
         uses: peter-evans/create-or-update-comment@v2
         with:
