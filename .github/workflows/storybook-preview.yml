@@ -41,3 +41,13 @@ jobs:
           publish_dir: apps/micro-ui/storybook-static
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
+
+      - name: Add Storybook Preview Link to PR Description
+        if: github.event.pull_request.base.ref == 'sb'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ### Storybook Preview:
+            - [Storybook Preview](https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }})
