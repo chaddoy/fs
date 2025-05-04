@@ -91,7 +91,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }}/"
-          SEPARATOR="\n---\n"
+          SEPARATOR="---"
           PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
-          UPDATED_BODY="$PR_BODY"$'\n---\n'"### Storybook Preview"$'\n'"[View the Storybook preview here]($STORYBOOK_URL)"
-          gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
+          UPDATED_BODY="${PR_BODY}\n${SEPARATOR}\n### Storybook Preview\n[View the Storybook preview here](${STORYBOOK_URL})"
+          echo "$UPDATED_BODY" | gh pr edit ${{ github.event.pull_request.number }} --body -
