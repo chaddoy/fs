@@ -42,16 +42,12 @@ jobs:
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
 
-      - name: Add Storybook Preview Link to PR Description
-        run: |
-          PR_URL="https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }}"
-          STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }}"
-          PR_BODY="### Storybook Preview\n\nView the Storybook preview here: [Storybook Preview](${STORYBOOK_URL})\n\n$(
-            curl -s -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}" \
-            | jq -r .body
-          )"
-
-          curl -s -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -d "{\"body\": \"$PR_BODY\"}" \
-          "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}"
+      - name: Add Storybook Preview Link
+        if: github.event.pull_request.base.ref == 'sb'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ### Storybook Preview:
+            - [Storybook Preview](https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }})
