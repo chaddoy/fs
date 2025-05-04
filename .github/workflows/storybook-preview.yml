@@ -1,0 +1,38 @@
+name: Deploy Storybook Preview
+
+on:
+  pull_request:
+    branches:
+      - dev-sb
+    types: [opened, synchronize, reopened]
+
+jobs:
+  deploy-storybook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Storybook
+        run: pnpx nx run micro-ui:build-storybook --skip-nx-cache
+
+      - name: Deploy to Temporary Folder
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: apps/micro-ui/storybook-static
+          destination_dir: micro-ui/${{ github.event.pull_request.head.ref }}-${{ github.event.pull_request.number }}
+          keep_files: true
