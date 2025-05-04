@@ -33,9 +33,6 @@ jobs:
             pnpx nx run micro-ui:build-storybook --output-dir=storybook-static/micro-ui/dev --skip-nx-cache
           fi
 
-      - name: Check folders
-        run: ls -la && ls -la apps/ && ls -la apps/micro-ui/ && ls -la apps/micro-ui/storybook-static
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
