@@ -48,7 +48,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPO: ${{ github.repository }}
         run: |
-          STORYBOOK_URL="https://<your-org>.github.io/<your-repo>/sb/pr-${PR_NUMBER}"
+          STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${PR_NUMBER}"
           PREVIEW_SECTION="---
 
 ### Storybook Preview 🚀
