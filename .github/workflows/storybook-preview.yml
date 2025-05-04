@@ -42,12 +42,13 @@ jobs:
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
 
-      - name: Add Storybook Preview Link
-        if: github.event.pull_request.base.ref == 'sb'
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            ### Storybook Preview:
-            - [Storybook Preview](https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }})
+      # Add Storybook Link to PR description
+      - name: Add Storybook Link to PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }}/"
+          SEPARATOR="\n---\n"
+          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
+          UPDATED_BODY="$PR_BODY"$SEPARATOR"### Storybook Preview"$'\n'"[View the Storybook preview here]($STORYBOOK_URL)"
+          gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
