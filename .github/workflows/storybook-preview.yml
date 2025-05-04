@@ -41,6 +41,49 @@ jobs:
           publish_dir: apps/micro-ui/storybook-static
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
+name: Deploy Storybook Preview
+
+on:
+  pull_request:
+    branches:
+      - sb
+    types: [opened, synchronize, reopened]
+
+jobs:
+  deploy-storybook:
+    if: github.head_ref != 'dev' && github.head_ref != 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: tree:0
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      # Cache node_modules
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Storybook
+        run: pnpx nx run micro-ui:build-storybook --skip-nx-cache
+
+      - name: Deploy to Temporary Folder
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: apps/micro-ui/storybook-static
+          destination_dir: sb/pr-${{ github.event.pull_request.number }}
+          keep_files: true
 
       # Add Storybook Link to PR description
       - name: Add Storybook Link to PR
@@ -48,7 +91,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }}/"
-          SEPARATOR="\n---\n"
           PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
-          UPDATED_BODY="$PR_BODY"$SEPARATOR"### Storybook Preview"$'\n'"[View the Storybook preview here]($STORYBOOK_URL)"
+          UPDATED_BODY="$PR_BODY"$'\n---\n'"### Storybook Preview"$'\n'"[View the Storybook preview here]($STORYBOOK_URL)"
           gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
