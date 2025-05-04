@@ -3,19 +3,20 @@
 // It ensures that builds and deployments only occur for PRs targeting `main` or `dev`.
 
 const {
-  VERCEL_GIT_BRANCH, // The branch being built
-  VERCEL_GIT_PULL_REQUEST, // "1" if it's a PR, "0" otherwise
-  VERCEL_GIT_PULL_REQUEST_TARGET_BRANCH, // The target branch of the PR (e.g., main or dev)
+  VERCEL_BRANCH, // The branch being built
+  VERCEL_ENV, // The environment being deployed (e.g., "production", "preview", or "development")
+  VERCEL_GIT_PULL_REQUEST_ID, // PR ID if it is a pull request, undefined otherwise
+  VERCEL_GIT_PULL_REQUEST_TARGET, // The target branch of the PR (e.g., main or dev)
 } = process.env;
 
 // Allow builds only for PRs targeting `main` or `dev`
 if (
-  VERCEL_GIT_PULL_REQUEST === '1' &&
-  (VERCEL_GIT_PULL_REQUEST_TARGET_BRANCH === 'main' ||
-    VERCEL_GIT_PULL_REQUEST_TARGET_BRANCH === 'dev')
+  VERCEL_GIT_PULL_REQUEST_ID && // Check if it's a pull request
+  (VERCEL_GIT_PULL_REQUEST_TARGET === 'main' ||
+    VERCEL_GIT_PULL_REQUEST_TARGET === 'dev')
 ) {
   console.log(
-    `Building and deploying for PR targeting: ${VERCEL_GIT_PULL_REQUEST_TARGET_BRANCH}`
+    `Building and deploying for PR targeting: ${VERCEL_GIT_PULL_REQUEST_TARGET}`
   );
   process.exit(1); // Exit with 1 to proceed with the build
 }
