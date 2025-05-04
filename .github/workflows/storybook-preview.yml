@@ -1,12 +1,13 @@
-name: Deploy Storybooks
+name: Deploy Storybook Preview
 
 on:
-  push:
+  pull_request:
     branches:
       - sb
+    types: [opened, synchronize, reopened]
 
 jobs:
-  build-and-deploy:
+  deploy-storybook:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,11 +32,11 @@ jobs:
       - name: Build Storybook
         run: pnpx nx run micro-ui:build-storybook --skip-nx-cache
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to Temporary Folder
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: apps/micro-ui/storybook-static
-          destination_dir: sb/main
+          destination_dir: sb/${{ github.event.pull_request.head.ref }}-${{ github.event.pull_request.number }}
           keep_files: true

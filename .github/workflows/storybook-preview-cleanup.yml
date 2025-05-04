@@ -1,0 +1,26 @@
+name: Cleanup Storybook Preview
+
+on:
+  pull_request:
+    branches:
+      - sb
+    types: [closed]
+
+jobs:
+  cleanup-storybook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout gh-pages Branch
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      - name: Remove Temporary Folder
+        run: |
+          rm -rf sb/${{ github.event.pull_request.head.ref }}-${{ github.event.pull_request.number }}
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Remove Storybook preview for PR #${{ github.event.pull_request.number }}"
+          git push origin gh-pages
