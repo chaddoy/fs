@@ -42,33 +42,12 @@ jobs:
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
 
-      - name: Add Storybook Preview Link to PR Description
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
-        run: |
-          STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${PR_NUMBER}"
-          PREVIEW_SECTION="---
-
-### Storybook Preview 🚀
-
-View the live preview here: [Storybook Preview](${STORYBOOK_URL})"
-
-          # Get the existing PR description
-          ORIGINAL_BODY=$(curl -s -H "Authorization: token ${GH_TOKEN}" \
-            https://api.github.com/repos/${REPO}/pulls/${PR_NUMBER} | jq -r .body)
-
-          # Remove any existing Storybook preview section (if job re-runs)
-          CLEAN_BODY=$(echo "$ORIGINAL_BODY" | awk '/^---/{exit} {print}')
-
-          # Append new section
-          UPDATED_BODY="${CLEAN_BODY}\n\n${PREVIEW_SECTION}"
-
-          # Update PR
-          jq -n --arg body "$UPDATED_BODY" '{body: $body}' > pr_body.json
-
-          curl -s -X PATCH -H "Authorization: token ${GH_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -d @pr_body.json \
-            https://api.github.com/repos/${REPO}/issues/${PR_NUMBER}
+      - name: Add Storybook Preview Link
+        if: github.event.pull_request.base.ref == 'sb'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            ### Storybook Preview:
+            - [Storybook Preview](https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }})
