@@ -5,12 +5,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary';
   pill?: boolean;
   outline?: boolean;
+  bordered?: boolean;
 }
 
 export default function Button({
   variant = 'primary',
   pill,
   outline,
+  bordered,
   className,
   children,
   ...props
@@ -25,6 +27,7 @@ export default function Button({
           : 'text-white',
         outline &&
           'bg-transparent hover:bg-blue-500 font-semibold py-2 px-4 border border-blue-500 hover:border-transparent rounded',
+        !outline && bordered && 'border border-blue-700',
         className
       )}
       {...props}

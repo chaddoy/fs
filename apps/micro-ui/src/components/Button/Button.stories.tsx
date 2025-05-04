@@ -33,3 +33,9 @@ export const Outline: Story = {
     outline: true,
   },
 };
+
+export const Bordered: Story = {
+  args: {
+    bordered: true,
+  },
+};
