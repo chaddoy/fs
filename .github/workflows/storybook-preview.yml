@@ -8,6 +8,7 @@ on:
 
 jobs:
   deploy-storybook:
+    if: github.head_ref != 'dev'
     runs-on: ubuntu-latest
 
     steps:
