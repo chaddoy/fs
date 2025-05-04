@@ -3,7 +3,7 @@ name: Deploy Storybook Preview
 on:
   pull_request:
     branches:
-      - dev-sb
+      - sb
     types: [opened, synchronize, reopened]
 
 jobs:
@@ -38,5 +38,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: apps/micro-ui/storybook-static
-          destination_dir: micro-ui/${{ github.event.pull_request.head.ref }}-${{ github.event.pull_request.number }}
+          destination_dir: sb/${{ github.event.pull_request.head.ref }}-${{ github.event.pull_request.number }}
           keep_files: true
