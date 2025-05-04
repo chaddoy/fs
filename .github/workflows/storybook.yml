@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-deploy:
-    if: github.head_ref != 'dev'
+    if: github.head_ref != 'dev' && github.head_ref != 'main'
     runs-on: ubuntu-latest
 
     steps:
