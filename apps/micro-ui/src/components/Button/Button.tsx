@@ -18,7 +18,7 @@ export default function Button({
   return (
     <ShadcnButton {...props} disabled={loading || props.disabled}>
       {loading && <Loader2 className="animate-spin" />}
-      {loadingText || children}
+      {loading ? loadingText : children}
     </ShadcnButton>
   );
 }
