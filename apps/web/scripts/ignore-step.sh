@@ -9,8 +9,7 @@ echo "VERCEL_GIT_BRANCH: $VERCEL_GIT_BRANCH"
 
 # Check if it's a PR, target branch is main or dev, and PR branch is not sb
 if [[ -n "$VERCEL_GIT_PULL_REQUEST_ID" && 
-      ("$VERCEL_GIT_COMMIT_REF" == "main" || "$VERCEL_GIT_COMMIT_REF" == "dev") && 
-      "$VERCEL_GIT_BRANCH" != "sb" ]]; then
+      ("$VERCEL_GIT_COMMIT_REF" == "main" || "$VERCEL_GIT_COMMIT_REF" == "dev") ]]; then
   echo "✅ - Valid PR to main or dev from a non-sb branch. Proceeding with build."
   exit 1
 else
