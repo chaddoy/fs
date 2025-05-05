@@ -72,3 +72,15 @@ export const Loading: Story = {
     children: 'Save',
   },
 };
+
+export const SmallSize: Story = {
+  args: {
+    size: 'sm',
+  },
+};
+
+export const LargeSize: Story = {
+  args: {
+    size: 'lg',
+  },
+};
