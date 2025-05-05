@@ -1,1 +1,1 @@
-export * from './lib/shadcn-ui';
+export * from './components/ui/button';
