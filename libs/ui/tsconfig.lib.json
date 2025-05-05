@@ -11,6 +11,7 @@
     "jsx": "react-jsx",
     "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
     "paths": {
+      "@fs-ui": ["./src/index.ts"],
       "@fs-ui/*": ["./src/*"]
     }
   },
