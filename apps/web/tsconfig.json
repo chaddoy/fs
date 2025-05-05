@@ -18,12 +18,11 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@fs-ui": ["../../libs/ui/src/index.ts"],
-      "@fs-ui/*": ["../../libs/ui/src/*"]
+      "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
+      "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"]
     },
     "types": ["jest", "node"],
     "outDir": "dist",
-    "rootDir": "src",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
   },
   "include": [
@@ -50,7 +49,7 @@
   ],
   "references": [
     {
-      "path": "../../libs/ui"
+      "path": "../../libs/shadcn-ui"
     }
   ]
 }

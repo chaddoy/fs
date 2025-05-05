@@ -9,8 +9,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "@fs-ui": ["./src/index.ts"],
-      "@fs-ui/*": ["./src/*"]
+      "@shadcn-ui": ["./src/index.ts"],
+      "@shadcn-ui/*": ["./src/*"]
     }
   }
 }

@@ -1,5 +1,5 @@
-import { Card } from '@fs-ui/components/ui/card';
-import { Button } from '@fs-ui/components/ui/button';
+import { Card } from '@shadcn-ui/components/ui/card';
+import { Button } from '@shadcn-ui/components/ui/button';
 import {
   BadgeCheck,
   BookOpen,
