@@ -42,13 +42,21 @@ jobs:
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
 
-      # Add Storybook Link to PR description
+      # Add Storybook Link to PR description (without duplication)
       - name: Add Storybook Link to PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }}/"
+          LINK_MARKDOWN="[View the Storybook preview here]($STORYBOOK_URL)"
           SEPARATOR="\n---\n"
+
           PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
-          UPDATED_BODY="$PR_BODY"$'\n---\n'"### Storybook Preview"$'\n'"[View the Storybook preview here]($STORYBOOK_URL)"
-          gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
+
+          # Only add the link if it doesn't already exist in the PR body
+          if [[ "$PR_BODY" != *"$LINK_MARKDOWN"* ]]; then
+            UPDATED_BODY="${PR_BODY}${SEPARATOR}### Storybook Preview"$'\n'"$LINK_MARKDOWN"
+            gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
+          else
+            echo "Storybook link already exists in the PR description. Skipping update."
+          fi
