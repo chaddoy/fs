@@ -31,14 +31,14 @@ jobs:
         run: pnpm install
 
       - name: Build Storybook
-        run: pnpx nx run micro-ui:build-storybook --skip-nx-cache
+        run: pnpx nx run design-system:build-storybook --skip-nx-cache
 
       - name: Deploy to Temporary Folder
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: apps/micro-ui/storybook-static
+          publish_dir: apps/design-system/storybook-static
           destination_dir: sb/pr-${{ github.event.pull_request.number }}
           keep_files: true
 
