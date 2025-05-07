@@ -31,6 +31,7 @@ export default defineConfig(() => ({
     alias: {
       '@web': path.resolve(__dirname, '../web/src'),
       '@shadcn-ui': path.resolve(__dirname, '../../libs/shadcn-ui/src'),
+      '@shared-ui': path.resolve(__dirname, '../../libs/shared-ui/src'),
     },
   },
 }));

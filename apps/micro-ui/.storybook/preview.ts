@@ -1,1 +1,1 @@
-import '@web/app/global.css';
+import '@shared-ui/styles/global.css';

@@ -15,6 +15,7 @@ module.exports = {
   content: [
     './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
+    '../../apps/web/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}', // <--- include libs/shadcn-ui
     '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}', // <--- include libs/shadcn-ui
     //     ...createGlobPatternsForDependencies(__dirname)
   ],

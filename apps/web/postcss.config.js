@@ -5,10 +5,12 @@ const { join } = require('path');
 //
 // See: https://nx.dev/guides/using-tailwind-css-in-react#step-4:-applying-configuration-to-libraries
 
+console.log('__dirname', __dirname);
+
 module.exports = {
   plugins: {
     tailwindcss: {
-      config: join(__dirname, 'tailwind.config.js'),
+      config: join(__dirname, '../../libs/shared-ui/tailwind.config.js'),
     },
     autoprefixer: {},
   },
