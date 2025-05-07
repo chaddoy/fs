@@ -19,7 +19,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
-      "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"]
+      "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"],
+      "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
+      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
     },
     "types": ["jest", "node"],
     "outDir": "dist",
@@ -50,6 +52,9 @@
   "references": [
     {
       "path": "../../libs/shadcn-ui"
+    },
+    {
+      "path": "../../libs/shared-ui"
     }
   ]
 }
