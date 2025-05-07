@@ -5,7 +5,7 @@ import path from 'path';
 
 export default defineConfig(() => ({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/micro-ui',
+  cacheDir: '../../node_modules/.vite/apps/design-system',
   server: {
     port: 4200,
     host: 'localhost',
@@ -29,7 +29,6 @@ export default defineConfig(() => ({
   },
   resolve: {
     alias: {
-      '@web': path.resolve(__dirname, '../web/src'),
       '@shadcn-ui': path.resolve(__dirname, '../../libs/shadcn-ui/src'),
       '@shared-ui': path.resolve(__dirname, '../../libs/shared-ui/src'),
     },

@@ -7,8 +7,7 @@
     "jsx": "preserve",
     "paths": {
       "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
-      "@shared-ui/*": ["../../libs/shared-ui/src/components/*"],
-      "@shared-ui/styles/*": ["../../libs/shared-ui/src/styles/*"]
+      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
     }
   },
   "exclude": [

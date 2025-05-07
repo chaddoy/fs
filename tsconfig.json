@@ -10,13 +10,13 @@
       "path": "./apps/web"
     },
     {
-      "path": "./apps/micro-ui"
-    },
-    {
       "path": "./libs/shadcn-ui"
     },
     {
       "path": "./libs/shared-ui"
+    },
+    {
+      "path": "./apps/design-system"
     }
   ],
   "ts-node": {

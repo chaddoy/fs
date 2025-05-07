@@ -15,8 +15,9 @@ module.exports = {
   content: [
     './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
-    '../../apps/web/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}', // <--- include libs/shadcn-ui
-    '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}', // <--- include libs/shadcn-ui
+    '../../apps/web/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
+    '../../apps/design-system/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
+    '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     //     ...createGlobPatternsForDependencies(__dirname)
   ],
   theme: {

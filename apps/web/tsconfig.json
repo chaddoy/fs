@@ -21,8 +21,7 @@
       "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
       "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"],
       "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
-      "@shared-ui/*": ["../../libs/shared-ui/src/components/*"],
-      "@shared-ui/styles/*": ["../../libs/shared-ui/src/styles/*"]
+      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
     },
     "types": ["jest", "node"],
     "outDir": "dist",

@@ -12,10 +12,8 @@
       "vite/client"
     ],
     "paths": {
-      "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
-      "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"],
-      "@shared-ui/*": ["../../libs/shared-ui/src/components/*"],
-      "@shared-ui/styles/*": ["../../libs/shared-ui/src/styles/*"]
+      "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
+      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
     }
   },
   "exclude": [
@@ -42,15 +40,10 @@
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "../../libs/shadcn-ui/**/*.ts",
-    "../../libs/shadcn-ui/**/*.tsx",
     "../../libs/shared-ui/**/*.ts",
     "../../libs/shared-ui/**/*.tsx"
   ],
   "references": [
-    {
-      "path": "../../libs/shadcn-ui"
-    },
     {
       "path": "../../libs/shared-ui"
     }

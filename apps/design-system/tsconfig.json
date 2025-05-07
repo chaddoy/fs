@@ -9,9 +9,6 @@
       "path": "./tsconfig.storybook.json"
     },
     {
-      "path": "../../libs/shadcn-ui"
-    },
-    {
       "path": "../../libs/shared-ui"
     }
   ],
