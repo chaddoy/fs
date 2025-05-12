@@ -8,7 +8,7 @@ on:
   pull_request:
     branches:
       - dev
-    types: [opened, synchronize, reopened, closed]
+    types: [opened, synchronize, reopened]
 
 jobs:
   deploy-preview:
@@ -78,44 +78,4 @@ jobs:
             UPDATED_BODY="${PR_BODY}${SEPARATOR}### Vercel Preview"$'\n'"$LINK_MARKDOWN"
             gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
             echo "Preview URL added to PR description."
-          fi
-
-  remove-preview:
-    if: github.event.action == 'closed'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-        with:
-          filter: tree:0
-          fetch-depth: 0
-
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
-
-      - name: Install Vercel CLI
-        run: pnpm install --global vercel@canary
-
-      - name: Remove Vercel Preview Deployment
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          REPO_NAME=${{ github.repository }}
-          DEPLOYMENTS=$(vercel list --token=$VERCEL_TOKEN --project=$VERCEL_PROJECT_ID --json)
-          PR_ID=${{ github.event.pull_request.number }}
-
-          # Find and delete deployment matching this PR
-          DEPLOYMENT_ID=$(echo "$DEPLOYMENTS" | jq -r ".[] | select(.meta.githubPullRequestId == \"$PR_ID\") | .uid")
-          if [ -n "$DEPLOYMENT_ID" ]; then
-            vercel rm $DEPLOYMENT_ID --yes --token=$VERCEL_TOKEN
-            echo "Removed Vercel preview deployment for PR #$PR_ID"
-          else
-            echo "No matching deployment found for PR #$PR_ID"
           fi
