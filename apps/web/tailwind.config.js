@@ -1,4 +1,4 @@
-// const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
 
 // The above utility import will not work if you are using Next.js' --turbo.
 // Instead you will have to manually add the dependent paths to be included.
@@ -15,10 +15,9 @@ module.exports = {
   content: [
     './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
-    '../../apps/web/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '../../apps/design-system/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    //     ...createGlobPatternsForDependencies(__dirname)
+    '../../libs/shared-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
+    ...createGlobPatternsForDependencies(__dirname)
   ],
   theme: {
     extend: {
