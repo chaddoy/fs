@@ -3,7 +3,6 @@ name: Vercel Remove Preview Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  VERCEL_TELEMETRY_DISABLED: 1
 
 on:
   pull_request:
@@ -37,12 +36,15 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          REPO_NAME=${{ github.repository }}
-          DEPLOYMENTS=$(vercel list --token=$VERCEL_TOKEN --project=$VERCEL_PROJECT_ID --json)
           PR_ID=${{ github.event.pull_request.number }}
 
-          # Find and delete deployment matching this PR
+          # List deployments
+          DEPLOYMENTS=$(vercel list --token=$VERCEL_TOKEN --json)
+
+          # Find deployment matching this PR
           DEPLOYMENT_ID=$(echo "$DEPLOYMENTS" | jq -r ".[] | select(.meta.githubPullRequestId == \"$PR_ID\") | .uid")
+
+          # Remove the deployment if found
           if [ -n "$DEPLOYMENT_ID" ]; then
             vercel rm $DEPLOYMENT_ID --yes --token=$VERCEL_TOKEN
             echo "Removed Vercel preview deployment for PR #$PR_ID"
