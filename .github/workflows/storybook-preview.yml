@@ -49,7 +49,7 @@ jobs:
         run: |
           STORYBOOK_URL="https://chaddoy.github.io/fs/sb/pr-${{ github.event.pull_request.number }}/"
           LINK_MARKDOWN="[View the Storybook preview here]($STORYBOOK_URL)"
-          SEPARATOR="\n---\n"
+          SEPARATOR="\n\n"
 
           PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
 

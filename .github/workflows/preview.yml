@@ -40,7 +40,6 @@ jobs:
       - name: Build Project Artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
-      # Step 5: Deploy the project to Vercel and capture the preview URL
       - name: Deploy Project Artifacts to Vercel
         id: deploy
         run: |
@@ -52,30 +51,34 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Fetch the current PR description
-          EXISTING_DESC=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
-
-          # Get the new deployment URL
           PREVIEW_URL=$DEPLOY_URL
+          LINK_MARKDOWN="[View the Vercel preview here]($PREVIEW_URL)"
+          SEPARATOR="
+
+
+          "
+
+          PR_BODY=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
 
           # Check if the description already contains a URL
-          if [[ "$EXISTING_DESC" =~ https:// ]]; then
+          if [[ "$PR_BODY" =~ https:// ]]; then
             # Extract the existing URL
-            EXISTING_URL=$(echo "$EXISTING_DESC" | grep -Eo 'https://[a-zA-Z0-9./?=_-]*')
+            EXISTING_URL=$(echo "$PR_BODY" | grep -Eo 'https://[a-zA-Z0-9./?=_-]*')
 
             # Replace the URL if it's outdated
             if [[ "$EXISTING_URL" != "$PREVIEW_URL" ]]; then
-              UPDATED_DESC=$(echo "$EXISTING_DESC" | sed "s|$EXISTING_URL|$PREVIEW_URL|")
-              gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_DESC"
+              UPDATED_BODY="${PR_BODY}${SEPARATOR}### Vercel Preview"$'\n'"$LINK_MARKDOWN"
+              gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
               echo "PR description updated with new preview URL."
             else
               echo "Preview URL is up-to-date. No changes needed."
             fi
           else
             # Add the new URL if none exists
-            UPDATED_DESC="${EXISTING_DESC}\n\n---\n\n [Vercel Preview Deployment](${PREVIEW_URL})"
-            gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_DESC"
+            UPDATED_BODY="${PR_BODY}${SEPARATOR}### Vercel Preview"$'\n'"$LINK_MARKDOWN"
+            gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_BODY"
             echo "Preview URL added to PR description."
+          fi
 
   remove-preview:
     if: github.event.action == 'closed'
