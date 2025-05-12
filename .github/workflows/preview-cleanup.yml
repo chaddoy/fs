@@ -1,0 +1,50 @@
+name: Vercel Remove Preview Deployment
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  remove-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          filter: tree:0
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Vercel CLI
+        run: pnpm install --global vercel@canary
+
+      - name: Remove Vercel Preview Deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          REPO_NAME=${{ github.repository }}
+          DEPLOYMENTS=$(vercel list --token=$VERCEL_TOKEN --project=$VERCEL_PROJECT_ID --json)
+          PR_ID=${{ github.event.pull_request.number }}
+
+          # Find and delete deployment matching this PR
+          DEPLOYMENT_ID=$(echo "$DEPLOYMENTS" | jq -r ".[] | select(.meta.githubPullRequestId == \"$PR_ID\") | .uid")
+          if [ -n "$DEPLOYMENT_ID" ]; then
+            vercel rm $DEPLOYMENT_ID --yes --token=$VERCEL_TOKEN
+            echo "Removed Vercel preview deployment for PR #$PR_ID"
+          else
+            echo "No matching deployment found for PR #$PR_ID"
+          fi

@@ -53,6 +53,7 @@ export default function Index() {
   return (
     <div>
       <Button>Button</Button>
+      <Button loading>Button</Button>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">

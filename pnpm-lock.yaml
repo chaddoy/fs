@@ -243,8 +243,6 @@ importers:
 
   apps/design-system: {}
 
-  apps/micro-ui: {}
-
   apps/web:
     dependencies:
       next:
