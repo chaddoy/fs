@@ -8,10 +8,11 @@ on:
   pull_request:
     branches:
       - dev
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, closed]
 
 jobs:
-  Deploy-Preview:
+  deploy-preview:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +26,6 @@ jobs:
         with:
           version: 9
 
-      # Cache node_modules
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -40,5 +40,79 @@ jobs:
       - name: Build Project Artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
 
+      # Step 5: Deploy the project to Vercel and capture the preview URL
       - name: Deploy Project Artifacts to Vercel
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+        id: deploy
+        run: |
+          DEPLOY_URL=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} | grep -Eo 'https://[a-zA-Z0-9./?=_-]*')
+          echo "DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
+          echo "Preview URL: $DEPLOY_URL"
+
+      - name: Update PR Description with Preview URL
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch the current PR description
+          EXISTING_DESC=$(gh pr view ${{ github.event.pull_request.number }} --json body -q '.body')
+
+          # Get the new deployment URL
+          PREVIEW_URL=$DEPLOY_URL
+
+          # Check if the description already contains a URL
+          if [[ "$EXISTING_DESC" =~ https:// ]]; then
+            # Extract the existing URL
+            EXISTING_URL=$(echo "$EXISTING_DESC" | grep -Eo 'https://[a-zA-Z0-9./?=_-]*')
+
+            # Replace the URL if it's outdated
+            if [[ "$EXISTING_URL" != "$PREVIEW_URL" ]]; then
+              UPDATED_DESC=$(echo "$EXISTING_DESC" | sed "s|$EXISTING_URL|$PREVIEW_URL|")
+              gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_DESC"
+              echo "PR description updated with new preview URL."
+            else
+              echo "Preview URL is up-to-date. No changes needed."
+            fi
+          else
+            # Add the new URL if none exists
+            UPDATED_DESC="${EXISTING_DESC}\n\n---\n\n [Vercel Preview Deployment](${PREVIEW_URL})"
+            gh pr edit ${{ github.event.pull_request.number }} --body "$UPDATED_DESC"
+            echo "Preview URL added to PR description."
+
+  remove-preview:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          filter: tree:0
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Vercel CLI
+        run: pnpm install --global vercel@canary
+
+      - name: Remove Vercel Preview Deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          REPO_NAME=${{ github.repository }}
+          DEPLOYMENTS=$(vercel list --token=$VERCEL_TOKEN --project=$VERCEL_PROJECT_ID --json)
+          PR_ID=${{ github.event.pull_request.number }}
+
+          # Find and delete deployment matching this PR
+          DEPLOYMENT_ID=$(echo "$DEPLOYMENTS" | jq -r ".[] | select(.meta.githubPullRequestId == \"$PR_ID\") | .uid")
+          if [ -n "$DEPLOYMENT_ID" ]; then
+            vercel rm $DEPLOYMENT_ID --yes --token=$VERCEL_TOKEN
+            echo "Removed Vercel preview deployment for PR #$PR_ID"
+          else
+            echo "No matching deployment found for PR #$PR_ID"
+          fi
