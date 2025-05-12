@@ -55,6 +55,7 @@ jobs:
           LINK_MARKDOWN="[View the Vercel preview here]($PREVIEW_URL)"
           SEPARATOR="
 
+          ---
 
           "
 

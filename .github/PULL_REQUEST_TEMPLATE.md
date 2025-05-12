@@ -17,5 +17,3 @@
 - [ ] I have tested the code locally.
 - [ ] I have added/modified tests for the changes I made.
 - [ ] I have updated the documentation (if needed).
-
----
