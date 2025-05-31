@@ -12,8 +12,8 @@
       "vite/client"
     ],
     "paths": {
-      "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
-      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
+      "@core-ui": ["../../libs/core-ui/src/index.ts"],
+      "@core-ui/*": ["../../libs/core-ui/src/*"]
     }
   },
   "exclude": [
@@ -40,12 +40,12 @@
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "../../libs/shared-ui/**/*.ts",
-    "../../libs/shared-ui/**/*.tsx"
+    "../../libs/core-ui/**/*.ts",
+    "../../libs/core-ui/**/*.tsx"
   ],
   "references": [
     {
-      "path": "../../libs/shared-ui"
+      "path": "../../libs/core-ui"
     }
   ]
 }

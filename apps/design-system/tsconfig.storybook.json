@@ -6,8 +6,8 @@
     "moduleResolution": "bundler",
     "jsx": "preserve",
     "paths": {
-      "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
-      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
+      "@core-ui": ["../../libs/core-ui/src/index.ts"],
+      "@core-ui/*": ["../../libs/core-ui/src/*"]
     }
   },
   "exclude": [

@@ -16,8 +16,8 @@ module.exports = {
     './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
     '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '../../libs/shared-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    ...createGlobPatternsForDependencies(__dirname)
+    '../../libs/core-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
+    ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {

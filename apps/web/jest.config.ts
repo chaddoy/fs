@@ -9,6 +9,6 @@ export default {
   coverageDirectory: 'test-output/jest/coverage',
   moduleNameMapper: {
     '^@shadcn-ui/(.*)$': '<rootDir>/../../libs/shadcn-ui/src/$1',
-    '^@shared-ui/(.*)$': '<rootDir>/../../libs/shared-ui/src/$1',
+    '^@core-ui/(.*)$': '<rootDir>/../../libs/core-ui/src/$1',
   },
 };

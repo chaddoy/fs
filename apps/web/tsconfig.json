@@ -20,8 +20,8 @@
       "@/*": ["./src/*"],
       "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
       "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"],
-      "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
-      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
+      "@core-ui": ["../../libs/core-ui/src/index.ts"],
+      "@core-ui/*": ["../../libs/core-ui/src/*"]
     },
     "types": ["jest", "node"],
     "outDir": "dist",
@@ -54,7 +54,7 @@
       "path": "../../libs/shadcn-ui"
     },
     {
-      "path": "../../libs/shared-ui"
+      "path": "../../libs/core-ui"
     }
   ]
 }

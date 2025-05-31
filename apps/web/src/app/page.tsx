@@ -1,5 +1,5 @@
 import { Card } from '@shadcn-ui/components/ui/card';
-import Button from '@shared-ui/components/Button';
+import Button from '@core-ui/components/Button';
 import {
   BadgeCheck,
   BookOpen,

@@ -13,7 +13,7 @@
       "path": "./libs/shadcn-ui"
     },
     {
-      "path": "./libs/shared-ui"
+      "path": "./libs/core-ui"
     },
     {
       "path": "./apps/design-system"
