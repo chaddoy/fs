@@ -1,1 +1,1 @@
-export * from './lib/core-ui';
+export * from './components/Button';

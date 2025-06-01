@@ -13,10 +13,10 @@ const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
 module.exports = {
   darkMode: ['class'],
   content: [
-    './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
-    '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '../../libs/core-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
+    './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
+    '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html,story.mdx}',
+    '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
+    '../../libs/core-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {

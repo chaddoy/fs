@@ -1,0 +1,60 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@shadcn-ui/components/ui/card';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+import Button from '@core-ui/Button';
+import sharingKnowledge from '../assets/sharing-knowledge.svg';
+import underConstruction from '../assets/under-construction.svg';
+import buildingWebsites from '../assets/building-websites.svg';
+import { MDXPage, MDXHeader, MDXBody } from '../components/MDXWrappers';
+
+<Meta title="Introduction" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>The Groom Squad Design System</Title>
+    <Subtitle>
+      A comprehensive toolkit of reusable components and guidelines for building cohesive, accessible, and consistent user interfaces.
+    </Subtitle>
+  </MDXHeader>
+
+  <Separator />
+
+  <MDXBody>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-row overflow-clip">
+        <div className="w-60 p-3 flex justify-center items-center bg-slate-50">
+          <img src={sharingKnowledge} alt="Sharing Knowledge" />
+        </div>
+
+        <div>
+          <CardHeader className="pb-0">
+            <CardTitle className="!text-xl">Design system</CardTitle>
+            <CardDescription>An intro to our design system for designers and developers.</CardDescription>
+          </CardHeader>
+          <CardContent className="pb-3">
+            [For designers](/docs/for-designers--docs)   
+            [For developers](/docs/for-developers--docs)
+          </CardContent>
+        </div>
+      </Card>
+
+      <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-row overflow-clip">
+        <div className="w-60 p-3 flex justify-center items-center bg-slate-50">
+          <img src={underConstruction} alt="Under Construction" />
+        </div>
+
+        <div>
+          <CardHeader className="pb-0">
+            <CardTitle className="!text-xl">Foundations</CardTitle>
+            <CardDescription>The visual elements needed to create a consistent experience.</CardDescription>
+          </CardHeader>
+          <CardContent className="pb-3">
+            [Colours](/docs/foundations-colours--docs)   
+            [Icons](/docs/foundations-icons--docs)   
+            [Typography](/docs/foundations-typography--docs)   
+          </CardContent>
+        </div>
+      </Card>
+    </div>
+  </MDXBody>
+</MDXPage>
