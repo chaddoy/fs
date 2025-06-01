@@ -1,96 +1,120 @@
-import { Meta, Title, Subtitle, Description, Primary, Controls, Story } from '@storybook/blocks';
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@shadcn-ui/components/ui/card';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+import Button from '@core-ui/Button';
+import sharingKnowledge from '../assets/sharing-knowledge.svg';
+import underConstruction from '../assets/under-construction.svg';
+import buildingWebsites from '../assets/building-websites.svg';
+import { MDXPage, MDXHeader, MDXBody, MDXText } from '../components/MDXWrappers';
 
 <Meta title="For designers" />
 
-<div class="component-intro">
+<MDXPage>
+  <MDXHeader>
+    <Title>For designers</Title>
+    <Subtitle>
+      Design guidelines, Figma libraries, and plugins.
+    </Subtitle>
+  </MDXHeader>
 
-# For designers
+  <Separator className="!my-8" />
 
-</div>
+  <MDXBody>
+    The Groom Squad Design System is a curated collection of UI components, foundational styles, and design standards that help us craft elegant, modern, and accessible user experiences.   
+    
+    This page explains how to work with our design principles, shared Figma libraries, and plugins to keep your work aligned across products.
 
-<div class="links-nav">
+    <Separator className="!my-8" />
 
-[Software](#software) [Sketch libraries](#sketch-libraries) [Typography](#typography) [Icons](#icons) [Illustrations](#illustrations)
 
-</div>
+    ### Learn The Groom Squad’s Design Guidelines
+    These shared foundations and reusable UI elements create a unified experience across all of our platforms.
+    - [Foundations](/docs/foundations--docs) define visual rules like color, spacing, typography, and iconography.
+    - [Components](/docs/elements--docs) are flexible, reusable interface elements. Each comes with usage guidelines, accessibility tips, and interaction behavior.
+    - [Patterns](/docs/patterns--docs) are combinations of components and foundations used for standard UI flows (internal-only).
+    - [Content](/docs/content--docs) includes tone and voice guidance for microcopy, button labels, alerts, and more.
+    
 
-## Software
-### Sketch
-We use [Sketch](https://www.sketch.com/) for all high fidelity mockups and then publish to [Zeplin](https://zeplin.io/) to gather feedback, or to make available for developer use.
+    <Separator className="!my-8" />
 
-Shared [Sketch libraries](https://www.sketch.com/docs/designing/libraries/) are stored in OneDrive and are used to keep components consistent over multiple projects.  
+    ### Use Figma to Apply the Design System
+    Our Figma libraries and tools include foundational styles, design tokens, components, and workflow helpers.
+    - The Groom Squad [Figma libraries](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=280-1794&t=Py6RLsVAc4lkrd9Z-1) include:
+      - [Foundations](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2019) (typography, colors, grids, spacing)
+      - [Components](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2020) (buttons, modals, inputs, etc.)
+      - [Product-specific component libraries](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2021)
+    - Use our [design tokens](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2022) for consistent application of system styles
+    - [Internal-only libraries](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2023) may contain early-stage or experimental components
 
-**Tip:** Turn off the Sketch auto-save feature to reduce CPU overload on your Mac.
+    <Separator className="!my-8" />
 
-### Sketch plugins
-#### Anima
-We use the [Anima plugin for Sketch](https://support.animaapp.com/en/articles/2594242-get-anima-plugin-for-sketch-adobe-xd-or-figma) to help stack and align elements within components.
+    ### Figma Libraries
+    These libraries are actively maintained and versioned. Use them as your single source of truth.
 
-#### Zeplin
-[Zeplin Mac app](https://support.zeplin.io/en/articles/244927-installing-the-sketch-plugin) for Sketch
+    #### **Core Libraries**
+    - Colors & Tokens
+    - Typography
+    - Icons (Lucide)
+    - Illustrations
+    - Base Components
 
-### Other useful plugins
-[Symbol Instance Locator](https://github.com/sonburn/symbol-instance-locator)  
-[Symbol Instance Renamer](https://github.com/sonburn/symbol-instance-renamer)
+    #### **Product Libraries**
+    - TBA
 
----
+    #### **Utility Libraries**
+    - Wireframes – For ideation and early exploration
+    - UX Flows – Arrows, state maps, and user journeys
+    - Presentation Kit – Ready-to-use templates for pitches and demos
 
-## Sketch libraries
-### [Shared libraries](https://berlitzglobal-my.sharepoint.com/:f:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/Shared?csf=1&web=1&e=k7kmmV)
-Contained in this folder are the base libraries needed for most projects so it is recommended that you install all of them.
+    <Separator className="!my-8" />
 
-They include things like:
-- Colours
-- Icons
-- Illustrations
-- Typography
+    ### Typography
+    We use IBM Plex for its balanced, contemporary look—ideal for The Groom Squad’s professional yet approachable tone.
+    - IBM Plex Sans – Primary typeface
+    - IBM Plex Mono – For technical content, code, or form inputs
 
-### [MyBerlitz](https://berlitzglobal-my.sharepoint.com/:f:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/MyBerlitz?csf=1&web=1&e=99RuhS)
-This library contains general components used in the MyBerlitz portal.
+    [Download IBM Plex Font](https://www.ibm.com/plex/)  
+    [Access Typography Styles in Figma](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)
 
-### [Flex](https://berlitzglobal-my.sharepoint.com/:f:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/MyBerlitz?csf=1&web=1&e=99RuhS)
-This library contains specific Flex components used in the MyBerlitz portal.
+    <Separator className="!my-8" />
 
-### [P1-P4](https://berlitzglobal-my.sharepoint.com/:f:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/P1-P4?csf=1&web=1&e=3eQBLx)
-This library contains specific P1-P4 product components used in the MyBerlitz portal.
+    ### Icons
+    Lucide React is our standard icon library—open source, scalable, and built for modern interfaces.
+    - Use icons from the Lucide icon set, integrated into our Figma Icon Library
+    - For custom icons, follow Lucide’s design language: 24px grid, stroke weight, and minimal styling
+    - Developers use lucide-react, so ensure icons used in Figma have a 1:1 match with the codebase
 
-### [Learning](https://berlitzglobal-my.sharepoint.com/:f:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/Learning?csf=1&web=1&e=UKg2qg)
-This library contains components used in Learning activities.
+    [Access Figma Icon Library](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)   
+    [Browse Lucide Icons](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)   
+    [Lucide React on GitHub](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)
 
-### [Utilities](https://berlitzglobal-my.sharepoint.com/:f:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/Utilities?csf=1&web=1&e=Y0Gudj)
-Within this folder are components useful for wireframing, userflows and presentation.
+    <Separator className="!my-8" />
 
----
+    ### Illustrations
+    We use [unDraw](https://undraw.co/) as our base for illustrations—versatile, accessible, and style-consistent.
+    - Browse shared illustrations in the Figma **Illustration Library**
+    - Recolor all new illustrations using Groom Squad’s official color tokens
+    
+    [Access Figma Illustration Library](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)
 
-## Typography
-**IBM Plex** is the corporate typeface for Berlitz. It is an open source project developed by the IBM Brand which means it can be **downloaded and used for free** by anyone.  
+    <Separator className="!my-8" />
 
-The result is a neutral, yet friendly typeface that balances clarity and distinction, and that will mirror the clear, progressive tone of Berlitz’s brand tone of voice.  
+    ### Plugins & Tools
+    Use these plugins to enhance your workflow and maintain design consistency:
+    - **Design Tokens Plugin** – Apply tokenized colors, typography, and spacing
+    - **Lucide Icon Browser** – Quickly browse and insert icons from Lucide inside Figma
+    - **Accessibility Annotations** – Add guidance for devs and QA
+    - **Content Sync** – Manage copy with localization-ready components
+    - **Instance Renamer** – Keep naming conventions clean and uniform
 
-The family includes a **Sans** and **Mono** typeface and has excellent legibility in print, web and mobile interfaces. Sans typeface is preferred to Mono.
- 
-[Download](https://fonts.google.com/specimen/IBM+Plex+Sans) the IBM Flex font
+    <Separator className="!my-8" />
 
-[Download](https://berlitzglobal-my.sharepoint.com/:u:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/Shared/Berlitz-Shared-Library-Typography.sketch?csf=1&web=1&e=IfMrCX) the Sketch Shared Typography Library
+    ### Additional Design Resources
+    Pair the design system with other Groom Squad tools and brand assets:
+    - **Design Playbook** – Our design thinking, principles, and brand strategy
+    - **Brand Vault** – Logos, imagery, and creative assets
+    - **Figma Community Page** – Public-facing templates and kits
+    - **Platform Library** – Shared elements used across Groom Squad products
 
----
-
-## Icons
-### Streamline Icons
-Where possible use [Streamline Icons](https://app.streamlinehq.com/icons/streamline-regular) in your designs. The current range of icons used can be found in the Sketch library or you can view the icons [here](/?path=/docs/foundations-icons--page). 
-
-If you cannot find an appropriate icon, you can create a custom icon as long as you follow in the style of Streamline.
-
-[Download](https://berlitzglobal-my.sharepoint.com/:u:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/Shared/Berlitz-Shared-Library-Icons.sketch?csf=1&web=1&e=VFdZ0k) the Sketch Shared Icon Library
-
----
-
-## Illustrations
-### Undraw
-
-[unDraw](https://undraw.co/) are open source illustrations that are the basis for illustrations used in Berlitz projects. 
-
-The full range of current illustrations can be found in the Sketch library, and new illustrations can be added as needed to this library.  
-For new illustrations don't forget to update the colours to use the approved [Berlitz colours](/?path=/docs/foundations-colours--page).
-
-[Download](https://berlitzglobal-my.sharepoint.com/:u:/r/personal/simone_inness_berlitz_com/Documents/Design%20System/Libraries/Shared/Berlitz-Shared-Library-Icons.sketch?csf=1&web=1&e=VFdZ0k) the Sketch Shared Illustration Library
+  </MDXBody>
+</MDXPage>

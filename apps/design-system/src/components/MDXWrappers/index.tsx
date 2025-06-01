@@ -1,18 +1,44 @@
+import './style.css';
 import React from 'react';
+import { clsx } from 'clsx';
 
 export const MDXPage = ({ children }: { children: React.ReactNode }) => {
-  return <div className="">{children}</div>;
-  // return <div className="!md:-mt-16 !md:-mx-[113px] !md:w-lvw">{children}</div>;
+  return <div className="absolute top-0 left-0 w-full">{children}</div>;
 };
 
 export const MDXHeader = ({ children }: { children: React.ReactNode }) => {
+  return <div className="!pt-8 !px-3 md:!px-10">{children}</div>;
+};
+
+export const MDXBody = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   return (
-    <div className="">{children}</div>
-    // <div className="!md:px-16 !md:pt-14 !md:pb-2 !md:w-lvw">{children}</div>
+    <div id="mdx-body" className={clsx('!px-3 md:!px-10 !pb-12', className)}>
+      {children}
+    </div>
   );
 };
 
-export const MDXBody = ({ children }: { children: React.ReactNode }) => {
-  return <div className="">{children}</div>;
-  // return <div className="!px-16 !py-14 !md:w-lvw">{children}</div>;
+export const MDXText = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div
+      className={clsx(
+        '!text-base !text-gray-900 !leading-relaxed !mb-4',
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 };

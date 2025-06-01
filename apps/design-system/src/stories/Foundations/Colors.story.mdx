@@ -1,0 +1,113 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@shadcn-ui/components/ui/card';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+import { MDXPage, MDXHeader, MDXBody } from '../../components/MDXWrappers';
+
+<Meta title="Foundations/Colors" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>Colors</Title>
+    <Subtitle>
+      Our color system is designed to create accessible, consistent, and meaningful user interfaces.
+    </Subtitle>
+  </MDXHeader>
+
+  <Separator />
+
+  <MDXBody>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Color Tokens</h2>
+        <p className="mb-4">
+          Our color system uses design tokens to maintain consistency across our products. These tokens are organized into semantic categories that reflect their purpose.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Primary Colors</CardTitle>
+              <CardDescription>Our main brand colors used for primary actions and key UI elements.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded bg-primary"></div>
+                  <div>
+                    <p className="font-medium">Primary</p>
+                    <p className="text-sm text-muted-foreground">var(--primary)</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded bg-primary-foreground"></div>
+                  <div>
+                    <p className="font-medium">Primary Foreground</p>
+                    <p className="text-sm text-muted-foreground">var(--primary-foreground)</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Neutral Colors</CardTitle>
+              <CardDescription>Used for text, backgrounds, and borders.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded bg-background"></div>
+                  <div>
+                    <p className="font-medium">Background</p>
+                    <p className="text-sm text-muted-foreground">var(--background)</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded bg-foreground"></div>
+                  <div>
+                    <p className="font-medium">Foreground</p>
+                    <p className="text-sm text-muted-foreground">var(--foreground)</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-semibold mb-4">Usage Guidelines</h2>
+        <div className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Accessibility</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>All color combinations in our system meet WCAG 2.1 AA standards for contrast. When using colors:</p>
+              <ul className="list-disc pl-6 mt-2 space-y-2">
+                <li>Ensure text has a minimum contrast ratio of 4.5:1 against its background</li>
+                <li>Use color as an enhancement, not as the sole means of conveying information</li>
+                <li>Test color combinations with color blindness simulators</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Best Practices</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Use primary colors for main actions and key UI elements</li>
+                <li>Reserve accent colors for highlighting and drawing attention</li>
+                <li>Use neutral colors for text, backgrounds, and borders</li>
+                <li>Maintain consistent color usage across similar UI elements</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    </div>
+  </MDXBody>
+</MDXPage> 

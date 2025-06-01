@@ -13,16 +13,16 @@ import { MDXPage, MDXHeader, MDXBody } from '../components/MDXWrappers';
   <MDXHeader>
     <Title>The Groom Squad Design System</Title>
     <Subtitle>
-      A comprehensive toolkit of reusable components and guidelines for building cohesive, accessible, and consistent user interfaces.
+      A comprehensive guide to our design system, including foundations, components, and best practices.
     </Subtitle>
   </MDXHeader>
 
-  <Separator />
+  <Separator className="!my-8" />
 
   <MDXBody>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mx-auto !w-screen !max-w-full">
       <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-row overflow-clip">
-        <div className="w-60 p-3 flex justify-center items-center bg-slate-50">
+        <div className="w-32 md:w-40 grow-0 shrink-0 p-3 flex justify-center items-center bg-slate-50">
           <img src={sharingKnowledge} alt="Sharing Knowledge" />
         </div>
 
@@ -39,7 +39,7 @@ import { MDXPage, MDXHeader, MDXBody } from '../components/MDXWrappers';
       </Card>
 
       <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-row overflow-clip">
-        <div className="w-60 p-3 flex justify-center items-center bg-slate-50">
+        <div className="w-32 md:w-40 grow-0 shrink-0 p-3 flex justify-center items-center bg-slate-50">
           <img src={underConstruction} alt="Under Construction" />
         </div>
 
@@ -52,6 +52,22 @@ import { MDXPage, MDXHeader, MDXBody } from '../components/MDXWrappers';
             [Colours](/docs/foundations-colours--docs)   
             [Icons](/docs/foundations-icons--docs)   
             [Typography](/docs/foundations-typography--docs)   
+          </CardContent>
+        </div>
+      </Card>
+
+      <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-row overflow-clip">
+        <div className="w-32 md:w-40 grow-0 shrink-0 p-3 flex justify-center items-center bg-slate-50">
+          <img src={buildingWebsites} alt="Building Websites" />
+        </div>
+
+        <div>
+          <CardHeader className="pb-0">
+            <CardTitle className="!text-xl">Components</CardTitle>
+            <CardDescription>Components are the heart of our design system.</CardDescription>
+          </CardHeader>
+          <CardContent className="pb-3">
+            [Elements](/docs/elements--docs)     
           </CardContent>
         </div>
       </Card>
