@@ -1,5 +1,5 @@
 import {
-  Table,
+  Table as ShadcnTable,
   TableBody,
   TableCell,
   TableHead,
@@ -8,9 +8,9 @@ import {
 } from '@shadcn-ui/components/ui/table';
 import { TableProps } from './interface';
 
-export function DataTable({ columns = [], data = [] }: TableProps) {
+export function Table({ columns = [], data = [] }: TableProps) {
   return (
-    <Table>
+    <ShadcnTable>
       <TableHeader>
         <TableRow className="!border-0 !border-b hover:bg-white">
           {columns.map((column) => (
@@ -29,7 +29,7 @@ export function DataTable({ columns = [], data = [] }: TableProps) {
             {columns.map((column, index) => (
               <TableCell
                 key={index}
-                className="!border-0 !pb-4 !pt-2 !px-0 pl-4"
+                className="!border-0 !pb-4 !pt-2 !px-0 pl-4 w-full"
               >
                 {row[column.key]}
               </TableCell>
@@ -37,8 +37,8 @@ export function DataTable({ columns = [], data = [] }: TableProps) {
           </TableRow>
         ))}
       </TableBody>
-    </Table>
+    </ShadcnTable>
   );
 }
 
-export default DataTable;
+export default Table;
