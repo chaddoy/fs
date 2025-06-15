@@ -1,4 +1,4 @@
-import '@core-ui-styles/global.css';
+import '@core-ui/styles/global.css';
 import './styles.css';
 import type { Preview } from '@storybook/react';
 

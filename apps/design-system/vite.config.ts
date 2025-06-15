@@ -31,11 +31,7 @@ export default defineConfig(() => ({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@shadcn-ui': path.resolve(__dirname, '../../libs/shadcn-ui/src'),
-      '@core-ui': path.resolve(__dirname, '../../libs/core-ui/src/components'),
-      '@core-ui-styles': path.resolve(
-        __dirname,
-        '../../libs/core-ui/src/styles'
-      ),
+      '@core-ui': path.resolve(__dirname, '../../libs/core-ui/src'),
     },
   },
 }));
