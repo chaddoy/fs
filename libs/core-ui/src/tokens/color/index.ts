@@ -6,6 +6,7 @@ import background from './background';
 import blanket from './blanket';
 import interaction from './interaction';
 import skeleton from './skeleton';
+import palette from './palette';
 
 const color = {
   text,
@@ -16,6 +17,7 @@ const color = {
   blanket,
   interaction,
   skeleton,
+  palette,
 };
 
 export default color;

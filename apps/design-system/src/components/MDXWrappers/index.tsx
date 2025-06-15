@@ -19,7 +19,7 @@ export const MDXLinks = ({ children, className }: MDXProps) => (
   <div
     id="mdx-links"
     className={clsx(
-      'border-t border-b px-10 py-3 !my-8 flex flex-row gap-8 overflow-x-auto',
+      'border-t border-b px-10 py-3 !my-8 flex flex-row gap-8 overflow-x-auto z-50 bg-white',
       className
     )}
   >
