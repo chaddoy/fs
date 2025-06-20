@@ -1,6 +1,6 @@
 export interface TableProps {
   columns: Column[];
-  data: Row[];
+  children: React.ReactNode;
 }
 
 export interface Column {

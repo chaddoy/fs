@@ -33,19 +33,30 @@ import tokens from '@core-ui/tokens';
 
     <MDXBody>
       ### Text
-      
-      <ColorTable tokenId="text" token={tokens.color.text} />
+      <ColorTable tokenId="text" tokens={tokens.color.light.text} />
 
       ### Link
-      
-      <ColorTable tokenId="link" token={tokens.color.link} />
+      <ColorTable tokenId="link" tokens={tokens.color.light.link} />
 
       ### Icon
-      
-      <ColorTable tokenId="icon" token={tokens.color.icon} />
+      <ColorTable tokenId="icon" tokens={tokens.color.light.icon} />
+
+      ### Border
+      <ColorTable tokenId="border" tokens={tokens.color.light.border} />
+
+      ### Background
+      <ColorTable tokenId="background" tokens={tokens.color.light.background} />
+
+      ### Blanket
+      <ColorTable tokenId="blanket" tokens={tokens.color.light.blanket} />
+
+      ### Interaction
+      <ColorTable tokenId="interaction" tokens={tokens.color.light.interaction} />
+
+      ### Skeleton
+      <ColorTable tokenId="skeleton" tokens={tokens.color.light.skeleton} />
 
       ### Palette
-
       <ColorPalette>
         <ColorItem
           title="Forest Green"

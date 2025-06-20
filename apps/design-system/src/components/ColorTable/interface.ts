@@ -1,15 +1,13 @@
+import {Row} from "../Table/interface";
+
 export interface ColorTableProps {
   tokenId: string;
-  token: ColorTableTokenItem[];
+  tokens: ColorTableTokenItem[];
+  data: Row[];
 }
 
 export interface ColorTableTokenItem {
-  light: ColorTableTheme;
-  dark: ColorTableTheme;
-  description: string;
-}
-
-export interface ColorTableTheme {
   value: string;
+  description: string;
   palette: string;
 }
