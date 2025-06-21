@@ -27,8 +27,17 @@ export const MDXLinks = ({ children, className }: MDXProps) => (
   </div>
 );
 
+export const MDXLink = ({ children, className }: MDXProps) => (
+  <div className={clsx('whitespace-nowrap', className)}>{children}</div>
+);
+
 export const MDXBody = ({ children, className }: MDXProps) => (
-  <div className={clsx('!px-3 md:!px-10 !pb-12', className)}>{children}</div>
+  <div
+    id="mdx-body"
+    className={clsx('!px-3 md:!px-10 !pb-12 !text-lg', className)}
+  >
+    {children}
+  </div>
 );
 
 export const MDXSectionTitle = ({ children, className }: MDXProps) => (
@@ -38,12 +47,12 @@ export const MDXSectionTitle = ({ children, className }: MDXProps) => (
 );
 
 export const MDXText = ({ children, className }: MDXProps) => (
-  <div
+  <p
     className={clsx(
       '!text-base !text-gray-900 !leading-relaxed !mb-4',
       className
     )}
   >
     {children}
-  </div>
+  </p>
 );

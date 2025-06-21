@@ -1,7 +1,6 @@
 import palette from '../palette';
 import { getPaletteTokens, generateSemanticTokens } from '../utils';
 
-// Single Responsibility: Define semantic icon token configurations
 const semanticIconConfigs = [
   {
     key: 'default',

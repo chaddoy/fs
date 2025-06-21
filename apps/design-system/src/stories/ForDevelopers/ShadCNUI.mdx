@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="ShadCN UI" isTemplate />
+
+### ShadCN UI
+
+[shadcn-ui](https://ui.shadcn.com/) is a collection of reusable components built on top of Tailwind CSS and Radix UI. It provides a set of accessible, customizable, and well-designed components that can be copied into your project. In this workspace, shadcn-ui components are managed as a separate library (`libs/shadcn-ui`) to keep them organized and easily maintainable.
+
+**Key benefits:**
+- **Copy-paste approach**: Components are copied into your project, giving you full control
+- **Highly customizable**: Built with Tailwind CSS for easy styling
+- **Accessible**: Built on Radix UI primitives for excellent accessibility
+- **Type-safe**: Full TypeScript support
+- **No vendor lock-in**: You own the code
+
+<div className='!my-8' />
+
+**Add [shadcn-ui components](https://ui.shadcn.com/docs/components) to the project**
+```bash
+// Go to libs/shadcn-ui/ folder
+cd libs/shadcn-ui
+
+// Generate a new component
+npx shadcn@latest add [ComponentName]
+
+// This will generate a new component in the `libs/shadcn-ui/src/components/ui/[ComponentName] folder`
+```
+
+**Usage**
+```typescript
+// libs/shadcn-ui/src/components/ui/[ComponentName].tsx
+import { Button } from "@shadcn-ui/components/ui/button"
+```

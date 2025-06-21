@@ -24,14 +24,18 @@ type SemanticConfig = {
   description: string;
 };
 
-// Single Responsibility: Create a token with consistent structure
+type TokenValue = {
+  value: string;
+  description: string;
+  palette: string;
+};
+
 const createToken = (value: string, description: string, palette: string) => ({
   value,
   description,
   palette,
 });
 
-// Single Responsibility: Create state variants for semantic tokens
 const createSemanticStateTokens = (
   baseKey: string,
   baseValue: string,
@@ -47,7 +51,6 @@ const createSemanticStateTokens = (
   [`${baseKey}.pressed`]: createToken(pressedValue, description, pressedPalette),
 });
 
-// Single Responsibility: Create custom tokens (for hex values)
 const createCustomTokens = (
   baseKey: string,
   baseValue: string,
@@ -60,11 +63,12 @@ const createCustomTokens = (
   [`${baseKey}.pressed`]: createToken(pressedValue, description, pressedValue),
 });
 
-// Single Responsibility: Generate semantic tokens from configuration
-const generateSemanticTokens = (configs: SemanticConfig[]): Record<string, any> => {
+const generateSemanticTokens = (
+  configs: SemanticConfig[]
+): Record<string, TokenValue> => {
   return configs.reduce((tokens, config) => {
     const colorScale = palette[config.color] as ColorScale;
-    
+
     if (config.baseValue) {
       // Handle special cases like transparent
       return {
@@ -81,13 +85,17 @@ const generateSemanticTokens = (configs: SemanticConfig[]): Record<string, any> 
         ),
       };
     }
-    
+
     // Handle normal color scale tokens
+    if (!config.baseScale) {
+      throw new Error(`baseScale is required for config: ${config.key}`);
+    }
+
     return {
       ...tokens,
       ...createSemanticStateTokens(
         config.key,
-        colorScale[config.baseScale!],
+        colorScale[config.baseScale],
         colorScale[config.hoveredScale],
         colorScale[config.pressedScale],
         config.description,

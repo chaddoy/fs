@@ -1,5 +1,5 @@
 import { Meta, Title, Subtitle } from '@storybook/blocks';
-import { MDXPage, MDXHeader, MDXBody, MDXLinks } from '@/components/MDXWrappers';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
 import { ColorPalette, ColorItem } from '@storybook/blocks';
 import { Separator } from '@shadcn-ui/components/ui/separator';
 import palette from '@core-ui/tokens/color/palette';
@@ -20,15 +20,15 @@ import tokens from '@core-ui/tokens';
     </MDXHeader>
 
     <MDXLinks className="sticky top-0">
-      <div>[Text](#text)</div>
-      <div>[Link](#link)</div>
-      <div>[Icon](#icon)</div>
-      <div>[Border](#border)</div>
-      <div>[Background](#background)</div>
-      <div>[Blanket](#blanket)</div>
-      <div>[Interaction](#interaction)</div>
-      <div>[Skeleton](#skeleton)</div>
-      <div>[Palette](#palette)</div>
+      <MDXLink>[Text](#text)</MDXLink>
+      <MDXLink>[Link](#link)</MDXLink>
+      <MDXLink>[Icon](#icon)</MDXLink>
+      <MDXLink>[Border](#border)</MDXLink>
+      <MDXLink>[Background](#background)</MDXLink>
+      <MDXLink>[Blanket](#blanket)</MDXLink>
+      <MDXLink>[Interaction](#interaction)</MDXLink>
+      <MDXLink>[Skeleton](#skeleton)</MDXLink>
+      <MDXLink>[Palette](#palette)</MDXLink>
     </MDXLinks>
 
     <MDXBody>

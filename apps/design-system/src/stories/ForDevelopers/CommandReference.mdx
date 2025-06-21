@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Command reference" isTemplate />
+
+### Command Reference
+
+You can use `npx` or `pnpx` to run commands. `pnpx` is a wrapper around `npx` that uses the local pnpm installation.
+
+**Run `apps/web` development server**
+```bash
+npx nx dev web
+```
+
+**Build `apps/web` for production**
+```bash
+npx nx build web
+```
+
+**Run `apps/design-system` development storybook**
+```bash
+npx nx dev design-system:storybook
+```
+
+**Build `apps/design-system` for production**
+```bash
+npx nx build design-system:build-storybook
+```
+You can add the following options to the command:
+- `--no-open` to prevent the browser from opening automatically
+- `--port=[port]` to specify the port
+- `--skip-nx-cache` to skip the Nx cache
+
+<div className='!my-8' />
+
+**Generate a new Next.js app**
+```bash
+npx nx generate @nx/next:app apps/[app-name] // or npx nx g ...
+```
+
+**Generate a React library**
+```bash
+npx nx g @nx/react:library libs/[library-name]
+```
+
+**Generate and remove a new workspace library**
+```bash
+npx nx g @nx/workspace:add libs/[library-name]
+npx nx g @nx/workspace:remove [root-folder]/[library-name]
+```
+
+**Explore available commands:**
+```bash
+npx nx --help
+```
+
+**Tip:**
+For the best developer experience, consider installing Nx Console for your editor (VSCode/IntelliJ), which helps with code generation and task running.
+
+If you need to install Nx globally for CLI use:
+```bash
+npm install -g nx
+```
+But this is not required; you can always use `npx nx`

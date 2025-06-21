@@ -1,7 +1,6 @@
 import palette from "../palette";
 import { generateSemanticTokens } from "../utils";
 
-// Single Responsibility: Define semantic link token configurations
 const semanticLinkConfigs = [
   {
     key: 'default',

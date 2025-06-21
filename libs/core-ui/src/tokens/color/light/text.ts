@@ -1,7 +1,6 @@
 import palette from "../palette";
 import { getPaletteTextTokens, generateSemanticTokens } from "../utils";
 
-// Single Responsibility: Define semantic text token configurations
 const semanticTextConfigs = [
   {
     key: 'default',

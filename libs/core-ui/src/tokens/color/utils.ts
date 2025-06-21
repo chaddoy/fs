@@ -36,14 +36,12 @@ type SemanticTokenConfig = {
   palette: string;
 };
 
-// Single Responsibility: Create a token with consistent structure
 const createToken = (value: string, description: string, palette: string) => ({
   value,
   description,
   palette,
 });
 
-// Single Responsibility: Create state variants for a token
 const createStateVariants = (
   baseKey: string,
   colorScale: ColorScale,
@@ -67,7 +65,6 @@ const createStateVariants = (
   ),
 });
 
-// Single Responsibility: Generate tokens for a single color
 const generateColorTokens = (
   colorKey: string,
   colorScale: ColorScale,
@@ -82,10 +79,8 @@ const generateColorTokens = (
   }, {});
 };
 
-// Single Responsibility: Filter out non-color palette entries
 const isColorPalette = (key: string): boolean => key !== 'extras';
 
-// Single Responsibility: Generate semantic tokens from configuration
 const generateSemanticTokens = (configs: SemanticTokenConfig[]): PaletteValue => {
   return configs.reduce((tokens, config) => ({
     ...tokens,
@@ -93,7 +88,6 @@ const generateSemanticTokens = (configs: SemanticTokenConfig[]): PaletteValue =>
   }), {});
 };
 
-// Single Responsibility: Generate palette-based tokens
 const generatePaletteTokens = (
   configs: TokenConfig[],
   getDescription: (key: string) => string
@@ -187,5 +181,4 @@ export const getPaletteBackgroundTokens = (): PaletteValue => {
   return generatePaletteTokens(backgroundConfigs, () => '');
 };
 
-// Export the factory functions for reuse
 export { createToken, generateSemanticTokens };

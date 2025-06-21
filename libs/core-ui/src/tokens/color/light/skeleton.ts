@@ -1,7 +1,6 @@
 import palette from '../palette';
 import { generateSemanticTokens } from '../utils';
 
-// Single Responsibility: Define semantic skeleton token configurations
 const semanticSkeletonConfigs = [
   {
     key: 'default',

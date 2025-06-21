@@ -1,6 +1,5 @@
 import { generateSemanticTokens } from '../utils';
 
-// Single Responsibility: Define semantic interaction token configurations
 const semanticInteractionConfigs = [
   {
     key: 'hovered',
