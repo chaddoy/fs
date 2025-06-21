@@ -1,6 +1,6 @@
 import { Meta, Title, Subtitle } from '@storybook/blocks';
 import { Separator } from '@shadcn-ui/components/ui/separator';
-import { MDXPage, MDXHeader, MDXBody } from '@/components/MDXWrappers';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
 
 <Meta title="For designers" />
 
@@ -12,7 +12,16 @@ import { MDXPage, MDXHeader, MDXBody } from '@/components/MDXWrappers';
     </Subtitle>
   </MDXHeader>
 
-  <Separator className="!my-8" />
+  <MDXLinks className="sticky top-0">
+    <MDXLink>[Guidelines](#learn-the-groom-squads-design-guidelines)</MDXLink>
+    <MDXLink>[Software](#use-figma-to-apply-the-design-system)</MDXLink>
+    <MDXLink>[Libraries](#figma-libraries)</MDXLink>
+    <MDXLink>[Typography](#typography)</MDXLink>
+    <MDXLink>[Icons](#icons)</MDXLink>
+    <MDXLink>[Illustrations](#illustrations)</MDXLink>
+    <MDXLink>[Plugins & Tools](#plugins--tools)</MDXLink>
+    <MDXLink>[Resources](#additional-design-resources)</MDXLink>
+  </MDXLinks>
 
   <MDXBody>
     The Groom Squad Design System is a curated collection of UI components, foundational styles, and design standards that help us craft elegant, modern, and accessible user experiences.   
