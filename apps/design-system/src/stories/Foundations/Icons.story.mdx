@@ -1,0 +1,364 @@
+import { Meta, Title, Subtitle, Description } from '@storybook/blocks';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
+import { Heart, Star, Home, Settings, User, Search } from 'lucide-react';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+
+<Meta title="Foundations/Icons" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>Icons</Title>
+    <Subtitle>
+      Our icon system using Lucide React
+    </Subtitle>
+  </MDXHeader>
+
+  <Separator className="!my-8" />
+
+  <MDXBody>
+    ### Overview
+
+    Our icon system is built on Lucide React, which offers:
+    - **1000+ icons** covering common UI patterns
+    - **Consistent design** with a unified visual style
+    - **Customizable** size, color, and stroke width
+    - **Accessible** with proper ARIA attributes
+    - **Tree-shakeable** for optimal bundle size
+    - **TypeScript support** for better developer experience
+
+    <Separator className="!my-8" />
+
+    ### Usage
+
+    #### When to use icons
+
+    Icons should be used to:
+    - **Enhance meaning** - Reinforce the purpose of buttons, links, and other interactive elements
+    - **Improve scannability** - Help users quickly identify actions and content types
+    - **Save space** - Convey meaning in a compact way
+    - **Provide visual hierarchy** - Guide users through interfaces
+    - **Indicate status** - Show states like loading, success, error, or warning
+
+    #### When not to use icons
+
+    Avoid using icons when:
+    - **No clear meaning** - The icon doesn't clearly represent the action or content
+    - **Redundant** - The text already clearly communicates the meaning
+    - **Decorative only** - The icon doesn't add functional value
+    - **Inconsistent** - Using different icons for the same action across the interface
+
+    #### Icon placement
+
+    **Left alignment (recommended)**
+    ```tsx
+    <button>
+      <Heart />
+      <span>Add to favorites</span>
+    </button>
+    ```
+
+    **Right alignment (use sparingly)**
+    ```tsx
+    <button>
+      <span>Next</span>
+      <ChevronRight />
+    </button>
+    ```
+
+    **Centered (for standalone icons)**
+    ```tsx
+    <button aria-label="Close dialog">
+      <X />
+    </button>
+    ```
+
+    #### Icon sizing guidelines
+
+    **Size guidelines for different use cases:**
+
+    **12px** - Dense interfaces, inline elements
+    - Status indicators, small buttons
+
+    **16px** - Standard interface elements  
+    - Form inputs, navigation items
+
+    **20px** - Primary interface elements
+    - Buttons, links, main navigation
+
+    **24px** - Prominent interface elements
+    - Page headers, large buttons
+
+    **32px** - Feature highlights
+    - Hero sections, important actions
+
+    **48px** - Decorative elements
+    - Empty states, illustrations
+
+    #### Color usage
+
+    **Semantic colors**
+    ```tsx
+    // Success states
+    <Check className="text-green-500" />
+
+    // Error states  
+    <X className="text-red-500" />
+
+    // Warning states
+    <AlertCircle className="text-yellow-500" />
+
+    // Information states
+    <Info className="text-blue-500" />
+    ```
+
+    **Interactive states**
+    ```tsx
+    // Default state
+    <Heart className="text-gray-400" />
+
+    // Hover state
+    <Heart className="text-gray-400 hover:text-red-500" />
+
+    // Active state
+    <Heart className="text-red-500" />
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Accessibility guidelines
+
+    **Always provide context**
+    ```tsx
+    // Good: Icon with visible text
+    <button>
+      <Heart />
+      <span>Add to favorites</span>
+    </button>
+
+    // Good: Icon with aria-label
+    <button aria-label="Add to favorites">
+      <Heart />
+    </button>
+
+    // Avoid: Icon without context
+    <Heart />
+    ```
+
+    **Use semantic HTML**
+    ```tsx
+    // Good: Button with icon
+    <button>
+      <Heart />
+      <span>Like</span>
+    </button>
+
+    // Good: Link with icon
+    <a href="/settings">
+      <Settings />
+      <span>Settings</span>
+    </a>
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Common patterns
+
+    **Action buttons**
+    ```tsx
+    <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded">
+      <Plus size={16} />
+      <span>Add item</span>
+    </button>
+    ```
+
+    **Status indicators**
+    ```tsx
+    <div className="flex items-center gap-2">
+      <Check className="text-green-500" size={16} />
+      <span>Task completed</span>
+    </div>
+    ```
+
+    **Navigation items**
+    ```tsx
+    <a href="/dashboard" className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded">
+      <Home size={20} />
+      <span>Dashboard</span>
+    </a>
+    ```
+
+    **Form inputs**
+    ```tsx
+    <div className="relative">
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
+      <input 
+        type="text" 
+        placeholder="Search..." 
+        className="pl-10 pr-4 py-2 border rounded"
+      />
+    </div>
+    ```
+
+    **Loading states**
+    ```tsx
+    <button disabled className="flex items-center gap-2">
+      <Loader2 className="animate-spin" size={16} />
+      <span>Loading...</span>
+    </button>
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Basic Usage
+
+    ```tsx
+    import { Heart, Star, Home } from 'lucide-react';
+
+    function IconExample() {
+      return (
+        <div className="flex gap-4">
+          <Heart />
+          <Star />
+          <Home />
+        </div>
+      );
+    }
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Icon Sizes
+
+    Icons can be customized with different sizes using the `size` prop:
+
+    ```tsx
+    import { Heart } from 'lucide-react';
+
+    function IconSizes() {
+      return (
+        <div className="flex items-center gap-4">
+          <Heart size={16} />
+          <Heart size={20} />
+          <Heart size={24} />
+          <Heart size={32} />
+          <Heart size={48} />
+        </div>
+      );
+    }
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Icon Colors
+
+    Icons inherit the current text color by default, but can be customized:
+
+    ```tsx
+    import { Heart, Star, Home } from 'lucide-react';
+
+    function IconColors() {
+      return (
+        <div className="flex gap-4">
+          <Heart className="text-red-500" />
+          <Star className="text-yellow-500" />
+          <Home className="text-blue-500" />
+        </div>
+      );
+    }
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Find Icons
+
+    **Browse and search all available icons at:**
+    **[https://lucide.dev/icons](https://lucide.dev/icons)**
+
+    This is the best place to:
+    - Search for specific icons
+    - See all available options
+    - Preview icons in different sizes
+    - Copy icon names for import
+
+    <Separator className="!my-8" />
+
+    ### Common Icons
+
+    Here are some commonly used icons in our design system:
+
+    <div className="grid grid-cols-6 gap-4 p-4">
+      <div className="flex flex-col items-center gap-2">
+        <Heart size={24} />
+        <span className="text-xs">Heart</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Star size={24} />
+        <span className="text-xs">Star</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Home size={24} />
+        <span className="text-xs">Home</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Settings size={24} />
+        <span className="text-xs">Settings</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <User size={24} />
+        <span className="text-xs">User</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Search size={24} />
+        <span className="text-xs">Search</span>
+      </div>
+    </div>
+
+    <Separator className="!my-8" />
+
+    ### Best Practices
+
+    #### Accessibility
+
+    ```tsx
+    // Good: Icon with proper label
+    <button aria-label="Add to favorites">
+      <Heart />
+    </button>
+
+    // Good: Icon with visible text
+    <button>
+      <Heart />
+      <span>Add to favorites</span>
+    </button>
+
+    // Avoid: Icon without context
+    <Heart />
+    ```
+
+    #### Consistent Sizing
+
+    ```tsx
+    // Use consistent sizes across your application
+    const iconSizes = {
+      xs: 12,
+      sm: 16,
+      md: 20,
+      lg: 24,
+      xl: 32,
+      '2xl': 48,
+    };
+
+    // Apply consistently
+    <Heart size={iconSizes.md} />
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Resources
+
+    - **[Icon Search](https://lucide.dev/icons)** - Browse and search all icons
+    - **[Lucide React Documentation](https://lucide.dev/docs/lucide-react)** - Installation and usage
+    - **[GitHub Repository](https://github.com/lucide-icons/lucide)** - Source code and issues
+    - **[Icon Guidelines](https://lucide.dev/guide/packages/lucide-react)** - Best practices
+  </MDXBody>
+</MDXPage>
