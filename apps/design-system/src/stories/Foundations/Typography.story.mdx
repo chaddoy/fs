@@ -1,0 +1,276 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+
+<Meta title="Foundations/Typography" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>Typography</Title>
+    <Subtitle>
+      Our typography system using IBM Plex Sans
+    </Subtitle>
+  </MDXHeader>
+
+  <MDXLinks className="sticky top-0">
+    <MDXLink>[Overview](#overview)</MDXLink>
+    <MDXLink>[Typeface](#typeface)</MDXLink>
+    <MDXLink>[Scale](#scale)</MDXLink>
+    <MDXLink>[Usage Guidelines](#usage-guidelines)</MDXLink>
+    <MDXLink>[Examples](#examples)</MDXLink>
+    <MDXLink>[Resources](#resources)</MDXLink>
+  </MDXLinks>
+
+  <MDXBody>
+    ### Overview
+
+    Our typography system is built on IBM Plex Sans, chosen for its balanced, contemporary look that reflects The Groom Squad's professional yet approachable tone.
+
+    **Key characteristics:**
+    - **IBM Plex Sans** - Primary typeface for all UI text
+    - **IBM Plex Mono** - For technical content, code, and form inputs
+    - **Consistent scale** - Harmonious size relationships
+    - **Accessible** - Optimized for readability across devices
+    - **Responsive** - Scales appropriately across screen sizes
+
+    <Separator className="!my-8" />
+
+    ### Typeface
+
+    **IBM Plex Sans**
+    - **Weights:** 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold)
+    - **Style:** Contemporary sans-serif with humanist characteristics
+    - **Use:** Primary text, headings, UI elements, body copy
+
+    **IBM Plex Mono**
+    - **Weights:** 400 (Regular), 500 (Medium)
+    - **Style:** Monospaced variant for technical content
+    - **Use:** Code snippets, form inputs, technical specifications
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 bg-gray-50 rounded-lg">
+      <div>
+        <h3 className="text-lg font-semibold mb-4">IBM Plex Sans</h3>
+        <p className="text-3xl font-light mb-2">Light 300</p>
+        <p className="text-3xl font-normal mb-2">Regular 400</p>
+        <p className="text-3xl font-medium mb-2">Medium 500</p>
+        <p className="text-3xl font-semibold mb-2">SemiBold 600</p>
+        <p className="text-3xl font-bold">Bold 700</p>
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold mb-4">IBM Plex Mono</h3>
+        <p className="text-2xl font-mono font-normal mb-2">Regular 400</p>
+        <p className="text-2xl font-mono font-medium">Medium 500</p>
+        <div className="mt-4 p-3 bg-gray-100 rounded">
+          <code className="text-sm font-mono">const example = "code snippet";</code>
+        </div>
+      </div>
+    </div>
+
+    <Separator className="!my-8" />
+
+    ### Scale
+
+    Our typography scale follows a harmonious progression optimized for readability and hierarchy:
+
+    **Display sizes:**
+    - **Display Large** - 48px/3rem (line-height: 1.2)
+    - **Display Medium** - 40px/2.5rem (line-height: 1.2)
+    - **Display Small** - 32px/2rem (line-height: 1.3)
+
+    **Heading sizes:**
+    - **Heading 1** - 28px/1.75rem (line-height: 1.3)
+    - **Heading 2** - 24px/1.5rem (line-height: 1.3)
+    - **Heading 3** - 20px/1.25rem (line-height: 1.4)
+    - **Heading 4** - 18px/1.125rem (line-height: 1.4)
+    - **Heading 5** - 16px/1rem (line-height: 1.5)
+    - **Heading 6** - 14px/0.875rem (line-height: 1.5)
+
+    **Body sizes:**
+    - **Body Large** - 18px/1.125rem (line-height: 1.6)
+    - **Body Medium** - 16px/1rem (line-height: 1.6)
+    - **Body Small** - 14px/0.875rem (line-height: 1.6)
+    - **Body XSmall** - 12px/0.75rem (line-height: 1.6)
+
+    **Specialized sizes:**
+    - **Caption** - 12px/0.75rem (line-height: 1.4)
+    - **Code** - 14px/0.875rem (line-height: 1.5)
+
+    <div className="space-y-6 p-6 bg-gray-50 rounded-lg">
+      <div>
+        <h1 className="text-4xl font-bold mb-2">Display Large</h1>
+        <p className="text-sm text-gray-600">48px • Font weight: 700 • Line height: 1.2</p>
+      </div>
+      <div>
+        <h2 className="text-3xl font-semibold mb-2">Display Medium</h2>
+        <p className="text-sm text-gray-600">40px • Font weight: 600 • Line height: 1.2</p>
+      </div>
+      <div>
+        <h3 className="text-2xl font-semibold mb-2">Display Small</h3>
+        <p className="text-sm text-gray-600">32px • Font weight: 600 • Line height: 1.3</p>
+      </div>
+      <div>
+        <h4 className="text-xl font-semibold mb-2">Heading 1</h4>
+        <p className="text-sm text-gray-600">28px • Font weight: 600 • Line height: 1.3</p>
+      </div>
+      <div>
+        <h5 className="text-lg font-semibold mb-2">Heading 2</h5>
+        <p className="text-sm text-gray-600">24px • Font weight: 600 • Line height: 1.3</p>
+      </div>
+      <div>
+        <h6 className="text-base font-semibold mb-2">Heading 3</h6>
+        <p className="text-sm text-gray-600">20px • Font weight: 600 • Line height: 1.4</p>
+      </div>
+      <div>
+        <p className="text-lg mb-2">Body Large - This is body large text for important content.</p>
+        <p className="text-sm text-gray-600">18px • Font weight: 400 • Line height: 1.6</p>
+      </div>
+      <div>
+        <p className="text-base mb-2">Body Medium - This is standard body text for most content.</p>
+        <p className="text-sm text-gray-600">16px • Font weight: 400 • Line height: 1.6</p>
+      </div>
+      <div>
+        <p className="text-sm mb-2">Body Small - This is smaller body text for secondary content.</p>
+        <p className="text-xs text-gray-600">14px • Font weight: 400 • Line height: 1.6</p>
+      </div>
+      <div>
+        <p className="text-xs mb-2">Body XSmall - This is the smallest body text for captions.</p>
+        <p className="text-xs text-gray-600">12px • Font weight: 400 • Line height: 1.6</p>
+      </div>
+    </div>
+
+    <Separator className="!my-8" />
+
+    ### Usage Guidelines
+
+    #### When to use each size
+
+    **Display sizes:**
+    - **Display Large** - Hero sections, major page titles
+    - **Display Medium** - Section headers, prominent announcements
+    - **Display Small** - Page titles, important section headers
+
+    **Heading sizes:**
+    - **Heading 1** - Main page titles, primary content sections
+    - **Heading 2** - Sub-sections, card titles
+    - **Heading 3** - Content groups, form sections
+    - **Heading 4** - Small sections, sidebar headers
+    - **Heading 5** - Minor sections, table headers
+    - **Heading 6** - Smallest headers, metadata labels
+
+    **Body sizes:**
+    - **Body Large** - Important content, lead paragraphs
+    - **Body Medium** - Standard content, main text
+    - **Body Small** - Secondary content, descriptions
+    - **Body XSmall** - Captions, metadata, fine print
+
+    #### Font weight guidelines
+
+    **Light (300):**
+    - Large display text
+    - Decorative elements
+    - Subtle emphasis
+
+    **Regular (400):**
+    - Body text
+    - Standard content
+    - Default weight
+
+    **Medium (500):**
+    - Subheadings
+    - Important labels
+    - Navigation items
+
+    **SemiBold (600):**
+    - Section headers
+    - Button text
+    - Strong emphasis
+
+    **Bold (700):**
+    - Page titles
+    - Critical information
+    - Maximum emphasis
+
+    #### Line height guidelines
+
+    **Tight (1.2-1.3):**
+    - Display text
+    - Headings
+    - Short text blocks
+
+    **Normal (1.4-1.5):**
+    - Subheadings
+    - Captions
+    - Code snippets
+
+    **Relaxed (1.6):**
+    - Body text
+    - Long-form content
+    - Readable paragraphs
+
+    <Separator className="!my-8" />
+
+    ### Examples
+
+    **Page structure:**
+    ```tsx
+    <div className="space-y-6">
+      <h1 className="text-4xl font-bold">Page Title</h1>
+      <p className="text-lg text-gray-600">Lead paragraph with important context.</p>
+      
+      <section>
+        <h2 className="text-2xl font-semibold">Section Header</h2>
+        <p className="text-base">Standard body text for the main content.</p>
+        
+        <h3 className="text-xl font-semibold">Subsection</h3>
+        <p className="text-sm text-gray-600">Secondary content with smaller text.</p>
+      </section>
+    </div>
+    ```
+
+    **Card component:**
+    ```tsx
+    <div className="p-6 border rounded-lg">
+      <h3 className="text-lg font-semibold mb-2">Card Title</h3>
+      <p className="text-sm text-gray-600 mb-4">Card description text.</p>
+      <button className="text-sm font-medium text-blue-600">Action</button>
+    </div>
+    ```
+
+    **Form structure:**
+    ```tsx
+    <form className="space-y-4">
+      <div>
+        <label className="text-sm font-medium">Form Label</label>
+        <input 
+          type="text" 
+          className="text-base font-mono"
+          placeholder="Enter value"
+        />
+        <p className="text-xs text-gray-500">Helper text</p>
+      </div>
+    </form>
+    ```
+
+    **Code example:**
+    ```tsx
+    <div className="p-4 bg-gray-100 rounded">
+      <code className="text-sm font-mono">
+        const typography = {
+          display: '48px',
+          heading: '24px',
+          body: '16px'
+        };
+      </code>
+    </div>
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Resources
+
+    - **[IBM Plex Font](https://www.ibm.com/plex/)** - Download and learn more about IBM Plex
+    - **[Google Fonts - IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans)** - Web font version
+    - **[Typography Scale Calculator](https://type-scale.com/)** - Calculate harmonious type scales
+    - **[Figma Typography Styles](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=1234567890%3A1234567890)** - Access typography styles in Figma
+  </MDXBody>
+</MDXPage>
