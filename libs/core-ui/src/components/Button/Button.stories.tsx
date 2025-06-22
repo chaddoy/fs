@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ChevronRight, MailOpen } from 'lucide-react';
-import Button from '@core-ui/components/Button';
+import Button from './Button';
 
 const meta = {
   component: Button,
