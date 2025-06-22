@@ -8,7 +8,7 @@ const { join } = require('path');
 module.exports = {
   plugins: {
     tailwindcss: {
-      config: join(__dirname, '../../libs/shared-ui/tailwind.config.js'),
+      config: join(__dirname, '../web/tailwind.config.js'),
     },
     autoprefixer: {},
   },

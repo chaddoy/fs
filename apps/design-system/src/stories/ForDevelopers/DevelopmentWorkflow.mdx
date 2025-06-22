@@ -1,0 +1,173 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Development workflow" isTemplate />
+
+### Development Workflow
+
+#### 1. Starting your day
+**Pull latest changes**
+```bash
+git checkout main
+```
+```bash
+git pull origin main
+```
+
+**Start development servers**
+```bash
+# For component development
+npx nx dev design-system:storybook
+```
+```bash
+# For app development
+npx nx dev web
+```
+
+#### 2. Component Development Cycle
+
+**Creating new components**
+```bash
+# Generate component structure using Nx React generator
+npx nx generate @nx/react:component [ComponentName] --project=core-ui
+
+# This creates:
+# libs/core-ui/src/components/[ComponentName]/
+# ├── [ComponentName].tsx
+# ├── [ComponentName].spec.tsx
+# ├── [ComponentName].story.tsx
+# ├── index.ts
+# └── [ComponentName].module.css
+```
+
+**Development Workflow**
+```bash
+# 1. Create feature branch
+git checkout -b feature/[component-name]
+
+# 2. Develop component
+# - Edit component files
+# - View in Storybook: npx nx dev design-system:storybook
+# - Test component: pnpm nx run core-ui:test
+
+# 3. Test your changes
+npx nx run core-ui:test
+npx nx run core-ui:lint
+npx nx run core-ui:build
+
+# 4. Update snapshots if needed
+npx nx run core-ui:test -- --updateSnapshot
+```
+
+#### 3. Quality Assurance
+**Before committing**
+```bash
+# Run all tests
+npx nx run core-ui:test
+npx nx run core-ui:test-coverage
+
+# Check linting
+npx nx run core-ui:lint
+npx nx run shadcn-ui:lint
+
+# Build libraries
+npx nx run core-ui:build
+npx nx run shadcn-ui:build
+
+# Build Storybook
+npx nx run design-system:build-storybook
+```
+
+**E2E testing**
+```bash
+# Run E2E tests
+npx nx run web:e2e
+```
+
+#### 4. Documentation
+**Component Documentation:**
+- Update Storybook stories in [ComponentName].story.tsx
+- Add usage examples and variants
+- Document props and interfaces
+- Include accessibility considerations
+
+**Export Components:**
+```typescript
+// libs/core-ui/src/index.ts
+export { ComponentName } from './components/ComponentName';
+```
+
+#### 5. Code review
+Code Review Checklist:
+- [ ] Component follows design system patterns
+- [ ] All tests pass
+- [ ] Storybook stories are complete
+- [ ] Component is properly exported
+- [ ] Accessibility requirements met
+- [ ] Responsive design considerations
+- [ ] Performance optimizations applied
+
+#### 6. Deployment
+
+**Storybook deployment:**
+
+## TBA
+
+**App deployment:**
+
+## TBA
+
+**Best practices:**
+
+**Component Development**
+- Single Responsibility: Each component should do one thing well
+- Composition: Build complex components from simple ones
+- Props Interface: Define clear, well-typed props
+- Default Props: Provide sensible defaults
+- Error Boundaries: Handle edge cases gracefully
+
+**Styling Guidelines**
+- Use design tokens from libs/core-ui/src/tokens/
+- Follow Tailwind CSS utility-first approach
+- Maintain consistent spacing and typography
+- Ensure responsive design
+
+**Testing Strategy**
+- Unit Tests: Test component logic and props
+- Integration Tests: Test component interactions
+- Visual Tests: Use Storybook for visual regression testing
+- Accessibility Tests: Ensure ARIA compliance
+
+**Performance Considerations**
+- Lazy load heavy components
+- Optimize bundle size
+- Use React.memo for expensive components
+- Implement proper key props for lists
+
+**Common Workflows**
+
+**Adding New Design Tokens**
+```bash
+# 1. Add tokens to libs/core-ui/src/tokens/
+# 2. Update theme configuration
+# 3. Test across components
+# 4. Update documentation
+```
+
+**Updating Existing Components**
+```bash
+# 1. Check component usage across apps
+# 2. Plan breaking changes carefully
+# 3. Update stories and documentation
+# 4. Test backward compatibility
+```
+
+**Bug Fixes**
+```bash
+# 1. Reproduce in Storybook
+# 2. Write failing test
+# 3. Fix the issue
+# 4. Verify fix works
+# 5. Update documentation if needed
+```
+
+The key correction is that you do have the `@nx/react:component` generator available based on your `nx.json` configuration. If it's not working, you can always fall back to manual creation.

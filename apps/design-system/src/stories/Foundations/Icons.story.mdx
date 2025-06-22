@@ -1,0 +1,197 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
+import { Heart, Star, Home, Settings, User, Search, Plus, Check, Loader2 } from 'lucide-react';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+
+<Meta title="Foundations/Icons" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>Icons</Title>
+    <Subtitle>
+      Our icon system using Lucide React
+    </Subtitle>
+  </MDXHeader>
+
+  <MDXLinks isSticky>
+    <MDXLink>[Overview](#overview)</MDXLink>
+    <MDXLink>[Usage Guidelines](#usage-guidelines)</MDXLink>
+    <MDXLink>[Examples](#examples)</MDXLink>
+    <MDXLink>[Find Icons](#find-icons)</MDXLink>
+    <MDXLink>[Resources](#resources)</MDXLink>
+  </MDXLinks>
+
+  <MDXBody>
+    ### Overview
+
+    We use [Lucide React](https://lucide.dev/) as our icon library, providing:
+    - **1000+ icons** covering common UI patterns
+    - **Consistent design** with unified visual style
+    - **Customizable** size, color, and stroke width
+    - **Accessible** with proper ARIA attributes
+    - **Tree-shakeable** for optimal bundle size
+
+    <Separator className="!my-8" />
+
+    ### Usage Guidelines
+
+    #### When to use icons
+    - **Enhance meaning** - Reinforce button and link purposes
+    - **Improve scannability** - Help users identify actions quickly
+    - **Save space** - Convey meaning compactly
+    - **Indicate status** - Show loading, success, error states
+
+    #### When not to use icons
+    - **No clear meaning** - Icon doesn't represent the action
+    - **Redundant** - Text already communicates meaning clearly
+    - **Decorative only** - No functional value added
+    - **Inconsistent** - Different icons for same action
+
+    #### Sizing guidelines
+
+    - **12px** - Dense interfaces, status indicators
+    - **16px** - Form inputs, navigation items
+    - **20px** - Buttons, links, main navigation
+    - **24px** - Page headers, large buttons
+    - **32px** - Hero sections, important actions
+    - **48px** - Empty states, illustrations
+
+    #### Color usage
+
+    **Semantic colors:**
+    ```tsx
+    <Check className="text-green-500" />   // Success
+    <X className="text-red-500" />         // Error
+    <AlertCircle className="text-yellow-500" /> // Warning
+    <Info className="text-blue-500" />     // Information
+    ```
+
+    **Interactive states:**
+    ```tsx
+    <Heart className="text-gray-400 hover:text-red-500" /> // Hover
+    <Heart className="text-red-500" />                     // Active
+    ```
+
+    #### Accessibility
+
+    **Always provide context:**
+    ```tsx
+    // Good: Icon with text
+    <button>
+      <Heart />
+      <span>Add to favorites</span>
+    </button>
+
+    // Good: Icon with aria-label
+    <button aria-label="Add to favorites">
+      <Heart />
+    </button>
+
+    // Avoid: Icon without context
+    <Heart />
+    ```
+
+    <Separator className="!my-8" />
+
+    ### Examples
+
+    **Basic usage:**
+    ```tsx
+    import { Heart, Star, Home } from 'lucide-react';
+
+    function IconExample() {
+      return (
+        <div className="flex gap-4">
+          <Heart />
+          <Star />
+          <Home />
+        </div>
+      );
+    }
+    ```
+
+    **Common patterns:**
+
+    **Action buttons:**
+    ```tsx
+    <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded">
+      <Plus size={16} />
+      <span>Add item</span>
+    </button>
+    ```
+
+    **Status indicators:**
+    ```tsx
+    <div className="flex items-center gap-2">
+      <Check className="text-green-500" size={16} />
+      <span>Task completed</span>
+    </div>
+    ```
+
+    **Navigation items:**
+    ```tsx
+    <a href="/dashboard" className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded">
+      <Home size={20} />
+      <span>Dashboard</span>
+    </a>
+    ```
+
+    **Loading states:**
+    ```tsx
+    <button disabled className="flex items-center gap-2">
+      <Loader2 className="animate-spin" size={16} />
+      <span>Loading...</span>
+    </button>
+    ```
+
+    **Common icons in our design system:**
+
+    <div className="grid grid-cols-6 gap-4 p-4">
+      <div className="flex flex-col items-center gap-2">
+        <Heart size={24} />
+        <span className="text-xs">Heart</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Star size={24} />
+        <span className="text-xs">Star</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Home size={24} />
+        <span className="text-xs">Home</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Settings size={24} />
+        <span className="text-xs">Settings</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <User size={24} />
+        <span className="text-xs">User</span>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <Search size={24} />
+        <span className="text-xs">Search</span>
+      </div>
+    </div>
+
+    <Separator className="!my-8" />
+
+    ### Find Icons
+
+    **Browse and search all available icons at:**
+    **[https://lucide.dev/icons](https://lucide.dev/icons)**
+
+    This is the best place to:
+    - Search for specific icons
+    - See all available options
+    - Preview icons in different sizes
+    - Copy icon names for import
+
+    <Separator className="!my-8" />
+
+    ### Resources
+
+    - **[Icon Search](https://lucide.dev/icons)** - Browse and search all icons
+    - **[Lucide React Documentation](https://lucide.dev/docs/lucide-react)** - Installation and usage
+    - **[GitHub Repository](https://github.com/lucide-icons/lucide)** - Source code and issues
+  </MDXBody>
+</MDXPage>

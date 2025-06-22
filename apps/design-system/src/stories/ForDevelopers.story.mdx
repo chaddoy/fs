@@ -1,0 +1,54 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
+import ProjectOverview from './ForDevelopers/ProjectOverview.mdx';
+import ProjectStructure from './ForDevelopers/ProjectStructure.mdx';
+import QuickStart from './ForDevelopers/QuickStart.mdx';
+import DevelopmentWorkflow from './ForDevelopers/DevelopmentWorkflow.mdx';
+import CommandReference from './ForDevelopers/CommandReference.mdx';
+import ShadCNUI from './ForDevelopers/ShadCNUI.mdx';
+import Troubleshooting from './ForDevelopers/Troubleshooting.mdx';
+
+<Meta title="For developers" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>For developers</Title>
+    <Subtitle>
+      The Groom Squad repository is a modern JavaScript/TypeScript monorepo managed with [Nx](https://nx.dev/). It is designed to streamline the development of web applications and reusable libraries, supporting scalable, modular, and maintainable codebases.
+    </Subtitle>
+  </MDXHeader>
+
+  <MDXLinks isSticky>
+    <MDXLink>[Overview](#project-overview)</MDXLink>
+    <MDXLink>[Structure](#project-structure)</MDXLink>
+    <MDXLink>[Quick Start](#quick-start)</MDXLink>
+    <MDXLink>[Workflow](#development-workflow)</MDXLink>
+    <MDXLink>[Commands](#command-reference)</MDXLink>
+    <MDXLink>[ShadCN UI](#shadcn-ui)</MDXLink>
+    <MDXLink>[Troubleshooting](#troubleshooting)</MDXLink>
+  </MDXLinks>
+
+  <MDXBody>
+    <ProjectOverview />
+    <Separator className="!my-8" />
+
+    <ProjectStructure />
+    <Separator className="!my-8" />
+    
+    <QuickStart />
+    <Separator className="!my-8" />
+
+    <DevelopmentWorkflow />
+    <Separator className="!my-8" />
+
+    <CommandReference />
+    <Separator className="!my-8" />
+
+    <ShadCNUI />
+    <Separator className="!my-8" />
+
+    <Troubleshooting />
+
+  </MDXBody>
+</MDXPage>
