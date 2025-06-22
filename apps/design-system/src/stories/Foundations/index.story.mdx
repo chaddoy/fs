@@ -1,0 +1,115 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@shadcn-ui/components/ui/card';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+import { MDXPage, MDXHeader, MDXBody } from '@/components/MDXWrappers';
+import { Palette, Type, Rabbit } from 'lucide-react';
+
+<Meta title="Foundations" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>Foundations</Title>
+    <Subtitle>
+      The visual elements needed to create a consistent experience across all our products.
+    </Subtitle>
+  </MDXHeader>
+
+  <Separator className="!my-8" />
+
+  <MDXBody>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mx-auto !w-screen !max-w-full">
+      <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-col overflow-clip">
+        <div className="w-full h-32 md:h-40 grow-0 shrink-0 p-6 flex justify-center items-center bg-gradient-to-br from-green-50 to-green-100">
+          <Palette className="w-16 h-16 text-green-600" />
+        </div>
+
+        <div>
+          <CardHeader className="pb-0">
+            <CardTitle className="!text-xl">Colors</CardTitle>
+            <CardDescription>Our color palette and semantic color tokens for consistent theming.</CardDescription>
+          </CardHeader>
+          <CardContent className="pb-3">
+            <p className="text-sm text-gray-600 mb-3">
+              A comprehensive color system including brand colors, semantic colors, and accessibility-compliant palettes.
+            </p>
+            [View Colors](/docs/foundations-colors--docs)
+          </CardContent>
+        </div>
+      </Card>
+
+      <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-col overflow-clip">
+        <div className="w-full h-32 md:h-40 grow-0 shrink-0 p-6 flex justify-center items-center bg-gradient-to-br from-blue-50 to-blue-100">
+          <Rabbit name="palette" className="w-16 h-16 text-blue-600" />
+        </div>
+
+        <div>
+          <CardHeader className="pb-0">
+            <CardTitle className="!text-xl">Icons</CardTitle>
+            <CardDescription>Our icon system using Lucide React for consistent visual communication.</CardDescription>
+          </CardHeader>
+          <CardContent className="pb-3">
+            <p className="text-sm text-gray-600 mb-3">
+              Guidelines for using icons effectively, including sizing, placement, and accessibility best practices.
+            </p>
+            [View Icons](/docs/foundations-icons--docs)
+          </CardContent>
+        </div>
+      </Card>
+
+      <Card className="h-full hover:shadow-lg transition-shadow duration-200 flex flex-col overflow-clip">
+        <div className="w-full h-32 md:h-40 grow-0 shrink-0 p-6 flex justify-center items-center bg-gradient-to-br from-purple-50 to-purple-100">
+          <Type className="w-16 h-16 text-purple-600" />
+        </div>
+
+        <div>
+          <CardHeader className="pb-0">
+            <CardTitle className="!text-xl">Typography</CardTitle>
+            <CardDescription>Our typography system using IBM Plex Sans for clear, readable content.</CardDescription>
+          </CardHeader>
+          <CardContent className="pb-3">
+            <p className="text-sm text-gray-600 mb-3">
+              Complete typography scale, font weights, and usage guidelines for consistent text hierarchy.
+            </p>
+            [View Typography](/docs/foundations-typography--docs)
+          </CardContent>
+        </div>
+      </Card>
+    </div>
+
+    <Separator className="!my-8" />
+
+    <div className="mx-auto">
+      ### About Foundations
+      
+      Foundations are the building blocks of our design system. They provide the essential visual elements that ensure consistency across all our products and experiences.
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div>
+          <h3 className="text-lg font-semibold mb-3">Design Principles</h3>
+          - **Consistency**: Unified visual language across all touchpoints
+          - **Accessibility**: WCAG compliant colors and typography
+          - **Scalability**: Flexible system that grows with our needs
+          - **Usability**: Clear, readable, and intuitive design
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold mb-3">Usage Guidelines</h3>
+          - Always use our design tokens for colors and typography
+          - Follow accessibility guidelines for contrast ratios
+          - Maintain consistent spacing and sizing relationships
+          - Test across different devices and screen sizes
+        </div>
+      </div>
+
+      <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <h3 className="text-lg font-semibold mb-2 text-blue-900">Getting Started</h3>
+        <p className="text-sm text-blue-800 mb-3">
+          Start with Colors to understand our palette, then explore Typography for text guidelines, and finally check Icons for visual elements.
+        </p>
+        <p className="text-xs text-blue-700">
+          <strong>Tip:</strong> Use our design tokens in your code to ensure consistency and easier maintenance.
+        </p>
+      </div>
+    </div>
+  </MDXBody>
+</MDXPage>

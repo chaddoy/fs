@@ -9,7 +9,7 @@ const preview: Preview = {
         order: ['Introduction', 'For designers', 'For developers', 'Foundations', 'Components', 'Hooks', 'Utilities', '*'],
       },
     },
-  },
+  }
 };
 
 export default preview;
