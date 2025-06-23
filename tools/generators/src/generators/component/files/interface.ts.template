@@ -1,0 +1,7 @@
+export interface <%= className %>Props {
+  children?: React.ReactNode;
+  className?: string;
+  /** Additional props for accessibility */
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+}

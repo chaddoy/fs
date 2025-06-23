@@ -1,0 +1,47 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import <%= className %> from './<%= fileName %>';
+
+const meta: Meta<typeof <%= className %>> = {
+  title: 'Components/<%= className %>',
+  component: <%= className %>,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'Content to display inside the component',
+    },
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes',
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    children: '<%= className %> Component',
+  },
+};
+
+export const WithCustomContent: Story = {
+  args: {
+    children: 'This is custom content for the <%= className %> component',
+  },
+};
+
+export const WithCustomClassName: Story = {
+  args: {
+    children: '<%= className %> with custom styling',
+    className: 'bg-blue-100 p-4 rounded-lg',
+  },
+};
+
+export const Empty: Story = {
+  args: {},
+};
