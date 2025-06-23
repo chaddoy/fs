@@ -35,6 +35,7 @@ export async function componentGenerator(
     ...options,
     ...componentNames,
     fileName: componentNames.className,
+    storyGroup: options.storyGroup || 'Components',
     tmpl: '',
   });
 

@@ -7,4 +7,5 @@ export interface ComponentGeneratorSchema {
   withTests?: boolean;
   withStories?: boolean;
   export?: boolean;
+  storyGroup?: string;
 }
