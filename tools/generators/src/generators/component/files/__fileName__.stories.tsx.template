@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import <%= className %> from './<%= fileName %>';
 
 const meta: Meta<typeof <%= className %>> = {
-  title: 'Components/<%= className %>',
+  title: '<%= storyGroup %>/<%= className %>',
   component: <%= className %>,
   parameters: {
     layout: 'centered',

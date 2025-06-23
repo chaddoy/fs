@@ -4,6 +4,6 @@ import <%= className %> from './<%= fileName %>';
 describe('<%= className %>', () => {
   it('renders correctly', () => {
     render(<<%= className %>>Test content</<%= className %>>);
-    expect(screen.getByText('Test content')).toBeInTheDocument();
+    expect(screen.getByText('Test content')).toBeDefined();
   });
 });
