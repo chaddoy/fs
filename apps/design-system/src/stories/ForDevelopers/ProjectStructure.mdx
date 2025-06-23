@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Project structure" isTemplate />
+
+### Project Structure
+```bash
+fs/
+├── apps/                   # Applications
+│   ├── web/                # Main Next.js web application
+│   ├── design-system/      # Storybook for component documentation
+│   └── web-e2e/            # End-to-end tests for web app
+├── libs/                   # Shared libraries
+│   ├── core-ui/            # Custom React components
+│   └── shadcn-ui/          # shadcn/ui component library
+└── [config files]          # Nx, TypeScript, ESLint, etc.
+```
+
+#### Key Applications
+<div className="number-list">
+  - `apps/web` - Main Next.js application
+    - Built with Next.js 15.2.4 and React 19
+    - Serves as the primary web application
+    - Uses Tailwind CSS for styling
+  - `apps/design-system` - Component documentation
+    - Storybook 8.6.12 for interactive component documentation
+    - Serves as the living style guide and component library
+    - Deployed to GitHub Pages for team access
+  - `apps/web-e2e` - End-to-end testing
+    - Playwright-based E2E tests
+    - Ensures application functionality across browsers
+</div>
+
+#### Shared Libraries
+<div className="number-list">
+  - `libs/core-ui` - Custom component library
+    - Home-grown React components
+    - Built with TypeScript and Tailwind CSS
+    - Includes design tokens and styling utilities
+    - Exported as `@fs/core-ui` package
+  - `libs/shadcn-ui` - shadcn/ui component library
+    - Pre-built, accessible components
+    - Based on Radix UI primitives
+    - Highly customizable with Tailwind CSS
+    - Exported as `@fs/shadcn-ui` package
+</div>
+
+#### Development Philosophy
+- **Component-First**: All UI elements are built as reusable components
+- **Design System Driven**: Consistent design tokens and patterns
+- **Type Safety**: Full TypeScript support across the workspace
+- **Testing**: Comprehensive testing strategy (unit, integration, E2E)
+- **Documentation**: Living documentation through Storybook
+- **Performance**: Intelligent caching and build optimization with Nx
+
+#### Key Benefits
+- **Scalability**: Monorepo structure supports multiple applications and teams
+- **Consistency**: Shared design system ensures UI consistency
+- **Developer Experience**: Fast builds, intelligent caching, and excellent tooling
+- **Maintainability**: Clear separation of concerns and modular architecture
+- **Reusability**: Components can be shared across applications
+
+This structure enables teams to build applications quickly while maintaining high quality, consistency, and developer productivity through shared tooling and components.

@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Quick start" isTemplate />
+
+### Quick Start
+
+#### **1. Clone the repository**
+
+```bash
+git clone https://github.com/chaddoy/fs.git
+cd fs
+```
+
+#### **2. Install dependencies**
+
+```bash
+# Install pnpm globally (recommended)
+npm install -g pnpm
+
+# Verify version
+pnpm --version
+
+# Install project dependencies
+pnpm install
+```
+
+More details [here](https://pnpm.io/installation)
+
+#### **3. Verify the Setup (Optional but recommended)**
+
+You can check that packages are installed and Nx is working by running:
+
+```bash
+npx nx graph
+```
+
+This will open a browser window showing your projects and libraries dependency graph.
+
+<div className='!my-8' />
+
+#### **4. Run development servers**
+**Run `apps/web` development server**
+```bash
+npx nx dev web
+```
+
+**Run `apps/design-system` development storybook**
+```bash
+npx nx dev design-system:storybook
+```

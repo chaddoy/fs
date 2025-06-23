@@ -13,11 +13,11 @@ const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
 module.exports = {
   darkMode: ['class'],
   content: [
-    './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
-    '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '../../libs/shared-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    ...createGlobPatternsForDependencies(__dirname)
+    './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
+    '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html,story.mdx}',
+    '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
+    '../../libs/core-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
+    ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {
@@ -27,6 +27,9 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        forestGreen: {
+          50: '#f3f5f0',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
