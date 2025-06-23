@@ -1,5 +1,5 @@
 import { Card } from '@shadcn-ui/components/ui/card';
-import Button from '@shared-ui/components/Button';
+import Button from '@core-ui/components/Button';
 import {
   BadgeCheck,
   BookOpen,
@@ -53,6 +53,7 @@ export default function Index() {
   return (
     <div>
       <Button>Button</Button>
+      <Button loading>Button</Button>
       <div className="wrapper">
         <div className="container">
           <div id="welcome">

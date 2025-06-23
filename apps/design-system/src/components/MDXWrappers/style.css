@@ -1,0 +1,30 @@
+#mdx-body {
+  font-size: 16px;
+
+  p {
+    font-size: 16px;
+  }
+
+  h3 {
+    font-size: 24px;
+    scroll-margin-top: 4rem;
+  }
+  
+  h4 {
+    font-size: 20px;
+    scroll-margin-top: 4rem;
+    font-weight: 700;
+  }
+
+  ul li {
+    font-size: 16px;
+  }
+
+  .number-list ul {
+    list-style-type: decimal;
+
+    ul {
+      list-style-type: disc;
+    }
+  }
+}

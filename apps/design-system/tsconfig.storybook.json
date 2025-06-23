@@ -6,8 +6,12 @@
     "moduleResolution": "bundler",
     "jsx": "preserve",
     "paths": {
-      "@shared-ui": ["../../libs/shared-ui/src/index.ts"],
-      "@shared-ui/*": ["../../libs/shared-ui/src/*"]
+      "@/*": ["./src/*"],
+      "@core-ui": ["../../libs/core-ui/src/index.ts"],
+      "@core-ui/*": ["../../libs/core-ui/src/*"],
+      "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
+      "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"],
+      "@shadcn-ui/styles/*": ["../../libs/shadcn-ui/src/styles/*"]
     }
   },
   "exclude": [
@@ -27,7 +31,8 @@
     "src/**/*.stories.tsx",
     "src/**/*.stories.mdx",
     ".storybook/*.js",
-    ".storybook/*.ts"
+    ".storybook/*.ts",
+    "../../libs/core-ui/**/*.stories.tsx"
   ],
   "references": [
     {

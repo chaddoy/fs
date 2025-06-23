@@ -1,0 +1,296 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Troubleshooting" isTemplate />
+
+### Troubleshooting
+
+#### Common Issues and Solutions
+
+**Build and Development Issues**
+
+**1. "Module not found" errors**
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules
+pnpm install
+
+# Clear Nx cache
+npx nx reset
+```
+
+**2. Storybook not loading components**
+```bash
+# Check if component is exported
+# libs/core-ui/src/index.ts should include:
+export { ComponentName } from './components/ComponentName';
+
+# Rebuild the library
+pnpm nx run core-ui:build
+
+# Restart Storybook
+pnpm nx run design-system:storybook
+```
+
+**3. TypeScript errors**
+```bash
+# Run type checking
+pnpm nx run core-ui:typecheck
+
+# Check for missing types
+pnpm add -D @types/[missing-package]
+```
+
+**4. Styling issues**
+```bash
+# Rebuild CSS
+pnpm nx run core-ui:build
+
+# Check Tailwind configuration
+# Ensure paths are correct in tailwind.config.js
+```
+
+#### Component Development Issues
+
+**1. Component not showing in Storybook**
+- ✅ Check component export in `libs/core-ui/src/index.ts`
+- ✅ Verify story file location: `libs/core-ui/src/components/[Component]/[Component].story.tsx`
+- ✅ Ensure story file has correct Meta title
+- ✅ Check Storybook configuration in `apps/design-system/.storybook/main.ts`
+
+**2. Tests failing**
+```bash
+# Run tests with verbose output
+pnpm nx run core-ui:test --verbose
+
+# Update snapshots if UI changed
+pnpm nx run core-ui:test -- --updateSnapshot
+
+# Run specific test file
+pnpm nx run core-ui:test --testPathPattern=Button
+```
+
+**3. Linting errors**
+```bash
+# Run linting
+pnpm nx run core-ui:lint
+
+# Auto-fix linting issues
+pnpm nx run core-ui:lint --fix
+```
+
+#### Nx Workspace Issues
+
+**1. "Project not found" errors**
+```bash
+# Check project configuration
+npx nx show project core-ui
+
+# Verify project.json exists
+ls libs/core-ui/project.json
+
+# Regenerate project configuration if needed
+npx nx generate @nx/react:library core-ui --dry-run
+```
+
+**2. Dependency graph issues**
+```bash
+# View dependency graph
+npx nx graph
+
+# Check for circular dependencies
+npx nx graph --file=graph.html
+```
+
+**3. Cache issues**
+```bash
+# Clear Nx cache
+npx nx reset
+
+# Clear specific project cache
+npx nx reset core-ui
+```
+
+#### shadcn-ui Issues
+
+**1. Component not generating**
+```bash
+# Navigate to shadcn-ui directory
+cd libs/shadcn-ui
+
+# Check components.json configuration
+cat components.json
+
+# Try generating with verbose output
+npx shadcn@latest add button --verbose
+```
+
+**2. Styling not applying**
+- ✅ Check if Tailwind CSS is properly configured
+- ✅ Verify CSS imports in your application
+- ✅ Check for CSS conflicts
+
+**3. TypeScript errors with shadcn-ui**
+```bash
+# Rebuild shadcn-ui library
+pnpm nx run shadcn-ui:build
+
+# Check type definitions
+pnpm nx run shadcn-ui:typecheck
+```
+
+#### Performance Issues
+
+**1. Slow builds**
+```bash
+# Check Nx cache status
+npx nx show projects --with-details
+
+# Enable Nx Cloud for faster builds (optional)
+npx nx connect
+```
+
+**2. Large bundle sizes**
+```bash
+# Analyze bundle
+npx nx build web --analyze
+
+# Check for duplicate dependencies
+pnpm list --depth=0
+```
+
+#### Environment Issues
+
+**1. Node.js version conflicts**
+```bash
+# Check Node.js version
+node --version
+
+# Use correct Node.js version (check .nvmrc)
+nvm use
+
+# Install dependencies with correct Node version
+pnpm install
+```
+
+**2. Package manager issues**
+```bash
+# Clear package manager cache
+pnpm store prune
+
+# Reinstall dependencies
+rm -rf node_modules pnpm-lock.yaml
+pnpm install
+```
+
+#### Git and Deployment Issues
+
+**1. Merge conflicts in generated files**
+```bash
+# Regenerate files after resolving conflicts
+pnpm nx run core-ui:build
+pnpm nx run shadcn-ui:build
+```
+
+**2. Storybook deployment failing**
+```bash
+# Check GitHub Actions logs
+# Verify deployment configuration
+# Test build locally
+pnpm nx run design-system:build-storybook
+```
+
+#### Debugging Tools
+
+**Browser Developer Tools:**
+
+**React Developer Tools**
+- **Install**: [Chrome Web Store](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/react-devtools/)
+- **Features**:
+  - Inspect component hierarchy
+  - View props and state
+  - Profile component performance
+  - Debug component re-renders
+  - Edit component state in real-time
+
+**Storybook Add-ons for Debugging**
+- **Storybook Addon Actions**: Track component events
+- **Storybook Addon Controls**: Manipulate component props
+- **Storybook Addon Viewport**: Test responsive design
+- **Storybook Addon Accessibility**: Check accessibility issues
+
+**Useful Commands**
+```bash
+# Check workspace status
+npx nx show projects
+
+# View project details
+npx nx show project core-ui
+
+# Check affected projects
+npx nx affected:graph
+
+# Run with debug output
+DEBUG=* pnpm nx run core-ui:build
+```
+
+**Log Files**
+- **Nx logs**: `.nx/cache/`
+- **Build logs**: Check terminal output
+- **Test logs**: `coverage/` directory
+- **Storybook logs**: Browser console
+
+#### Getting Help
+
+**Before asking for help:**
+1. ✅ Check this troubleshooting guide
+2. ✅ Search existing issues in the repository
+3. ✅ Try the solutions above
+4. ✅ Gather relevant error messages and logs
+5. ✅ Use React Developer Tools to inspect component issues
+
+**When reporting issues:**
+- Include error messages and stack traces
+- Specify your environment (OS, Node.js version, etc.)
+- Describe steps to reproduce
+- Include relevant code snippets
+- Mention what you've already tried
+- Attach React Developer Tools screenshots if relevant
+
+**Resources:**
+- [Nx Documentation](https://nx.dev)
+- [Storybook Documentation](https://storybook.js.org)
+- [shadcn/ui Documentation](https://ui.shadcn.com)
+- [React Developer Tools Documentation](https://github.com/facebook/react/tree/main/packages/react-devtools)
+- [GitHub Issues](https://github.com/your-org/fs/issues)
+
+#### Prevention Tips
+
+**Best Practices:**
+- ✅ Always run tests before committing
+- ✅ Keep dependencies updated
+- ✅ Use consistent code formatting
+- ✅ Document breaking changes
+- ✅ Test components in different environments
+- ✅ Use React Developer Tools for component debugging
+
+**Regular Maintenance:**
+```bash
+# Weekly: Update dependencies
+pnpm update
+
+# Monthly: Audit dependencies
+pnpm audit
+
+# Quarterly: Review and clean up unused code
+npx nx graph --file=unused.html
+```
+
+The key additions are:
+- **React Developer Tools section** with installation links and features
+- **Storybook Add-ons** for debugging
+- **Updated "Before asking for help"** to include React Developer Tools
+- **Updated "When reporting issues"** to mention React Developer Tools screenshots
+- **Added React Developer Tools documentation** to resources
+- **Updated "Best Practices"** to include component debugging
+
+This provides developers with essential browser-based debugging tools for React component development.

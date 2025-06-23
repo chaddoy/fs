@@ -1,0 +1,121 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
+import { ColorPalette, ColorItem } from '@storybook/blocks';
+import palette from '@core-ui/tokens/color/palette';
+import ColorTable from '@/components/ColorTable';
+import tokens from '@core-ui/tokens';
+
+<Meta title="Foundations/Colors" />
+
+<MDXPage>
+  <div className="static">
+    <MDXHeader>
+      <Title>Colors</Title>
+      <Subtitle>
+        Our color system uses [Atlassian Design Tokens](https://atlassian.design/components/tokens/all-tokens) for consistency and scalability. Each color is defined as a token, making it easy to apply and update across the entire project.
+      </Subtitle>
+    </MDXHeader>
+
+    <MDXLinks isSticky>
+      <MDXLink>[Text](#text)</MDXLink>
+      <MDXLink>[Link](#link)</MDXLink>
+      <MDXLink>[Icon](#icon)</MDXLink>
+      <MDXLink>[Border](#border)</MDXLink>
+      <MDXLink>[Background](#background)</MDXLink>
+      <MDXLink>[Blanket](#blanket)</MDXLink>
+      <MDXLink>[Interaction](#interaction)</MDXLink>
+      <MDXLink>[Skeleton](#skeleton)</MDXLink>
+      <MDXLink>[Palette](#palette)</MDXLink>
+    </MDXLinks>
+
+    <MDXBody>
+      ### Text
+      <ColorTable tokenId="text" tokens={tokens.color.light.text} />
+
+      ### Link
+      <ColorTable tokenId="link" tokens={tokens.color.light.link} />
+
+      ### Icon
+      <ColorTable tokenId="icon" tokens={tokens.color.light.icon} />
+
+      ### Border
+      <ColorTable tokenId="border" tokens={tokens.color.light.border} />
+
+      ### Background
+      <ColorTable tokenId="background" tokens={tokens.color.light.background} />
+
+      ### Blanket
+      <ColorTable tokenId="blanket" tokens={tokens.color.light.blanket} />
+
+      ### Interaction
+      <ColorTable tokenId="interaction" tokens={tokens.color.light.interaction} />
+
+      ### Skeleton
+      <ColorTable tokenId="skeleton" tokens={tokens.color.light.skeleton} />
+
+      ### Palette
+      <ColorPalette>
+        <ColorItem
+          title="Forest Green"
+          subtitle="Primary Brand"
+          colors={palette.forestGreen}
+        />
+        <ColorItem
+          title="Extras"
+          subtitle="Brand"
+          colors={palette.extras}
+        />
+        <ColorItem
+          title="Burnt Orange"
+          subtitle="Secondary Brand"
+          colors={palette.burntOrange}
+        />
+        <ColorItem
+          title="Amber Gold"
+          subtitle="Secondary Brand"
+          colors={palette.amberGold}
+        />
+        <ColorItem
+          title="Muted Olive"
+          subtitle="Secondary Brand"
+          colors={palette.mutedOlive}
+        />
+        <ColorItem
+          title="Crimson Red"
+          subtitle="System Danger"
+          colors={palette.crimsonRed}
+        />
+        <ColorItem
+          title="Orange Peel"
+          subtitle="System Warning"
+          colors={palette.orangePeel}
+        />
+        <ColorItem
+          title="Royal Blue"
+          subtitle="System Info"
+          colors={palette.royalBlue}
+        />
+        <ColorItem
+          title="Moss Green"
+          subtitle="System Success"
+          colors={palette.mossGreen}
+        />
+        <ColorItem
+          title="Grey"
+          subtitle="Tertiary"
+          colors={palette.grey}
+        />
+        <ColorItem
+          title="Jet Black"
+          subtitle="Tertiary"
+          colors={palette.jetBlack}
+        />
+        <ColorItem
+          title="Coffee Brown"
+          subtitle="Tertiary"
+          colors={palette.coffeeBrown}
+        />
+      </ColorPalette>
+    </MDXBody>
+  </div>
+</MDXPage>

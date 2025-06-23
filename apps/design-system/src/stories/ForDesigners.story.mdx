@@ -1,0 +1,120 @@
+import { Meta, Title, Subtitle } from '@storybook/blocks';
+import { Separator } from '@shadcn-ui/components/ui/separator';
+import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDXWrappers';
+
+<Meta title="For designers" />
+
+<MDXPage>
+  <MDXHeader>
+    <Title>For designers</Title>
+    <Subtitle>
+      Design guidelines, Figma libraries, and plugins.
+    </Subtitle>
+  </MDXHeader>
+
+  <MDXLinks isSticky>
+    <MDXLink>[Guidelines](#learn-the-groom-squads-design-guidelines)</MDXLink>
+    <MDXLink>[Software](#use-figma-to-apply-the-design-system)</MDXLink>
+    <MDXLink>[Libraries](#figma-libraries)</MDXLink>
+    <MDXLink>[Typography](#typography)</MDXLink>
+    <MDXLink>[Icons](#icons)</MDXLink>
+    <MDXLink>[Illustrations](#illustrations)</MDXLink>
+    <MDXLink>[Plugins & Tools](#plugins--tools)</MDXLink>
+    <MDXLink>[Resources](#additional-design-resources)</MDXLink>
+  </MDXLinks>
+
+  <MDXBody>
+    The Groom Squad Design System is a curated collection of UI components, foundational styles, and design standards that help us craft elegant, modern, and accessible user experiences.   
+    
+    This page explains how to work with our design principles, shared Figma libraries, and plugins to keep your work aligned across products.
+
+    <Separator className="!my-8" />
+
+
+    ### Learn The Groom Squad’s Design Guidelines
+    These shared foundations and reusable UI elements create a unified experience across all of our platforms.
+    - [Foundations](/docs/foundations--docs) define visual rules like color, spacing, typography, and iconography.
+    - [Components](/docs/elements--docs) are flexible, reusable interface elements. Each comes with usage guidelines, accessibility tips, and interaction behavior.
+    - [Patterns](/docs/patterns--docs) are combinations of components and foundations used for standard UI flows (internal-only).
+    - [Content](/docs/content--docs) includes tone and voice guidance for microcopy, button labels, alerts, and more.
+    
+
+    <Separator className="!my-8" />
+
+    ### Use Figma to Apply the Design System
+    Our Figma libraries and tools include foundational styles, design tokens, components, and workflow helpers.
+    - The Groom Squad [Figma libraries](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=280-1794&t=Py6RLsVAc4lkrd9Z-1) include:
+      - [Foundations](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2019) (typography, colors, grids, spacing)
+      - [Components](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2020) (buttons, modals, inputs, etc.)
+      - [Product-specific component libraries](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2021)
+    - Use our [design tokens](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2022) for consistent application of system styles
+    - [Internal-only libraries](https://www.figma.com/design/647cIYTo2RD5qUZMB9GpBc/The-Groom-Squad?node-id=321-2023) may contain early-stage or experimental components
+
+    <Separator className="!my-8" />
+
+    ### Figma Libraries
+    These libraries are actively maintained and versioned. Use them as your single source of truth.
+
+    #### **Core Libraries**
+    - Colors & Tokens
+    - Typography
+    - Icons (Lucide)
+    - Illustrations
+    - Base Components
+
+    #### **Product Libraries**
+    - TBA
+
+    #### **Utility Libraries**
+    - Wireframes – For ideation and early exploration
+    - UX Flows – Arrows, state maps, and user journeys
+    - Presentation Kit – Ready-to-use templates for pitches and demos
+
+    <Separator className="!my-8" />
+
+    ### Typography
+    We use IBM Plex for its balanced, contemporary look—ideal for The Groom Squad’s professional yet approachable tone.
+    - IBM Plex Sans – Primary typeface
+    - IBM Plex Mono – For technical content, code, or form inputs
+
+    [Download IBM Plex Font](https://www.ibm.com/plex/)  
+    [Access Typography Styles in Figma](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)
+
+    <Separator className="!my-8" />
+
+    ### Icons
+    Lucide React is our standard icon library—open source, scalable, and built for modern interfaces.
+    - Use icons from the Lucide icon set, integrated into our Figma Icon Library
+    - For custom icons, follow Lucide’s design language: 24px grid, stroke weight, and minimal styling
+    - Developers use lucide-react, so ensure icons used in Figma have a 1:1 match with the codebase
+
+    [Access Figma Icon Library](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)   
+    [Browse Lucide Icons](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)   
+    [Lucide React on GitHub](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)
+
+    <Separator className="!my-8" />
+
+    ### Illustrations
+    We use [unDraw](https://undraw.co/) as our base for illustrations—versatile, accessible, and style-consistent.
+    - Browse shared illustrations in the Figma **Illustration Library**
+    - Recolor all new illustrations using Groom Squad’s official color tokens
+    
+    [Access Figma Illustration Library](https://www.figma.com/design/1234567890/IBM-Plex?node-id=1234567890%3A1234567890)
+
+    <Separator className="!my-8" />
+
+    ### Plugins & Tools
+    Use these plugins to enhance your workflow and maintain design consistency:
+    - [Design Tokens Plugin](https://www.figma.com/community/plugin/888356646278934516/design-tokens) – Apply tokenized colors, typography, and spacing
+    - [Lucide Icons](https://www.figma.com/community/plugin/939567362549682242/lucide-icons) – Quickly browse and insert icons from Lucide inside Figma
+    - [Foundation: Color Generator](https://www.figma.com/community/plugin/1055785285964148921/foundation-color-generator) – Generate color tokens from Figma
+
+    <Separator className="!my-8" />
+
+    ### Additional Design Resources
+    Pair the design system with other Groom Squad tools and brand assets:
+    - [Design System Template (Community)](https://www.figma.com/community/file/1055785285964148921) - Reference for creating a design system for your project.
+    - [Lucide Icons — Full Collection (1564 icons)](https://www.figma.com/community/file/1055785285964148921) – Reference for creating a design system for your project.
+
+  </MDXBody>
+</MDXPage>
