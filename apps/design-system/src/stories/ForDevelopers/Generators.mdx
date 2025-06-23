@@ -27,11 +27,11 @@ pnpm component [ComponentName]
 
 ```bash
 # Add a new shadcn-ui component
-pnpm component:shadcn add [ComponentName]
+pnpm component:shadcn
 # This creates:
 # libs/shadcn-ui/src/components/ui/[component-name]/
 # └── [component-name].tsx
-
-# Help:
-npx component:shadcn --help
+# and exports the component to the core-ui library
+# libs/core-ui/src/index.ts
+# └── [component-name].tsx
 ```

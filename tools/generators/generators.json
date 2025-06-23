@@ -4,6 +4,11 @@
       "factory": "./dist/generators/component/component",
       "schema": "./dist/generators/component/schema.json",
       "description": "component generator"
+    },
+    "export-ui": {
+      "factory": "./dist/generators/export-ui/export-ui",
+      "schema": "./dist/generators/export-ui/schema.json",
+      "description": "export-ui generator"
     }
   }
 }

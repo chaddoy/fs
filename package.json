@@ -17,7 +17,7 @@
     "shadcn-ui:test": "nx test shadcn-ui",
     "shadcn-ui:lint": "nx lint shadcn-ui",
     "component": "nx g @fs/generators:component --project=core-ui",
-    "component:shadcn": "(cd libs/shadcn-ui && npx shadcn@latest add)",
+    "component:shadcn": "(cd libs/shadcn-ui && npx shadcn@latest add) && nx g @fs/generators:export-ui shadcn-ui",
     "test:all": "nx run-many --target=test",
     "lint:all": "nx run-many --target=lint",
     "build:all": "nx run-many --target=build"
