@@ -6,50 +6,79 @@ import { Meta } from '@storybook/blocks';
 
 You can use `npx` or `pnpx` to run commands. `pnpx` is a wrapper around `npx` that uses the local pnpm installation.
 
-**Run `apps/web` development server**
+#### apps/design-system
+
 ```bash
-npx nx dev web
+# Run the development server
+pnpm docs:dev
+
+# Build the static files
+pnpm docs:build
+
+# Run the built static files
+pnpm docs:static
+
+# Run the development server with nx cache skipped
+pnpm docs:dev --skip-nx-cache
 ```
 
-**Build `apps/web` for production**
+#### apps/web
+
 ```bash
-npx nx build web
+# Run the development server
+pnpm web:dev
+
+# Build the static files
+pnpm web:build
+
+# Run the built static files
+pnpm web:static
+
+# Run the tests
+pnpm web:test
+
+# Run the linting
+pnpm web:lint
+
+# Run the e2e tests
+pnpm web:e2e
 ```
 
-**Run `apps/design-system` development storybook**
+#### libs/core-ui
+
 ```bash
-npx nx dev design-system:storybook
+# Run the tests
+pnpm core-ui:test
+
+# Run the linting
+pnpm core-ui:lint
 ```
 
-**Build `apps/design-system` for production**
-```bash
-npx nx build design-system:build-storybook
-```
-You can add the following options to the command:
-- `--no-open` to prevent the browser from opening automatically
-- `--port=[port]` to specify the port
-- `--skip-nx-cache` to skip the Nx cache
+#### libs/shadcn-ui
 
-<div className='!my-8' />
-
-**Generate a new Next.js app**
 ```bash
-npx nx generate @nx/next:app apps/[app-name] // or npx nx g ...
+# Run the tests
+pnpm shadcn-ui:test
+
+# Run the linting
+pnpm shadcn-ui:lint
 ```
 
-**Generate a React library**
+#### Nx commands
+
 ```bash
+# Generate a new Next.js app
+# or npx nx g ...
+npx nx generate @nx/next:app apps/[app-name]
+
+# Generate a React library
 npx nx g @nx/react:library libs/[library-name]
-```
 
-**Generate and remove a new workspace library**
-```bash
+# Generate or remove a new workspace library
 npx nx g @nx/workspace:add libs/[library-name]
 npx nx g @nx/workspace:remove [root-folder]/[library-name]
-```
 
-**Explore available commands:**
-```bash
+# Explore available commands:
 npx nx --help
 ```
 
