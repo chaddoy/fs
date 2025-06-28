@@ -1,0 +1,20 @@
+import { <%= className %>Props } from './interface'
+
+export default function <%= className %>({ 
+  children, 
+  className,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
+  ...props 
+}: <%= className %>Props) {
+  return (
+    <div 
+      className={`${className || ''}`}
+      aria-label={ariaLabel}
+      aria-describedby={ariaDescribedBy}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}

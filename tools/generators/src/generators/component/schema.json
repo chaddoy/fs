@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "id": "component",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Component name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "project": {
+      "type": "string",
+      "description": "Project where the component will be created",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "directory": {
+      "type": "string",
+      "description": "Directory within src/components"
+    },
+    "style": {
+      "type": "string",
+      "enum": ["css", "scss", "styled-components", "none"],
+      "default": "css",
+      "description": "Styling approach"
+    },
+    "withTests": {
+      "type": "boolean",
+      "default": true,
+      "description": "Generate test files"
+    },
+    "withStories": {
+      "type": "boolean",
+      "default": true,
+      "description": "Generate Storybook stories"
+    },
+    "export": {
+      "type": "boolean",
+      "default": true,
+      "description": "Export component from library index"
+    }
+  },
+  "required": ["name", "project"]
+}
