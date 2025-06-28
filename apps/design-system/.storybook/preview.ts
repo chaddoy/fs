@@ -6,10 +6,19 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Introduction', 'For designers', 'For developers', 'Foundations', 'Components', 'Hooks', 'Utilities', '*'],
+        order: [
+          'Introduction',
+          'For designers',
+          'For developers',
+          'Foundations',
+          'Components',
+          'Hooks',
+          'Utilities',
+          '*',
+        ],
       },
     },
-  }
+  },
 };
 
 export default preview;
