@@ -39,16 +39,7 @@
     "**/*.stories.jsx",
     "**/*.stories.tsx"
   ],
-  "include": [
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "../../libs/core-ui/**/*.ts",
-    "../../libs/core-ui/**/*.tsx",
-    "../../libs/shadcn-ui/**/*.ts",
-    "../../libs/shadcn-ui/**/*.tsx"
-  ],
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
       "path": "../../libs/core-ui"

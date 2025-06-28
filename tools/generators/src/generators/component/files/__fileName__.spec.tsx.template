@@ -1,0 +1,9 @@
+import { render, screen } from '@testing-library/react';
+import <%= className %> from './<%= fileName %>';
+
+describe('<%= className %>', () => {
+  it('renders correctly', () => {
+    render(<<%= className %>>Test content</<%= className %>>);
+    expect(screen.getByText('Test content')).toBeDefined();
+  });
+});

@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Generators" isTemplate />
+
+### Generators
+
+Nx provides a set of generators to help you create new components, libraries, and applications.
+
+<div className='!my-8' />
+
+#### core-ui
+
+```bash
+# Generate a new component
+pnpm component [ComponentName]
+# Add --story-group=[storyGroup] if you want to add the component to a specific story group
+
+# This creates:
+# libs/core-ui/src/components/[ComponentName]/
+# ├── [ComponentName].tsx
+# ├── [ComponentName].spec.tsx
+# ├── [ComponentName].story.tsx
+# └── index.ts
+```
+
+#### shadcn-ui
+
+```bash
+# Add a new shadcn-ui component
+pnpm component:shadcn
+
+# This generates the component and updates the index.ts file
+# libs/shadcn-ui/src/
+# ├── components/ui/[component-name].tsx
+# └── index.ts
+```

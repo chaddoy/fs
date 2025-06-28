@@ -17,6 +17,9 @@
     },
     {
       "path": "./apps/design-system"
+    },
+    {
+      "path": "./tools/generators"
     }
   ],
   "ts-node": {

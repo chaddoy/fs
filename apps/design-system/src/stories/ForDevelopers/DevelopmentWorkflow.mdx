@@ -8,19 +8,16 @@ import { Meta } from '@storybook/blocks';
 **Pull latest changes**
 ```bash
 git checkout main
-```
-```bash
 git pull origin main
 ```
 
 **Start development servers**
 ```bash
 # For component development
-npx nx dev design-system:storybook
-```
-```bash
+pnpm docs:dev
+
 # For app development
-npx nx dev web
+pnpm web:dev
 ```
 
 #### 2. Component Development Cycle
@@ -28,15 +25,15 @@ npx nx dev web
 **Creating new components**
 ```bash
 # Generate component structure using Nx React generator
-npx nx generate @nx/react:component [ComponentName] --project=core-ui
+pnpm component [ComponentName]
+# Add --story-group=[storyGroup] if you want to add the component to a specific story group
 
 # This creates:
 # libs/core-ui/src/components/[ComponentName]/
 # ├── [ComponentName].tsx
 # ├── [ComponentName].spec.tsx
 # ├── [ComponentName].story.tsx
-# ├── index.ts
-# └── [ComponentName].module.css
+# └── index.ts
 ```
 
 **Development Workflow**
@@ -46,41 +43,35 @@ git checkout -b feature/[component-name]
 
 # 2. Develop component
 # - Edit component files
-# - View in Storybook: npx nx dev design-system:storybook
-# - Test component: pnpm nx run core-ui:test
+# - View in Storybook: pnpm docs:dev
+# - Test component: pnpm web:test
 
 # 3. Test your changes
-npx nx run core-ui:test
-npx nx run core-ui:lint
-npx nx run core-ui:build
+pnpm web:lint
+pnpm web:test
+pnpm web:build
 
 # 4. Update snapshots if needed
-npx nx run core-ui:test -- --updateSnapshot
+pnpm web:test -- --updateSnapshot
 ```
 
 #### 3. Quality Assurance
 **Before committing**
 ```bash
 # Run all tests
-npx nx run core-ui:test
-npx nx run core-ui:test-coverage
+pnpm test:all
 
 # Check linting
-npx nx run core-ui:lint
-npx nx run shadcn-ui:lint
-
-# Build libraries
-npx nx run core-ui:build
-npx nx run shadcn-ui:build
+pnpm lint:all
 
 # Build Storybook
-npx nx run design-system:build-storybook
+pnpm build:all
 ```
 
 **E2E testing**
 ```bash
 # Run E2E tests
-npx nx run web:e2e
+pnpm web:e2e
 ```
 
 #### 4. Documentation
@@ -93,7 +84,7 @@ npx nx run web:e2e
 **Export Components:**
 ```typescript
 // libs/core-ui/src/index.ts
-export { ComponentName } from './components/ComponentName';
+export * from './components/ComponentName';
 ```
 
 #### 5. Code review
