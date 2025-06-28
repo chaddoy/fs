@@ -76,28 +76,28 @@ export const Size: Story = {
   render: () => (
     <>
       <Text as="p" size="xs">
-        This is xs size
+        This is xs size (12px / 0.75rem)
       </Text>
       <Text as="p" size="sm">
-        This is sm size
+        This is sm size (14px / 0.875rem)
       </Text>
       <Text as="p" size="base">
-        This is base size
+        This is base size (16px / 1rem)
       </Text>
       <Text as="p" size="lg">
-        This is lg size
+        This is lg size (18px / 1.125rem)
       </Text>
       <Text as="p" size="xl">
-        This is xl size
+        This is xl size (20px / 1.25rem)
       </Text>
       <Text as="p" size="2xl">
-        This is 2xl size
+        This is 2xl size (24px / 1.5rem)
       </Text>
       <Text as="p" size="3xl">
-        This is 3xl size
+        This is 3xl size (30px / 1.875rem)
       </Text>
       <Text as="p" size="4xl">
-        This is 4xl size
+        This is 4xl size (36px / 2.25rem)
       </Text>
     </>
   ),

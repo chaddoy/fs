@@ -1,4 +1,5 @@
 const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+const tokens = require('../../libs/core-ui/src/tokens');
 
 // The above utility import will not work if you are using Next.js' --turbo.
 // Instead you will have to manually add the dependent paths to be included.
@@ -21,15 +22,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      textColor: {
+        ...tokens.colors.light.text,
+      },
+      backgroundColor: {
+        ...tokens.colors.light.background,
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
-        forestGreen: {
-          50: '#f3f5f0',
-        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

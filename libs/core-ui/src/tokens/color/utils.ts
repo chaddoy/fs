@@ -1,4 +1,4 @@
-import palette from "./palette";
+import palette from './palette';
 
 type ColorScale = {
   '50': string;
@@ -36,13 +36,17 @@ type SemanticTokenConfig = {
   palette: string;
 };
 
-const createToken = (value: string, description: string, palette: string) => ({
+export const createToken = (
+  value: string,
+  description: string,
+  palette: string
+) => ({
   value,
   description,
   palette,
 });
 
-const createStateVariants = (
+export const createStateVariants = (
   baseKey: string,
   colorScale: ColorScale,
   config: TokenConfig,
@@ -65,7 +69,7 @@ const createStateVariants = (
   ),
 });
 
-const generateColorTokens = (
+export const generateColorTokens = (
   colorKey: string,
   colorScale: ColorScale,
   configs: TokenConfig[]
@@ -79,23 +83,34 @@ const generateColorTokens = (
   }, {});
 };
 
-const isColorPalette = (key: string): boolean => key !== 'extras';
+export const isColorPalette = (key: string): boolean => key !== 'extras';
 
-const generateSemanticTokens = (configs: SemanticTokenConfig[]): PaletteValue => {
-  return configs.reduce((tokens, config) => ({
-    ...tokens,
-    [config.key]: createToken(config.value, config.description, config.palette),
-  }), {});
+export const generateSemanticTokens = (
+  configs: SemanticTokenConfig[]
+): PaletteValue => {
+  return configs.reduce(
+    (tokens, config) => ({
+      ...tokens,
+      [config.key]: createToken(
+        config.value,
+        config.description,
+        config.palette
+      ),
+    }),
+    {}
+  );
 };
 
-const generatePaletteTokens = (
+export const generatePaletteTokens = (
   configs: TokenConfig[],
   getDescription: (key: string) => string
 ): PaletteValue => {
   return Object.keys(palette)
     .filter(isColorPalette)
     .reduce((tokens, colorKey) => {
-      const colorScale = palette[colorKey as keyof typeof palette] as ColorScale;
+      const colorScale = palette[
+        colorKey as keyof typeof palette
+      ] as ColorScale;
       return {
         ...tokens,
         ...generateColorTokens(colorKey, colorScale, configs),
@@ -110,7 +125,7 @@ export const getPaletteTextTokens = (): PaletteValue => {
       baseScale: '700',
       hoveredScale: '700',
       pressedScale: '700',
-      description: (key: string) => 
+      description: (key: string) =>
         `Use for ${key} text on subtlest and subtler ${key} accent backgrounds when there is no meaning tied to the color.`,
     },
     {
@@ -118,7 +133,7 @@ export const getPaletteTextTokens = (): PaletteValue => {
       baseScale: '800',
       hoveredScale: '800',
       pressedScale: '800',
-      description: (key: string) => 
+      description: (key: string) =>
         `Use for ${key} text on subtle ${key} accent backgrounds when there is no meaning tied to the color.`,
     },
   ];
@@ -126,11 +141,15 @@ export const getPaletteTextTokens = (): PaletteValue => {
   return generatePaletteTokens(textConfigs, () => '');
 };
 
-export const getPaletteTokens = (getDescription: (key: string) => string): PaletteValue => {
+export const getPaletteTokens = (
+  getDescription: (key: string) => string
+): PaletteValue => {
   return Object.keys(palette)
     .filter(isColorPalette)
     .reduce((tokens, colorKey) => {
-      const colorScale = palette[colorKey as keyof typeof palette] as ColorScale;
+      const colorScale = palette[
+        colorKey as keyof typeof palette
+      ] as ColorScale;
       return {
         ...tokens,
         [`accent.${colorKey}`]: createToken(
@@ -149,7 +168,7 @@ export const getPaletteBackgroundTokens = (): PaletteValue => {
       baseScale: '50',
       hoveredScale: '100',
       pressedScale: '200',
-      description: (key: string) => 
+      description: (key: string) =>
         `${key}.subtlest: Use for for backgrounds when there is no meaning tied to the color. Reserved for when you only want a hint of color.`,
     },
     {
@@ -157,7 +176,7 @@ export const getPaletteBackgroundTokens = (): PaletteValue => {
       baseScale: '100',
       hoveredScale: '200',
       pressedScale: '300',
-      description: (key: string) => 
+      description: (key: string) =>
         `${key}.subtler: Use for for backgrounds when there is no meaning tied to the color, such as colored tags.`,
     },
     {
@@ -165,7 +184,7 @@ export const getPaletteBackgroundTokens = (): PaletteValue => {
       baseScale: '300',
       hoveredScale: '200',
       pressedScale: '100',
-      description: (key: string) => 
+      description: (key: string) =>
         `${key}.subtle: Use for for backgrounds when there is no meaning tied to the color, such as colored tags.`,
     },
     {
@@ -173,7 +192,7 @@ export const getPaletteBackgroundTokens = (): PaletteValue => {
       baseScale: '600',
       hoveredScale: '700',
       pressedScale: '800',
-      description: (key: string) => 
+      description: (key: string) =>
         `${key}.bolder: Use for for backgrounds when there is no meaning tied to the color, such as colored tags.`,
     },
   ];
@@ -181,4 +200,19 @@ export const getPaletteBackgroundTokens = (): PaletteValue => {
   return generatePaletteTokens(backgroundConfigs, () => '');
 };
 
-export { createToken, generateSemanticTokens };
+export const extractValues = (
+  obj: Record<string, any>
+): Record<string, any> => {
+  if (typeof obj === 'object' && obj !== null && !Array.isArray(obj)) {
+    if (obj.value !== undefined) {
+      return obj.value;
+    } else {
+      const result: Record<string, any> = {};
+      Object.keys(obj).forEach((key) => {
+        result[key] = extractValues(obj[key]);
+      });
+      return result;
+    }
+  }
+  return obj;
+};

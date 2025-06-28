@@ -1,11 +1,12 @@
-import palette from "../palette";
-import { getPaletteTextTokens, generateSemanticTokens } from "../utils";
+import palette from '../palette';
+import { getPaletteTextTokens, generateSemanticTokens } from '../utils';
 
 const semanticTextConfigs = [
   {
     key: 'default',
     value: palette.extras.charcoal,
-    description: 'Use for primary text, such as body copy, sentence case headers, and buttons.',
+    description:
+      'Use for primary text, such as body copy, sentence case headers, and buttons.',
     palette: 'extras/charcoal',
   },
   {
@@ -23,7 +24,8 @@ const semanticTextConfigs = [
   {
     key: 'selected',
     value: palette.forestGreen[600],
-    description: 'Use for text in selected or opened states, such as tabs and dropdown buttons.',
+    description:
+      'Use for text in selected or opened states, such as tabs and dropdown buttons.',
     palette: 'forestGreen/600',
   },
   {
@@ -41,7 +43,8 @@ const semanticTextConfigs = [
   {
     key: 'warning',
     value: palette.burntOrange[700],
-    description: 'Use for text to emphasize caution, such as in moved lozenges.',
+    description:
+      'Use for text to emphasize caution, such as in moved lozenges.',
     palette: 'burntOrange/700',
   },
   {
@@ -53,31 +56,36 @@ const semanticTextConfigs = [
   {
     key: 'success',
     value: palette.mossGreen[800],
-    description: 'Use for text to communicate a favorable outcome, such as input field success messaging.',
+    description:
+      'Use for text to communicate a favorable outcome, such as input field success messaging.',
     palette: 'mossGreen/800',
   },
   {
     key: 'discovery',
     value: palette.burntOrange[700],
-    description: 'Use for text to emphasize change or something new, such as in new lozenges.',
+    description:
+      'Use for text to emphasize change or something new, such as in new lozenges.',
     palette: 'burntOrange/700',
   },
   {
     key: 'information',
     value: palette.royalBlue[700],
-    description: 'Use for informative text or to communicate something is in progress, such as in-progress lozenges.',
+    description:
+      'Use for informative text or to communicate something is in progress, such as in-progress lozenges.',
     palette: 'royalBlue/700',
   },
   {
     key: 'subtlest',
     value: palette.jetBlack[100],
-    description: 'Use for tertiary text, such as meta-data, breadcrumbs, input field placeholder and helper text.',
+    description:
+      'Use for tertiary text, such as meta-data, breadcrumbs, input field placeholder and helper text.',
     palette: 'jetBlack/100',
   },
   {
     key: 'subtle',
     value: palette.jetBlack[200],
-    description: 'Use for secondary text, such as navigation, subtle button links, input field labels, and all caps subheadings.',
+    description:
+      'Use for secondary text, such as navigation, subtle button links, input field labels, and all caps subheadings.',
     palette: 'jetBlack/200',
   },
 ];
