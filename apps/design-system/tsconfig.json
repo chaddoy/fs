@@ -10,6 +10,9 @@
     },
     {
       "path": "../../libs/core-ui"
+    },
+    {
+      "path": "../../libs/shared/intl"
     }
   ],
   "extends": "../../tsconfig.base.json"

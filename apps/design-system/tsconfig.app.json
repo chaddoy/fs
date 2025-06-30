@@ -17,7 +17,8 @@
       "@core-ui/*": ["../../libs/core-ui/src/*"],
       "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
       "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"],
-      "@shadcn-ui/styles/*": ["../../libs/shadcn-ui/src/styles/*"]
+      "@shadcn-ui/styles/*": ["../../libs/shadcn-ui/src/styles/*"],
+      "@fs/intl": ["../../libs/shared/intl/src/index.ts"]
     }
   },
   "exclude": [
@@ -46,6 +47,9 @@
     },
     {
       "path": "../../libs/shadcn-ui"
+    },
+    {
+      "path": "../../libs/shared/intl"
     }
   ]
 }

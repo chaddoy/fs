@@ -32,6 +32,10 @@ export default defineConfig(() => ({
       '@': path.resolve(__dirname, './src'),
       '@shadcn-ui': path.resolve(__dirname, '../../libs/shadcn-ui/src'),
       '@core-ui': path.resolve(__dirname, '../../libs/core-ui/src'),
+      '@fs/intl': path.resolve(
+        __dirname,
+        '../../libs/shared/intl/src/index.ts'
+      ),
     },
   },
 }));

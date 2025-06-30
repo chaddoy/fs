@@ -20,6 +20,9 @@
     },
     {
       "path": "./tools/generators"
+    },
+    {
+      "path": "./libs/shared/intl"
     }
   ],
   "ts-node": {

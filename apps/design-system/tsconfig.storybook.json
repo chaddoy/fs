@@ -11,7 +11,8 @@
       "@core-ui/*": ["../../libs/core-ui/src/*"],
       "@shadcn-ui": ["../../libs/shadcn-ui/src/index.ts"],
       "@shadcn-ui/*": ["../../libs/shadcn-ui/src/*"],
-      "@shadcn-ui/styles/*": ["../../libs/shadcn-ui/src/styles/*"]
+      "@shadcn-ui/styles/*": ["../../libs/shadcn-ui/src/styles/*"],
+      "@fs/intl": ["../../libs/shared/intl/src/index.ts"]
     }
   },
   "exclude": [
@@ -32,7 +33,8 @@
     "src/**/*.stories.mdx",
     ".storybook/*.js",
     ".storybook/*.ts",
-    "../../libs/core-ui/**/*.stories.tsx"
+    "../../libs/core-ui/**/*.stories.tsx",
+    ".storybook/preview.tsx"
   ],
   "references": [
     {

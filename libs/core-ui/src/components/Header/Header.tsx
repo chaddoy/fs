@@ -3,12 +3,15 @@ import { Menu } from 'lucide-react';
 import { Separator } from '@shadcn-ui';
 import { HeaderProps } from './interface';
 import Text from '../Text';
+import { useIntl } from '@fs/intl';
 
 export default function Header({
   className,
   color = 'forestGreen',
   ...props
 }: HeaderProps) {
+  const { t } = useIntl();
+
   return (
     <div
       className={clsx(
@@ -24,13 +27,13 @@ export default function Header({
 
       <div className="flex items-center gap-2">
         <Text size="xl" weight="semibold">
-          THE GROOM SQUAD
+          {t('brand').toUpperCase()}
         </Text>
 
         <Separator orientation="vertical" className="h-3" />
 
         <Text size="xs" weight="medium">
-          SUIT GALLERY
+          {t('tagline').toUpperCase()}
         </Text>
       </div>
     </div>

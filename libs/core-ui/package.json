@@ -10,5 +10,9 @@
       "default": "./src/index.ts"
     },
     "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@fs/intl": "*",
+    "react-intl": "*"
   }
 }
