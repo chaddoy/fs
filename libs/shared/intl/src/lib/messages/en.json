@@ -1,4 +1,18 @@
 {
   "brand": "The Groom Squad",
-  "tagline": "Suit Gallery"
+  "tagline": "Suit Gallery",
+  "Collection": "Collection",
+  "Tuxedos & Suits": "Tuxedos & Suits",
+  "Shirts": "Shirts",
+  "Vests & Cummerbunds": "Vests & Cummerbunds",
+  "Ties": "Ties",
+  "Accessories": "Accessories",
+  "Occasions": "Occasions",
+  "Weddings": "Weddings",
+  "Proms & School Formals": "Proms & School Formals",
+  "Business Events": "Business Events",
+  "Black Tie Events": "Black Tie Events",
+  "Graduations": "Graduations",
+  "Showroom": "Showroom",
+  "Schedule": "Schedule"
 }

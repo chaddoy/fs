@@ -3,6 +3,7 @@ import {
   Button as ShadcnButton,
   ButtonProps as ShadcnButtonProps,
 } from '@shadcn-ui/components/ui/button';
+import clsx from 'clsx';
 
 interface ButtonProps extends ShadcnButtonProps {
   loading?: boolean;
@@ -13,10 +14,15 @@ export default function Button({
   children,
   loading,
   loadingText = 'Please wait',
+  className,
   ...props
 }: ButtonProps) {
   return (
-    <ShadcnButton {...props} disabled={loading || props.disabled}>
+    <ShadcnButton
+      {...props}
+      className={clsx(className)}
+      disabled={loading || props.disabled}
+    >
       {loading && <Loader2 className="animate-spin" />}
       {loading ? loadingText : children}
     </ShadcnButton>

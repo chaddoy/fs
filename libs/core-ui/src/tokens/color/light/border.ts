@@ -5,7 +5,8 @@ const semanticBorderConfigs = [
   {
     key: 'default',
     value: palette.grey[200],
-    description: 'Use to visually group or separate UI elements, such as flat cards or side panel dividers.',
+    description:
+      'Use to visually group or separate UI elements, such as flat cards or side panel dividers.',
     palette: 'grey/200',
   },
   {
@@ -23,7 +24,8 @@ const semanticBorderConfigs = [
   {
     key: 'accent.coffeeBrown',
     value: palette.coffeeBrown[500],
-    description: 'Use for coffeeBrown borders on non-bold backgrounds when there is no meaning tied to the color.',
+    description:
+      'Use for coffeeBrown borders on non-bold backgrounds when there is no meaning tied to the color.',
     palette: 'coffeeBrown/500',
   },
   {
@@ -41,7 +43,8 @@ const semanticBorderConfigs = [
   {
     key: 'input',
     value: palette.grey[400],
-    description: 'Use for borders of form UI elements, such as text fields, checkboxes, and radio buttons.',
+    description:
+      'Use for borders of form UI elements, such as text fields, checkboxes, and radio buttons.',
     palette: 'grey/400',
   },
   {
@@ -53,19 +56,22 @@ const semanticBorderConfigs = [
   {
     key: 'selected',
     value: palette.forestGreen[600],
-    description: 'Use for borders or visual indicators of elements in a selected or opened state, such as in tabs or menu items.',
+    description:
+      'Use for borders or visual indicators of elements in a selected or opened state, such as in tabs or menu items.',
     palette: 'forestGreen/600',
   },
   {
     key: 'brand',
     value: palette.forestGreen[600],
-    description: 'Use for borders or visual indicators of elements that reinforce our brand, such as logos or primary buttons.',
+    description:
+      'Use for borders or visual indicators of elements that reinforce our brand, such as logos or primary buttons.',
     palette: 'forestGreen/600',
   },
   {
     key: 'danger',
     value: palette.crimsonRed[500],
-    description: 'Use for borders communicating critical information, such as the borders on invalid text fields.',
+    description:
+      'Use for borders communicating critical information, such as the borders on invalid text fields.',
     palette: 'crimsonRed/500',
   },
   {
@@ -77,19 +83,22 @@ const semanticBorderConfigs = [
   {
     key: 'success',
     value: palette.mossGreen[500],
-    description: 'Use for borders communicating a favorable outcome, such as the borders on validated text fields.',
+    description:
+      'Use for borders communicating a favorable outcome, such as the borders on validated text fields.',
     palette: 'mossGreen/500',
   },
   {
     key: 'discovery',
     value: palette.burntOrange[500],
-    description: 'Use for borders communicating change or something new, such as the borders in onboarding spotlights.',
+    description:
+      'Use for borders communicating change or something new, such as the borders in onboarding spotlights.',
     palette: 'burntOrange/500',
   },
   {
     key: 'information',
     value: palette.royalBlue[500],
-    description: 'Use for borders communicating information or something in-progress.',
+    description:
+      'Use for borders communicating information or something in-progress.',
     palette: 'royalBlue/500',
   },
   {
@@ -103,7 +112,8 @@ const semanticBorderConfigs = [
 const border = {
   ...generateSemanticTokens(semanticBorderConfigs),
   ...getPaletteTokens(
-    key => `Use for ${key} borders on non-bold backgrounds when there is no meaning tied to the color.`
+    (key) =>
+      `Use for ${key} borders on non-bold backgrounds when there is no meaning tied to the color.`
   ),
 };
 

@@ -51,23 +51,27 @@ export const createStateVariants = (
   colorScale: ColorScale,
   config: TokenConfig,
   colorKey: string
-): PaletteValue => ({
-  [baseKey]: createToken(
-    colorScale[config.baseScale],
-    config.description(colorKey),
-    `${colorKey}/${config.baseScale}`
-  ),
-  [`${baseKey}.hovered`]: createToken(
-    colorScale[config.hoveredScale],
-    config.description(colorKey),
-    `${colorKey}/${config.hoveredScale}`
-  ),
-  [`${baseKey}.pressed`]: createToken(
-    colorScale[config.pressedScale],
-    config.description(colorKey),
-    `${colorKey}/${config.pressedScale}`
-  ),
-});
+): PaletteValue => {
+  const cleanBaseKey = baseKey.endsWith('.') ? baseKey.slice(0, -1) : baseKey;
+
+  return {
+    [cleanBaseKey]: createToken(
+      colorScale[config.baseScale],
+      config.description(colorKey),
+      `${colorKey}/${config.baseScale}`
+    ),
+    [`${cleanBaseKey}-hovered`]: createToken(
+      colorScale[config.hoveredScale],
+      config.description(colorKey),
+      `${colorKey}/${config.hoveredScale}`
+    ),
+    [`${cleanBaseKey}-pressed`]: createToken(
+      colorScale[config.pressedScale],
+      config.description(colorKey),
+      `${colorKey}/${config.pressedScale}`
+    ),
+  };
+};
 
 export const generateColorTokens = (
   colorKey: string,

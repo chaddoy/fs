@@ -37,7 +37,7 @@ export default function Text({
         strikethrough && 'line-through',
         truncate && 'truncate',
         underline && 'underline',
-        weight && `font-${weight}`,
+        weight && `font-${weight || 'normal'}`,
         wrap && 'whitespace-pre-wrap',
         className
       )}

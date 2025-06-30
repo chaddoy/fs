@@ -1,0 +1,7 @@
+.navigation-menu div[style="position: relative;"] {
+  height: 100%;
+}
+
+.navigation-menu svg {
+  display: none;
+}

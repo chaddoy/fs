@@ -2,7 +2,12 @@ export interface HeaderProps {
   children?: React.ReactNode;
   className?: string;
   color?: 'forestGreen' | 'jetBlack';
-  /** Additional props for accessibility */
-  'aria-label'?: string;
-  'aria-describedby'?: string;
+  onMenuClick?: () => void;
+  onHomeClick?: () => void;
+}
+
+export interface MenuItemProps {
+  label: string;
+  href: string;
+  children?: MenuItemProps[];
 }

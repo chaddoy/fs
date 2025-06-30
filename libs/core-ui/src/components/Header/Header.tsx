@@ -1,41 +1,35 @@
-import clsx from 'clsx';
-import { Menu } from 'lucide-react';
-import { Separator } from '@shadcn-ui';
+import { AnimatePresence, motion, Transition } from 'motion/react';
 import { HeaderProps } from './interface';
-import Text from '../Text';
-import { useIntl } from '@fs/intl';
+import MobileHeader from './MobileHeader';
+import DesktopHeader from './DesktopHeader';
 
 export default function Header({
   className,
   color = 'forestGreen',
-  ...props
 }: HeaderProps) {
-  const { t } = useIntl();
-
   return (
-    <div
-      className={clsx(
-        '',
-        'h-[58px] flex items-center gap-4 p-4 text-inverse',
-        color === 'forestGreen' && 'bg-forestGreen-900',
-        color === 'jetBlack' && 'bg-jetBlack-900',
-        className
-      )}
-      {...props}
-    >
-      <Menu className="size-6" />
+    <div className="relative">
+      <AnimatePresence>
+        <motion.div
+          key="mobile-header"
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] } as Transition}
+          className="block md:hidden"
+        >
+          <MobileHeader className={className} color={color} />
+        </motion.div>
 
-      <div className="flex items-center gap-2">
-        <Text size="xl" weight="semibold">
-          {t('brand').toUpperCase()}
-        </Text>
-
-        <Separator orientation="vertical" className="h-3" />
-
-        <Text size="xs" weight="medium">
-          {t('tagline').toUpperCase()}
-        </Text>
-      </div>
+        <motion.div
+          key="desktop-header"
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] } as Transition}
+          className="hidden md:block"
+        >
+          <DesktopHeader />
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }

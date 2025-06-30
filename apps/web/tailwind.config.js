@@ -27,6 +27,12 @@ module.exports = {
       },
       backgroundColor: {
         ...tokens.colors.light.background,
+        interaction: {
+          ...tokens.colors.light.interaction,
+        },
+      },
+      borderColor: {
+        ...tokens.colors.light.border,
       },
       borderRadius: {
         lg: 'var(--radius)',
