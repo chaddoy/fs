@@ -13,6 +13,7 @@ const tokens = {
       skeleton: extractValues(color.light.skeleton),
       blanket: extractValues(color.light.blanket),
     },
+    palette: color.palette,
   },
 };
 

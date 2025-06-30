@@ -4,6 +4,9 @@ import Text from './Text';
 const meta: Meta<typeof Text> = {
   title: 'Typography/Text',
   component: Text,
+  parameters: {
+    layout: 'fullscreen',
+  },
   tags: ['autodocs'],
   argTypes: {
     children: {

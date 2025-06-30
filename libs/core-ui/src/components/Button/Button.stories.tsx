@@ -7,6 +7,9 @@ const meta = {
   component: Button,
   title: 'Elements/Button',
   tags: ['autodocs'],
+  parameters: {
+    layout: 'fullscreen',
+  },
   //👇 Our exports that end in "Data" are not stories.
   excludeStories: /.*Data$/,
   args: {

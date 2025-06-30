@@ -34,6 +34,7 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
+        ...tokens.colors.palette,
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

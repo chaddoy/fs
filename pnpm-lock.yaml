@@ -286,6 +286,12 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(@types/react@19.0.0)(react@19.0.0)
 
+  libs/shared/intl:
+    dependencies:
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+
   tools/generators:
     dependencies:
       '@nx/devkit':

@@ -4,6 +4,9 @@ import AnnouncementBar from './AnnouncementBar';
 const meta: Meta<typeof AnnouncementBar> = {
   title: 'Components/AnnouncementBar',
   component: AnnouncementBar,
+  parameters: {
+    layout: 'fullscreen',
+  },
   tags: ['autodocs'],
   argTypes: {
     children: {

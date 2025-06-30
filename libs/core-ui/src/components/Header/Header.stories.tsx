@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import <%= className %> from './<%= fileName %>';
+import Header from './Header';
 
-const meta: Meta<typeof <%= className %>> = {
-  title: '<%= storyGroup %>/<%= className %>',
-  component: <%= className %>,
+const meta: Meta<typeof Header> = {
+  title: 'Components/Header',
+  component: Header,
   parameters: {
     layout: 'fullscreen',
   },
@@ -25,19 +25,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: '<%= className %> Component',
+    children: 'Header Component',
   },
 };
 
 export const WithCustomContent: Story = {
   args: {
-    children: 'This is custom content for the <%= className %> component',
+    children: 'This is custom content for the Header component',
   },
 };
 
 export const WithCustomClassName: Story = {
   args: {
-    children: '<%= className %> with custom styling',
+    children: 'Header with custom styling',
     className: 'bg-blue-100 p-4 rounded-lg',
   },
 };
