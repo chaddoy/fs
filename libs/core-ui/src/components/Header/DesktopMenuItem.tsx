@@ -5,19 +5,25 @@ import {
   NavigationMenuList,
   NavigationMenu,
   NavigationMenuIndicator,
+  navigationMenuTriggerStyle,
 } from '@shadcn-ui';
 import Text from '../Text';
 import { MenuItemProps } from './interface';
 import { useIntl } from '@fs/intl';
 
-const DesktopMenuItem = ({ label, href, children = [] }: MenuItemProps) => {
+const DesktopMenuItem = ({ label, children = [] }: MenuItemProps) => {
   const { t } = useIntl();
 
   return (
     <NavigationMenu className="navigation-menu h-full flex">
       <NavigationMenuList className="h-full">
         <NavigationMenuItem className="h-full">
-          <NavigationMenuTrigger className="trigger h-full flex items-center p-3 cursor-pointer">
+          <NavigationMenuTrigger
+            className={navigationMenuTriggerStyle({
+              className:
+                'h-full flex items-center p-3 cursor-pointer rounded-none',
+            })}
+          >
             <Text size="sm" weight="normal">
               {t(label)}
             </Text>
@@ -25,7 +31,7 @@ const DesktopMenuItem = ({ label, href, children = [] }: MenuItemProps) => {
 
           <NavigationMenuContent>
             <ul className="flex flex-col w-max">
-              {children.map(({ label, href }, index) => (
+              {children.map(({ label }, index) => (
                 <li
                   key={`desktop-child-${index}`}
                   className="px-4 py-3 w-full hover:bg-accent.grey.subtlest-hovered cursor-pointer"

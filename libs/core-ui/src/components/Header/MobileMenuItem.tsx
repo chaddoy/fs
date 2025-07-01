@@ -22,9 +22,9 @@ const MobileMenuItem = ({ label, href, children = [] }: MenuItemProps) => {
         {children.length > 0 && (
           <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
             {isOpen ? (
-              <Minus className="size-5 text-default" />
+              <Minus className="size-5 text-default" data-testid="minus-icon" />
             ) : (
-              <Plus className="size-5 text-default" />
+              <Plus className="size-5 text-default" data-testid="plus-icon" />
             )}
           </motion.div>
         )}

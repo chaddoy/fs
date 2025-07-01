@@ -4,7 +4,12 @@
     "outDir": "./out-tsc/jest",
     "jsx": "react-jsx",
     "types": ["jest", "node"],
-    "lib": ["dom", "dom.iterable", "es6"]
+    "lib": ["dom", "dom.iterable", "es6"],
+    "paths": {
+      "@shadcn-ui": ["../shadcn-ui/src/index.ts"],
+      "@shadcn-ui/*": ["../shadcn-ui/src/*"],
+      "@fs/intl": ["../shared/intl/src/index.ts"]
+    }
   },
   "include": [
     "jest.config.ts",
@@ -21,6 +26,9 @@
   "references": [
     {
       "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "../shared/intl"
     }
   ]
 }

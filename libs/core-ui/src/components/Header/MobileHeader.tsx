@@ -4,7 +4,7 @@ import MobileMenuItem from './MobileMenuItem';
 import { Separator } from '@shadcn-ui';
 import Text from '../Text';
 import { Menu } from 'lucide-react';
-import { clsx } from 'clsx';
+import clsx from 'clsx';
 import { HeaderProps } from './interface';
 import { useState } from 'react';
 import { useIntl } from '@fs/intl';
@@ -33,7 +33,6 @@ const MobileHeader = ({
     <>
       <div
         className={clsx(
-          '',
           'h-[58px] flex items-center gap-4 p-4 text-inverse',
           color === 'forestGreen' && 'bg-forestGreen-900',
           color === 'jetBlack' && 'bg-jetBlack-900',

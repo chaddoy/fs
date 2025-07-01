@@ -41,7 +41,7 @@ const DesktopHeader = ({ onHomeClick }: HeaderProps) => {
       <div className="flex items-center gap-4 h-full">
         <Separator orientation="vertical" className="h-6 bg-extras-charcoal" />
 
-        <div className="flex items-center h-full gap-4">
+        <div className="flex items-center h-full gap-0">
           {MENU_ITEMS.map((item, index) => (
             <DesktopMenuItem key={`desktop-menu-item-${index}`} {...item} />
           ))}
