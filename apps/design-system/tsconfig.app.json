@@ -43,13 +43,7 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
-      "path": "../../libs/core-ui"
-    },
-    {
-      "path": "../../libs/shadcn-ui"
-    },
-    {
-      "path": "../../libs/shared/intl"
+      "path": "../../libs/shared/intl/tsconfig.lib.json"
     }
   ]
 }

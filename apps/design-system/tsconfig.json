@@ -3,16 +3,13 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/shared/intl"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {
       "path": "./tsconfig.storybook.json"
-    },
-    {
-      "path": "../../libs/core-ui"
-    },
-    {
-      "path": "../../libs/shared/intl"
     }
   ],
   "extends": "../../tsconfig.base.json"

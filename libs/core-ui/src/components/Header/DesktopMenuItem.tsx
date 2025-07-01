@@ -21,7 +21,7 @@ const DesktopMenuItem = ({ label, children = [] }: MenuItemProps) => {
           <NavigationMenuTrigger
             className={navigationMenuTriggerStyle({
               className:
-                'h-full flex items-center p-3 cursor-pointer rounded-none',
+                'h-full flex items-center p-3 cursor-pointer rounded-none hover:border-b-2 border-forestGreen-600',
             })}
           >
             <Text size="sm" weight="normal">

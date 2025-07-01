@@ -128,6 +128,8 @@ describe('DesktopMenuItem', () => {
     expect(trigger.className).toContain('p-3');
     expect(trigger.className).toContain('cursor-pointer');
     expect(trigger.className).toContain('rounded-none');
+    expect(trigger.className).toContain('hover:border-b-2');
+    expect(trigger.className).toContain('border-forestGreen-600');
   });
 
   it('renders submenu items in list structure', () => {

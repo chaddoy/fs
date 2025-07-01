@@ -51,9 +51,6 @@
   ],
   "references": [
     {
-      "path": "../../libs/shadcn-ui"
-    },
-    {
       "path": "../../libs/core-ui"
     }
   ]
