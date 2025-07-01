@@ -28,20 +28,3 @@ export const Default: Story = {
     color: 'jetBlack',
   },
 };
-
-export const WithCustomContent: Story = {
-  args: {
-    children: 'This is custom content for the Header component',
-  },
-};
-
-export const WithCustomClassName: Story = {
-  args: {
-    children: 'Header with custom styling',
-    className: 'bg-blue-100 p-4 rounded-lg',
-  },
-};
-
-export const Empty: Story = {
-  args: {},
-};
