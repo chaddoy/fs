@@ -21,7 +21,8 @@
     "src/**/*.spec.js",
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "../../libs/shadcn-ui/src/**/*"
   ],
   "references": [
     {
@@ -29,6 +30,9 @@
     },
     {
       "path": "../shared/intl"
+    },
+    {
+      "path": "../../libs/shadcn-ui"
     }
   ]
 }
