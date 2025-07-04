@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { ComponentProps } from 'react';
 import {
   NavigationMenu,
@@ -99,8 +100,21 @@ const renderWithIntl = (component: React.ReactElement) => {
 describe('Header', () => {
   it('renders correctly with default props', () => {
     renderWithIntl(<Header />);
-    screen.debug();
-    expect(document.body).not.toBeFalsy();
+
+    const headerContainer = screen.getByTestId('header-container');
+    expect(headerContainer).toHaveClass('relative');
+
+    const brandElements = screen.getAllByText('BRAND');
+    const taglineElements = screen.getAllByText('TAGLINE');
+
+    expect(brandElements).toHaveLength(2);
+    expect(taglineElements).toHaveLength(2);
+
+    const mobileSection = brandElements[0].closest('.block.md\\:hidden');
+    const desktopSection = brandElements[1].closest('.hidden.md\\:block');
+
+    expect(mobileSection).toBeInTheDocument();
+    expect(desktopSection).toBeInTheDocument();
   });
 
   it('renders with custom className', () => {

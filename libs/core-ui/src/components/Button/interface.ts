@@ -1,17 +1,5 @@
 import { ButtonProps as ShadcnButtonProps } from '@shadcn-ui';
 
-export type IconButtonVariant =
-  | 'icon'
-  | 'icon-secondary'
-  | 'icon-outline'
-  | 'icon-ghost'
-  | 'icon-link'
-  | 'icon-danger'
-  | 'icon-warning'
-  | 'icon-discovery'
-  | 'icon-information'
-  | 'icon-success';
-
 export type ButtonVariant =
   | 'default'
   | 'secondary'
@@ -22,7 +10,13 @@ export type ButtonVariant =
   | 'warning'
   | 'discovery'
   | 'information'
-  | 'success';
+  | 'success'
+  | 'icon';
+
+export type IconButtonVariant = `icon-${Exclude<
+  ButtonVariant,
+  'default' | 'icon'
+>}`;
 
 export interface ButtonProps extends Omit<ShadcnButtonProps, 'variant'> {
   variant?: ButtonVariant | IconButtonVariant;
