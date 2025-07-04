@@ -20,12 +20,27 @@ export default function HeroContent() {
         {t('YOUR NEW GO-TO')}
       </Text>
 
-      <div className="flex flex-col items-center gap-8">
+      <div className="flex flex-col items-center gap-4">
         <div className="flex flex-col items-center">
-          <Text as="h1" size="2xl" className="text-default font-montserrat m-0">
+          <Text
+            as="h1"
+            size="2xl"
+            className={clsx([
+              'text-default font-montserrat m-0',
+              'md:text-3xl',
+              'lg:text-4xl',
+            ])}
+          >
             {t('Suits for the Groom')}
           </Text>
-          <Text as="h2" size="2xl" className="text-default font-inter m-0">
+          <Text
+            as="h2"
+            size="2xl"
+            className={clsx([
+              'text-default font-inter m-0',
+              'md:text-2xl lg:text-3xl',
+            ])}
+          >
             {t('and the Squad')}
           </Text>
         </div>
@@ -35,8 +50,10 @@ export default function HeroContent() {
         </Text>
 
         <div className="flex gap-6">
-          <Button size="lg">{t('Collection')}</Button>
-          <Button size="lg" variant="outline">
+          <Button size="lg" className="md:w-28">
+            {t('Collection')}
+          </Button>
+          <Button size="lg" variant="outline" className="md:w-28">
             {t('Showroom')}
           </Button>
         </div>
