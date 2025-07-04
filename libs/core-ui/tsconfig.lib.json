@@ -36,6 +36,9 @@
   "references": [
     {
       "path": "../shared/intl/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/shadcn-ui"
     }
   ]
 }

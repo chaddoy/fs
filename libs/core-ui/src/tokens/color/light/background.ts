@@ -202,7 +202,7 @@ const semanticConfigs: SemanticConfig[] = [
     key: 'danger.bold',
     color: 'crimsonRed',
     baseScale: '600',
-    hoveredScale: '600',
+    hoveredScale: '700',
     pressedScale: '800',
     description:
       'A vibrant background option for communicating critical information, such as in danger buttons and error banners.',
@@ -219,9 +219,9 @@ const semanticConfigs: SemanticConfig[] = [
   {
     key: 'warning.bold',
     color: 'orangePeel',
-    baseScale: '200',
-    hoveredScale: '300',
-    pressedScale: '400',
+    baseScale: '400',
+    hoveredScale: '500',
+    pressedScale: '600',
     description:
       'A vibrant background option for communicating caution, such as in warning buttons and warning banners.',
   },
@@ -237,15 +237,15 @@ const semanticConfigs: SemanticConfig[] = [
   {
     key: 'success.bold',
     color: 'mossGreen',
-    baseScale: '200',
-    hoveredScale: '300',
-    pressedScale: '400',
+    baseScale: '600',
+    hoveredScale: '700',
+    pressedScale: '800',
     description:
       'A vibrant background option for communicating a favorable outcome, such as in checked toggles.',
   },
   {
     key: 'discovery',
-    color: 'burntOrange',
+    color: 'royalPurple',
     baseScale: '50',
     hoveredScale: '100',
     pressedScale: '200',
@@ -254,7 +254,7 @@ const semanticConfigs: SemanticConfig[] = [
   },
   {
     key: 'discovery.bold',
-    color: 'burntOrange',
+    color: 'royalPurple',
     baseScale: '600',
     hoveredScale: '700',
     pressedScale: '800',

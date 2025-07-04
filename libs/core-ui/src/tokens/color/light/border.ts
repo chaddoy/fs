@@ -76,9 +76,9 @@ const semanticBorderConfigs = [
   },
   {
     key: 'warning',
-    value: palette.burntOrange[500],
+    value: palette.orangePeel[500],
     description: 'Use for borders communicating caution.',
-    palette: 'burntOrange/500',
+    palette: 'orangePeel/500',
   },
   {
     key: 'success',
@@ -89,10 +89,10 @@ const semanticBorderConfigs = [
   },
   {
     key: 'discovery',
-    value: palette.burntOrange[500],
+    value: palette.royalPurple[500],
     description:
       'Use for borders communicating change or something new, such as the borders in onboarding spotlights.',
-    palette: 'burntOrange/500',
+    palette: 'royalPurple/500',
   },
   {
     key: 'information',

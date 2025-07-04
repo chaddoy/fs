@@ -62,10 +62,10 @@ const semanticTextConfigs = [
   },
   {
     key: 'discovery',
-    value: palette.burntOrange[700],
+    value: palette.royalPurple[700],
     description:
       'Use for text to emphasize change or something new, such as in new lozenges.',
-    palette: 'burntOrange/700',
+    palette: 'royalPurple/700',
   },
   {
     key: 'information',

@@ -24,8 +24,8 @@ type PaletteValue = {
 type TokenConfig = {
   suffix: string;
   baseScale: keyof ColorScale;
-  hoveredScale: keyof ColorScale;
-  pressedScale: keyof ColorScale;
+  hoveredScale?: keyof ColorScale;
+  pressedScale?: keyof ColorScale;
   description: (key: string) => string;
 };
 
@@ -60,16 +60,20 @@ export const createStateVariants = (
       config.description(colorKey),
       `${colorKey}/${config.baseScale}`
     ),
-    [`${cleanBaseKey}-hovered`]: createToken(
-      colorScale[config.hoveredScale],
-      config.description(colorKey),
-      `${colorKey}/${config.hoveredScale}`
-    ),
-    [`${cleanBaseKey}-pressed`]: createToken(
-      colorScale[config.pressedScale],
-      config.description(colorKey),
-      `${colorKey}/${config.pressedScale}`
-    ),
+    ...(config.hoveredScale && {
+      [`${cleanBaseKey}.hovered`]: createToken(
+        colorScale[config.hoveredScale],
+        config.description(colorKey),
+        `${colorKey}/${config.hoveredScale}`
+      ),
+    }),
+    ...(config.pressedScale && {
+      [`${cleanBaseKey}.pressed`]: createToken(
+        colorScale[config.pressedScale],
+        config.description(colorKey),
+        `${colorKey}/${config.pressedScale}`
+      ),
+    }),
   };
 };
 
@@ -127,16 +131,12 @@ export const getPaletteTextTokens = (): PaletteValue => {
     {
       suffix: '',
       baseScale: '700',
-      hoveredScale: '700',
-      pressedScale: '700',
       description: (key: string) =>
         `Use for ${key} text on subtlest and subtler ${key} accent backgrounds when there is no meaning tied to the color.`,
     },
     {
       suffix: 'bolder',
       baseScale: '800',
-      hoveredScale: '800',
-      pressedScale: '800',
       description: (key: string) =>
         `Use for ${key} text on subtle ${key} accent backgrounds when there is no meaning tied to the color.`,
     },
