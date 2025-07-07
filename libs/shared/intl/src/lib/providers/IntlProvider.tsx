@@ -15,7 +15,7 @@ export function IntlProvider({ children, locale = 'en' }: IntlProviderProps) {
   return (
     <ReactIntlProvider
       locale={locale}
-      messages={messages[locale as keyof typeof messages] || messages.en}
+      messages={messages[locale as keyof typeof messages]}
       defaultLocale="en"
     >
       {children}

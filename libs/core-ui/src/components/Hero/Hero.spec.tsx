@@ -14,7 +14,6 @@ import {
 import Text from '../Text';
 import Button from '../Button';
 
-// Mock dependencies
 jest.mock('@fs/intl', () => ({
   useIntl: () => ({
     t: (key: string) => key,
@@ -98,7 +97,6 @@ jest.mock('../Button', () => ({
   ),
 }));
 
-// Mock image imports
 jest.mock(
   '../../assets/images/hero/hero-image-1.jpg',
   () => 'hero-image-1.jpg'
@@ -129,7 +127,6 @@ describe('Hero', () => {
     it('renders the hero component with default structure', () => {
       render(<Hero />);
 
-      // Check main container
       const heroContainer = screen.getByTestId('hero-container');
       expect(heroContainer).toHaveClass(
         'flex',
@@ -157,10 +154,7 @@ describe('Hero', () => {
     it('renders hero content with correct structure', () => {
       render(<Hero />);
 
-      // Check main content container
-      const contentContainer = screen
-        .getByText('YOUR NEW GO-TO')
-        .closest('div');
+      const contentContainer = screen.getByText('HERO.EYEBROW').closest('div');
       expect(contentContainer).toHaveClass(
         'flex',
         'flex-col',
@@ -182,36 +176,28 @@ describe('Hero', () => {
     it('renders all text elements with correct content', () => {
       render(<Hero />);
 
-      expect(screen.getByText('YOUR NEW GO-TO')).toBeTruthy();
-      expect(screen.getByText('Suits for the Groom')).toBeTruthy();
-      expect(screen.getByText('and the Squad')).toBeTruthy();
-      expect(
-        screen.getByText('Sharp style for unforgettable days.')
-      ).toBeTruthy();
+      expect(screen.getByText('HERO.EYEBROW')).toBeTruthy();
+      expect(screen.getByText('hero.title')).toBeTruthy();
+      expect(screen.getByText('hero.subtitle')).toBeTruthy();
     });
 
     it('renders text elements with correct styling', () => {
       render(<Hero />);
 
-      const accentText = screen.getByText('YOUR NEW GO-TO');
+      const accentText = screen.getByText('HERO.EYEBROW');
       expect(accentText).toHaveClass(
         'text-accent.amberGold',
         'font-barlowCondensed',
         'tracking-widest'
       );
 
-      const title1 = screen.getByText('Suits for the Groom');
-      expect(title1).toHaveClass('text-default', 'font-montserrat', 'm-0');
+      const title = screen.getByText('hero.title');
+      expect(title).toHaveClass('text-default', 'font-playfairDisplay', 'm-0');
 
-      const title2 = screen.getByText('and the Squad');
-      expect(title2).toHaveClass('text-default', 'font-inter', 'm-0');
-
-      const description = screen.getByText(
-        'Sharp style for unforgettable days.'
-      );
+      const description = screen.getByText('hero.subtitle');
       expect(description).toHaveClass(
-        'text-extras-charcoal',
-        'font-robotoCondensed'
+        'text-accent.jetBlack.bolder',
+        'font-inter'
       );
     });
 
@@ -305,10 +291,8 @@ describe('Hero', () => {
       render(<Hero />);
 
       const h1 = screen.getByRole('heading', { level: 1 });
-      const h2 = screen.getByRole('heading', { level: 2 });
 
-      expect(h1).toHaveTextContent('Suits for the Groom');
-      expect(h2).toHaveTextContent('and the Squad');
+      expect(h1).toHaveTextContent('hero.title');
     });
 
     it('has proper button accessibility', () => {
@@ -339,9 +323,7 @@ describe('Hero', () => {
       const heroContainer = screen.getByTestId('hero-container');
       expect(heroContainer).toHaveClass('flex-col', 'md:flex-row-reverse');
 
-      const contentContainer = screen
-        .getByText('YOUR NEW GO-TO')
-        .closest('div');
+      const contentContainer = screen.getByText('HERO.EYEBROW').closest('div');
       expect(contentContainer).toHaveClass(
         'w-full',
         'md:w-[calc(80%-4px)]',
@@ -361,17 +343,12 @@ describe('Hero', () => {
     it('renders complete hero section with all components', () => {
       render(<Hero />);
 
-      // Check all major sections are present
-      expect(screen.getByText('YOUR NEW GO-TO')).toBeTruthy();
-      expect(screen.getByText('Suits for the Groom')).toBeTruthy();
-      expect(screen.getByText('and the Squad')).toBeTruthy();
-      expect(
-        screen.getByText('Sharp style for unforgettable days.')
-      ).toBeTruthy();
+      expect(screen.getByText('HERO.EYEBROW')).toBeTruthy();
+      expect(screen.getByText('hero.title')).toBeTruthy();
+      expect(screen.getByText('hero.subtitle')).toBeTruthy();
       expect(screen.getByText('Collection')).toBeTruthy();
       expect(screen.getByText('Showroom')).toBeTruthy();
 
-      // Check carousel is present
       expect(screen.getByTestId('carousel')).toBeTruthy();
       expect(screen.getAllByRole('img')).toHaveLength(
         DEFAULT_HERO_IMAGES.length
@@ -389,7 +366,6 @@ describe('Hero', () => {
       const collectionButton = buttons[0];
       const showroomButton = buttons[1];
 
-      // Add click handlers directly
       collectionButton.onclick = onCollectionClick;
       showroomButton.onclick = onShowroomClick;
 
@@ -405,9 +381,8 @@ describe('Hero', () => {
     it('renders without children', () => {
       render(<Hero />);
 
-      // Should still render the default hero content
-      expect(screen.getByText('YOUR NEW GO-TO')).toBeTruthy();
-      expect(screen.getByText('Suits for the Groom')).toBeTruthy();
+      expect(screen.getByText('HERO.EYEBROW')).toBeTruthy();
+      expect(screen.getByText('hero.title')).toBeTruthy();
     });
 
     it('handles multiple className props', () => {

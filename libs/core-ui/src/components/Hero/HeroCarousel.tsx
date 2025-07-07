@@ -6,6 +6,7 @@ import {
   CarouselItem,
 } from '@shadcn-ui';
 import Autoplay from 'embla-carousel-autoplay';
+import Fade from 'embla-carousel-fade';
 import { DEFAULT_HERO_IMAGES } from './constants';
 
 export default function HeroCarousel() {
@@ -18,6 +19,7 @@ export default function HeroCarousel() {
           stopOnInteraction: false,
           stopOnMouseEnter: true,
         }),
+        Fade(),
       ]}
     >
       <CarouselContent className="gap-0">
