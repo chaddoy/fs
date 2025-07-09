@@ -9,9 +9,9 @@ export const SHADCN_VARIANTS = [
 
 export const BUTTON_VARIANT_STYLES = {
   default: [
-    'bg-brand.bold',
-    'hover:bg-brand.bold.hovered',
-    'active:bg-brand.bold.pressed',
+    'bg-brand.boldest',
+    'hover:bg-brand.boldest.hovered',
+    'active:bg-brand.boldest.pressed',
     'focus-visible:ring-forestGreen-400 focus-visible:ring-2',
   ],
   secondary: [
