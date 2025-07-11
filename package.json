@@ -12,7 +12,7 @@
     "web:e2e": "nx e2e web",
     "web:build": "nx build web",
     "web:static": "nx start web",
-    "core-ui:test": "nx test core-ui",
+    "core-ui:test": "nx test core-ui --skipSync",
     "core-ui:lint": "nx lint core-ui",
     "shadcn-ui:test": "nx test shadcn-ui",
     "shadcn-ui:lint": "nx lint shadcn-ui",
