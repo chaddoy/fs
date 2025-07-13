@@ -2,12 +2,12 @@ import { AnimatePresence, motion, Transition } from 'motion/react';
 import { CONFIG, MENU_ITEMS } from './constants';
 import MobileMenuItem from './MobileMenuItem';
 import { Separator } from '@shadcn-ui';
-import Text from '../Text';
 import { Menu } from 'lucide-react';
 import clsx from 'clsx';
 import { HeaderProps } from './interface';
 import { useState } from 'react';
 import { useIntl } from '@fs/intl';
+import { H2, H5 } from '../Typography';
 
 const MobileHeader = ({
   className,
@@ -82,31 +82,25 @@ const MobileHeader = ({
           aria-labelledby="Home"
           aria-hidden={false}
         >
-          <Text
-            as="h2"
-            size="xl"
-            weight="medium"
+          <H2
             className={clsx(
-              '!pb-0',
+              'text-xl font-semibold',
               CONFIG.fontFamily.brand,
               CONFIG.mobile.color.text
             )}
           >
             {t('brand').toUpperCase()}
-          </Text>
+          </H2>
           <Separator orientation="vertical" className="h-3" />
-          <Text
-            size="sm"
-            weight="normal"
+          <H5
             className={clsx(
-              '!pb-0',
+              'font-normal tracking-widest',
               CONFIG.fontFamily.tagline,
-              CONFIG.mobile.color.text,
-              'tracking-widest'
+              CONFIG.mobile.color.text
             )}
           >
             {t('tagline').toUpperCase()}
-          </Text>
+          </H5>
         </div>
       </div>
 

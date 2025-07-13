@@ -15,6 +15,14 @@ const tokens = {
     },
     palette: color.palette,
   },
+  fontFamily: {
+    brand: ['Montserrat', 'sans-serif'],
+    tagline: ['Barlow Condensed', 'sans-serif'],
+    navigation: ['Montserrat', 'sans-serif'],
+    eyebrow: ['Barlow Condensed', 'sans-serif'],
+    headings: ['Montserrat', 'sans-serif'],
+    body: ['Inter', 'sans-serif'],
+  },
 };
 
 export const descriptiveTokens = {

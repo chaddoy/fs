@@ -34,9 +34,9 @@ describe('AnnouncementBar', () => {
     const textParent = textElement.closest('p');
     const classList = textParent?.getAttribute('class') || '';
 
-    expect(classList).toContain('text-sm');
-    expect(classList).toContain('font-medium');
-    expect(classList).toContain('text-center');
+    expect(classList).toContain(
+      'text-default font-body font-medium text-sm text-inverse truncate'
+    );
   });
 
   it('passes through accessibility props', () => {

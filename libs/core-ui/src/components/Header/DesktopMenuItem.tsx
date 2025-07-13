@@ -7,12 +7,11 @@ import {
   NavigationMenuIndicator,
   navigationMenuTriggerStyle,
 } from '@shadcn-ui/components/ui/navigation-menu';
-import Text from '../Text';
 import { MenuItemProps } from './interface';
 import { useIntl } from '@fs/intl';
 import clsx from 'clsx';
 import styles from './DesktopMenuItem.module.css';
-import { CONFIG } from './constants';
+import { P } from '../Typography';
 
 const DesktopMenuItem = ({ label, children = [] }: MenuItemProps) => {
   const { t } = useIntl();
@@ -21,10 +20,13 @@ const DesktopMenuItem = ({ label, children = [] }: MenuItemProps) => {
     <NavigationMenu
       className={clsx(styles.root, 'h-full flex', [
         '[&_[data-state="open"]]:rounded-none',
+        '[&_[data-state="open"]]:rounded-bl-[3px]',
+        '[&_[data-state="open"]]:rounded-br-[3px]',
         '[&_[data-state="open"]]:mt-0',
         '[&_[data-state="open"]]:border-bold',
         '[&_[data-state="open"]]:border-t-extras-heavyForestGreen',
         '[&_button]:hover:bg-extras-lightestForestGreen',
+        '[&_button[data-state="open"]]:rounded-none',
         '[&_button[data-state="open"]]:hover:bg-extras-lightestForestGreen',
         '[&_button[data-state="open"]]:border-b-2',
         '[&_button[data-state="open"]]:border-b-extras-heavyForestGreen',
@@ -46,13 +48,9 @@ const DesktopMenuItem = ({ label, children = [] }: MenuItemProps) => {
               ]),
             })}
           >
-            <Text
-              size="sm"
-              weight="normal"
-              className={clsx(CONFIG.fontFamily.menu)}
-            >
+            <P size="2xs" font="navigation">
               {t(label)}
-            </Text>
+            </P>
           </NavigationMenuTrigger>
 
           <NavigationMenuContent>
@@ -62,9 +60,9 @@ const DesktopMenuItem = ({ label, children = [] }: MenuItemProps) => {
                   key={`desktop-child-${index}`}
                   className="px-6 py-4 pr-14 w-full hover:bg-extras-lightestForestGreen active:bg-extras-lighterForestGreen cursor-pointer"
                 >
-                  <Text size="sm" className={clsx(CONFIG.fontFamily.menu)}>
+                  <P size="2xs" font="navigation">
                     {t(label)}
-                  </Text>
+                  </P>
                 </li>
               ))}
             </ul>

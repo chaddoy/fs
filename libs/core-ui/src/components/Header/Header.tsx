@@ -29,7 +29,7 @@ export default function Header({
           {...HEADER_ANIMATION}
           className="hidden md:block"
         >
-          <DesktopHeader />
+          <DesktopHeader color={color} />
         </motion.div>
       </AnimatePresence>
     </div>

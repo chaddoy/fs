@@ -1,10 +1,10 @@
 import { useIntl } from '@fs/intl';
-import Text from '../Text';
 import { Separator } from '@shadcn-ui';
 import { CONFIG, MENU_ITEMS } from './constants';
 import { HeaderProps } from './interface';
 import DesktopMenuItem from './DesktopMenuItem';
 import clsx from 'clsx';
+import { H1, H4 } from '../Typography';
 
 const DesktopHeader = ({ onHomeClick }: HeaderProps) => {
   const { t } = useIntl();
@@ -12,11 +12,7 @@ const DesktopHeader = ({ onHomeClick }: HeaderProps) => {
   return (
     <div className="h-20 px-8 flex items-center gap-8 border-b-2 border-bold">
       <div
-        className={clsx([
-          'flex flex-col cursor-pointer w-max shrink-0',
-          CONFIG.desktop.color.text,
-          'hover:text-forestGreen-900 active:text-forestGreen-800 select-none',
-        ])}
+        className="flex flex-col cursor-pointer w-max shrink-0 select-none group"
         onClick={onHomeClick}
         role="button"
         tabIndex={0}
@@ -34,20 +30,28 @@ const DesktopHeader = ({ onHomeClick }: HeaderProps) => {
         aria-labelledby="Home"
         aria-hidden={false}
       >
-        <Text
-          size="2xl"
-          weight="semibold"
-          className={clsx(CONFIG.fontFamily.brand)}
+        <H1
+          mobile
+          className={clsx(
+            'header-brand font-semibold',
+            CONFIG.fontFamily.brand,
+            CONFIG.desktop.color.text,
+            'group-hover:text-forestGreen-900 group-active:text-forestGreen-800'
+          )}
         >
           {t('brand').toUpperCase()}
-        </Text>
-        <Text
-          size="base"
-          weight="medium"
-          className={clsx('tracking-widest', CONFIG.fontFamily.tagline)}
+        </H1>
+        <H4
+          className={clsx(
+            'font-medium',
+            'tracking-widest',
+            CONFIG.fontFamily.tagline,
+            CONFIG.desktop.color.text,
+            'group-hover:text-forestGreen-900 group-active:text-forestGreen-800'
+          )}
         >
           {t('tagline').toUpperCase()}
-        </Text>
+        </H4>
       </div>
 
       <div className="flex items-center gap-4 h-full">

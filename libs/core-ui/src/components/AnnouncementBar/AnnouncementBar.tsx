@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import Text from '../Text';
 import { AnnouncementBarProps } from './interface';
+import { P } from '../Typography';
 
 export default function AnnouncementBar({
   children,
@@ -17,9 +17,9 @@ export default function AnnouncementBar({
       )}
       {...props}
     >
-      <Text size="sm" weight="medium" align="center" truncate>
+      <P size="2xs" bold className="text-inverse truncate">
         {children}
-      </Text>
+      </P>
     </div>
   );
 }

@@ -1,24 +1,21 @@
 import { ChevronDown } from 'lucide-react';
-import Text from '../Text';
 import { MenuItemProps } from './interface';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useIntl } from '@fs/intl';
-import { CONFIG } from './constants';
+import { P } from '../Typography';
 
 const MobileMenuItem = ({ label, href, children = [] }: MenuItemProps) => {
   const { t } = useIntl();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center border-b border-accent.grey cursor-pointer">
+    <div className="flex flex-col justify-center border-b border-extras-lightForestGreen cursor-pointer">
       <div
         className="flex justify-between items-center px-4 py-4 hover:bg-extras-lighterForestGreen active:bg-extras-lightForestGreen"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Text size="base" weight="medium" className={CONFIG.fontFamily.menu}>
-          {t(label)}
-        </Text>
+        <P font="navigation">{t(label)}</P>
 
         {children.length > 0 && (
           <motion.div animate={{ rotate: isOpen ? -180 : 0 }}>
@@ -41,13 +38,9 @@ const MobileMenuItem = ({ label, href, children = [] }: MenuItemProps) => {
                 exit={{ opacity: 0, y: -10 }}
                 className="flex items-center px-8 py-3 hover:bg-extras-lightestForestGreen active:bg-extras-lighterForestGreen"
               >
-                <Text
-                  size="sm"
-                  weight="medium"
-                  className={CONFIG.fontFamily.menu}
-                >
+                <P size="2xs" font="navigation">
                   {t(child.label)}
-                </Text>
+                </P>
               </motion.div>
             ))}
         </AnimatePresence>

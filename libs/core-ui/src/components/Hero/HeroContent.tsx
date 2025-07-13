@@ -1,7 +1,7 @@
 import { useIntl } from '@fs/intl';
-import Text from '../Text';
 import Button from '../Button';
 import clsx from 'clsx';
+import { Eyebrow, H1, P } from '../Typography';
 
 export default function HeroContent() {
   const { t } = useIntl();
@@ -9,20 +9,11 @@ export default function HeroContent() {
   return (
     <div
       className={clsx([
-        'flex flex-col justify-center items-center gap-2 pt-10 pb-16 py-2 w-full',
+        'flex flex-col justify-center items-center gap-2 pt-10 pb-16 py-2 w-full bg-extras-offWhite',
         'md:justify-center md:gap-4 md:pt-0 md:pb-0 md:w-[calc(80%-4px)]',
       ])}
     >
-      <Text
-        size="base"
-        className={clsx([
-          'text-accent.amberGold font-barlowCondensed tracking-widest text-sm md:text-base',
-          'md:hidden',
-          'lg:block',
-        ])}
-      >
-        {t('hero.eyebrow').toUpperCase()}
-      </Text>
+      <Eyebrow className="md:hidden lg:block">{t('hero.eyebrow')}</Eyebrow>
 
       <div
         className={clsx([
@@ -37,11 +28,10 @@ export default function HeroContent() {
           {t('hero.title')
             .split('\n')
             .map((line, index) => (
-              <Text
+              <H1
                 key={index}
-                as="h1"
                 className={clsx([
-                  'text-default font-playfairDisplay m-0 text-4xl text-center',
+                  `!font-${index === 0 ? 'bold' : 'normal'}`,
                   'sm:text-6xl',
                   'md:text-5xl',
                   'lg:text-6xl',
@@ -49,14 +39,13 @@ export default function HeroContent() {
                 ])}
               >
                 {line}
-              </Text>
+              </H1>
             ))}
         </div>
 
-        <Text
-          size="base"
+        <P
           className={clsx([
-            'text-accent.jetBlack.bolder font-inter text-sm text-center w-3/4',
+            'text-accent.jetBlack.bolder font-body text-sm text-center w-3/4',
             'sm:py-4 sm:text-sm',
             'md:w-4/5 md:text-sm',
             'lg:w-4/5 lg:text-base',
@@ -64,14 +53,14 @@ export default function HeroContent() {
           ])}
         >
           {t('hero.subtitle')}
-        </Text>
+        </P>
 
         <div className="flex gap-6">
           <Button size="lg" className="md:w-28 lg:w-max">
-            {t('Collection')}
+            {t('hero.button.1')}
           </Button>
           <Button size="lg" variant="outline" className="md:w-28 lg:w-32">
-            {t('Showroom')}
+            {t('hero.button.2')}
           </Button>
         </div>
       </div>

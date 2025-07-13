@@ -118,7 +118,7 @@ describe('DesktopMenuItem', () => {
 
     const navigationMenu = screen.getByTestId('navigation-menu');
     expect(navigationMenu.className).toContain(
-      'root h-full flex [&_[data-state="open"]]:rounded-none [&_[data-state="open"]]:mt-0 [&_[data-state="open"]]:border-bold [&_[data-state="open"]]:border-t-extras-heavyForestGreen [&_button]:hover:bg-extras-lightestForestGreen [&_button[data-state="open"]]:hover:bg-extras-lightestForestGreen [&_button[data-state="open"]]:border-b-2 [&_button[data-state="open"]]:border-b-extras-heavyForestGreen'
+      'root h-full flex [&_[data-state="open"]]:rounded-none [&_[data-state="open"]]:rounded-bl-[3px] [&_[data-state="open"]]:rounded-br-[3px] [&_[data-state="open"]]:mt-0 [&_[data-state="open"]]:border-bold [&_[data-state="open"]]:border-t-extras-heavyForestGreen [&_button]:hover:bg-extras-lightestForestGreen [&_button[data-state="open"]]:rounded-none [&_button[data-state="open"]]:hover:bg-extras-lightestForestGreen [&_button[data-state="open"]]:border-b-2 [&_button[data-state="open"]]:border-b-extras-heavyForestGreen'
     );
     expect(navigationMenu.className).toContain('h-full');
     expect(navigationMenu.className).toContain('flex');

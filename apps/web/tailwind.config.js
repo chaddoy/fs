@@ -83,6 +83,8 @@ module.exports = {
         },
       },
       fontFamily: {
+        ...tokens.fontFamily,
+
         barlowCondensed: ['Barlow Condensed', 'sans-serif'],
         robotoCondensed: ['Roboto Condensed', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],

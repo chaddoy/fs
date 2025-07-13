@@ -1,8 +1,8 @@
 export const CONFIG = {
   fontFamily: {
-    brand: 'font-montserrat',
-    tagline: 'font-robotoCondensed',
-    menu: 'font-montserrat',
+    brand: 'font-brand',
+    tagline: 'font-tagline',
+    menu: 'font-navigation',
   },
   mobile: {
     color: {
