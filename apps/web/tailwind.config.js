@@ -1,4 +1,4 @@
-const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+// const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
 const tokens = require('../../libs/core-ui/src/tokens');
 
 // The above utility import will not work if you are using Next.js' --turbo.
@@ -18,7 +18,7 @@ module.exports = {
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html,story.mdx}',
     '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
     '../../libs/core-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
-    ...createGlobPatternsForDependencies(__dirname),
+    // ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {
@@ -86,9 +86,11 @@ module.exports = {
         barlowCondensed: ['Barlow Condensed', 'sans-serif'],
         robotoCondensed: ['Roboto Condensed', 'sans-serif'],
         montserrat: ['Montserrat', 'sans-serif'],
+        merriweather: ['Merriweather', 'serif'],
         playfairDisplay: ['Playfair Display', 'serif'],
         inter: ['Inter', 'sans-serif'],
         cormorantGaramond: ['Cormorant Garamond', 'serif'],
+        ibmPlexSans: ['IBM Plex Sans', 'sans-serif'],
       },
     },
   },

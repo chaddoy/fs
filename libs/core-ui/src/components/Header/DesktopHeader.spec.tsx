@@ -123,10 +123,10 @@ describe('DesktopHeader', () => {
   it('renders menu items correctly', () => {
     renderWithIntl(<DesktopHeader />);
 
-    expect(screen.getByText('Collection')).toBeTruthy();
-    expect(screen.getByText('Occasions')).toBeTruthy();
-    expect(screen.getByText('Showroom')).toBeTruthy();
-    expect(screen.getByText('Schedule')).toBeTruthy();
+    expect(screen.getByText('header.menu.1')).toBeTruthy();
+    expect(screen.getByText('header.menu.2')).toBeTruthy();
+    expect(screen.getByText('header.menu.3')).toBeTruthy();
+    expect(screen.getByText('header.menu.4')).toBeTruthy();
   });
 
   it('applies correct accessibility attributes', () => {

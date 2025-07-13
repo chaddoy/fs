@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, Transition } from 'motion/react';
-import { MENU_ITEMS } from './constants';
+import { CONFIG, MENU_ITEMS } from './constants';
 import MobileMenuItem from './MobileMenuItem';
 import { Separator } from '@shadcn-ui';
 import Text from '../Text';
@@ -33,8 +33,9 @@ const MobileHeader = ({
     <>
       <div
         className={clsx(
-          'h-[58px] flex items-center gap-4 p-4 text-inverse',
-          color === 'forestGreen' && 'bg-forestGreen-900',
+          'h-[58px] flex items-center gap-4 p-4',
+          CONFIG.mobile.color.text,
+          color === 'forestGreen' && CONFIG.mobile.color.background,
           color === 'jetBlack' && 'bg-jetBlack-900',
           className
         )}
@@ -81,11 +82,29 @@ const MobileHeader = ({
           aria-labelledby="Home"
           aria-hidden={false}
         >
-          <Text as="h2" size="xl" weight="medium" className="!pb-0">
+          <Text
+            as="h2"
+            size="xl"
+            weight="medium"
+            className={clsx(
+              '!pb-0',
+              CONFIG.fontFamily.brand,
+              CONFIG.mobile.color.text
+            )}
+          >
             {t('brand').toUpperCase()}
           </Text>
           <Separator orientation="vertical" className="h-3" />
-          <Text size="xs" weight="medium">
+          <Text
+            size="sm"
+            weight="normal"
+            className={clsx(
+              '!pb-0',
+              CONFIG.fontFamily.tagline,
+              CONFIG.mobile.color.text,
+              'tracking-widest'
+            )}
+          >
             {t('tagline').toUpperCase()}
           </Text>
         </div>
@@ -103,7 +122,7 @@ const MobileHeader = ({
                 ease: [0.4, 0, 0.2, 1],
               } as Transition
             }
-            className="absolute w-full h-[calc(100vh-58px)] bg-extras-offWhite"
+            className="absolute w-full h-[calc(100vh-58px)] bg-extras-lightestForestGreen"
           >
             {MENU_ITEMS.map((item, index) => (
               <motion.div

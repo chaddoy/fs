@@ -147,6 +147,10 @@ const palette = {
     white: '#ffffff',
     offWhite: '#f4f1e9',
     charcoal: '#1d1d1d',
+    lightestForestGreen: '#f1f5f3',
+    lighterForestGreen: '#e6edea',
+    lightForestGreen: '#dae4e1',
+    heavyForestGreen: '#031610',
   },
 };
 

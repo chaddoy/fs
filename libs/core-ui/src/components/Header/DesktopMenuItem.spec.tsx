@@ -117,19 +117,16 @@ describe('DesktopMenuItem', () => {
     renderWithIntl(<DesktopMenuItem {...mockProps} />);
 
     const navigationMenu = screen.getByTestId('navigation-menu');
-    expect(navigationMenu.className).toContain('navigation-menu');
+    expect(navigationMenu.className).toContain(
+      'root h-full flex [&_[data-state="open"]]:rounded-none [&_[data-state="open"]]:mt-0 [&_[data-state="open"]]:border-bold [&_[data-state="open"]]:border-t-extras-heavyForestGreen [&_button]:hover:bg-extras-lightestForestGreen [&_button[data-state="open"]]:hover:bg-extras-lightestForestGreen [&_button[data-state="open"]]:border-b-2 [&_button[data-state="open"]]:border-b-extras-heavyForestGreen'
+    );
     expect(navigationMenu.className).toContain('h-full');
     expect(navigationMenu.className).toContain('flex');
 
     const trigger = screen.getByTestId('navigation-menu-trigger');
-    expect(trigger.className).toContain('h-full');
-    expect(trigger.className).toContain('flex');
-    expect(trigger.className).toContain('items-center');
-    expect(trigger.className).toContain('p-3');
-    expect(trigger.className).toContain('cursor-pointer');
-    expect(trigger.className).toContain('rounded-none');
-    expect(trigger.className).toContain('hover:border-b-2');
-    expect(trigger.className).toContain('border-forestGreen-600');
+    expect(trigger.className).toContain(
+      'h-full flex items-center p-3 cursor-pointer rounded-none hover:border-b-2 border-forestGreen-900 box-border trigger withChildren'
+    );
   });
 
   it('renders submenu items in list structure', () => {
@@ -160,11 +157,14 @@ describe('DesktopMenuItem', () => {
     const submenuItems = screen.getAllByText(/Sub Item/);
     submenuItems.forEach((item) => {
       const listItem = item.closest('li');
-      expect(listItem?.className).toContain('px-4');
-      expect(listItem?.className).toContain('py-3');
+      expect(listItem?.className).toContain('px-6');
+      expect(listItem?.className).toContain('py-4');
       expect(listItem?.className).toContain('w-full');
       expect(listItem?.className).toContain(
-        'hover:bg-accent.grey.subtlest-hovered'
+        'hover:bg-extras-lightestForestGreen'
+      );
+      expect(listItem?.className).toContain(
+        'active:bg-extras-lighterForestGreen cursor-pointer'
       );
       expect(listItem?.className).toContain('cursor-pointer');
     });

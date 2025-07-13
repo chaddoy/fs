@@ -4,4 +4,3 @@ export * from './components/AnnouncementBar';
 export * from './components/Header';
 export * from './components/Header';
 export * from './components/Hero';
-export * from './components/RentalGuide';

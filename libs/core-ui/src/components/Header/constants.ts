@@ -1,62 +1,84 @@
+export const CONFIG = {
+  fontFamily: {
+    brand: 'font-montserrat',
+    tagline: 'font-robotoCondensed',
+    menu: 'font-montserrat',
+  },
+  mobile: {
+    color: {
+      text: 'text-extras-offWhite',
+      background: 'bg-extras-heavyForestGreen',
+      border: 'border-extras-heavyForestGreen',
+    },
+  },
+  desktop: {
+    color: {
+      text: 'text-extras-heavyForestGreen',
+      background: 'bg-white',
+      border: 'border-extras-heavyForestGreen',
+    },
+  },
+};
+
 export const MENU_ITEMS = [
   {
-    label: 'Collection',
+    label: 'header.menu.1',
     href: '/collection',
     children: [
       {
-        label: 'Tuxedos & Suits',
+        label: 'header.menu.1.menu-item.1',
         href: '/tuxedos-suits',
       },
       {
-        label: 'Shirts',
+        label: 'header.menu.1.menu-item.2',
         href: '/shirts',
       },
       {
-        label: 'Vests & Cummerbunds',
+        label: 'header.menu.1.menu-item.3',
         href: '/vests-cummerbunds',
       },
       {
-        label: 'Ties',
+        label: 'header.menu.1.menu-item.4',
         href: '/ties',
       },
       {
-        label: 'Accessories',
+        label: 'header.menu.1.menu-item.5',
         href: '/accessories',
       },
     ],
   },
   {
-    label: 'Occasions',
+    label: 'header.menu.2',
     href: '/occasions',
     children: [
       {
-        label: 'Weddings',
+        label: 'header.menu.2.menu-item.1',
         href: '/weddings',
       },
       {
-        label: 'Proms & School Formals',
+        label: 'header.menu.2.menu-item.2',
         href: '/proms-school-formals',
       },
       {
-        label: 'Business Events',
+        label: 'header.menu.2.menu-item.3',
         href: '/business-events',
       },
       {
-        label: 'Black Tie Events',
+        label: 'header.menu.2.menu-item.4',
         href: '/black-tie-events',
       },
       {
-        label: 'Graduations',
+        label: 'header.menu.2.menu-item.5',
         href: '/graduations',
       },
     ],
   },
   {
-    label: 'Showroom',
+    label: 'header.menu.3',
     href: '/showroom',
   },
   {
-    label: 'Schedule',
+    label: 'header.menu.4',
     href: '/schedule',
   },
 ];

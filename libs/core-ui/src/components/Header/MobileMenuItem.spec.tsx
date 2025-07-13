@@ -75,25 +75,13 @@ describe('MobileMenuItem', () => {
     expect(screen.queryByRole('button')).not.toBeTruthy();
   });
 
-  it('shows plus icon when closed', () => {
+  it('shows chevron down icon when closed', () => {
     renderWithIntl(<MobileMenuItem {...mockProps} />);
 
-    const plusIcon =
-      screen.getByTestId('plus-icon') ||
+    const chevronDownIcon =
+      screen.getByTestId('chevron-down-icon') ||
       screen.getByText('Test Menu').nextElementSibling;
-    expect(plusIcon).toBeTruthy();
-  });
-
-  it('shows minus icon when opened', () => {
-    renderWithIntl(<MobileMenuItem {...mockProps} />);
-
-    const menuItem = screen.getByText('Test Menu');
-    fireEvent.click(menuItem);
-
-    const minusIcon =
-      screen.getByTestId('minus-icon') ||
-      screen.getByText('Test Menu').nextElementSibling;
-    expect(minusIcon).toBeTruthy();
+    expect(chevronDownIcon).toBeTruthy();
   });
 
   it('applies correct styling classes', () => {
@@ -101,7 +89,7 @@ describe('MobileMenuItem', () => {
 
     const menuItem = screen.getByText('Test Menu').closest('div');
     expect(menuItem?.className).toContain(
-      'flex justify-between items-center px-4 py-4 hover:bg-interaction-hovered active:bg-interaction-pressed'
+      'flex justify-between items-center px-4 py-4 hover:bg-extras-lighterForestGreen active:bg-extras-lightForestGreen'
     );
   });
 

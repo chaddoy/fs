@@ -57,7 +57,7 @@ describe('MobileHeader', () => {
   it('renders with forestGreen color theme', () => {
     renderWithIntl(<MobileHeader color="forestGreen" />);
     // Check for the color class directly
-    const header = document.querySelector('.bg-forestGreen-900');
+    const header = document.querySelector('.bg-extras-heavyForestGreen');
     expect(header).toBeTruthy();
   });
 
@@ -93,13 +93,13 @@ describe('MobileHeader', () => {
 
     const menuButton = screen.getByRole('button', { name: /menu/i });
 
-    expect(screen.queryByText('Collection')).not.toBeTruthy();
+    expect(screen.queryByText('header.menu.1')).not.toBeTruthy();
 
     fireEvent.click(menuButton);
-    expect(screen.getByText('Collection')).toBeTruthy();
+    expect(screen.getByText('header.menu.2')).toBeTruthy();
 
     fireEvent.click(menuButton);
-    expect(screen.queryByText('Collection')).not.toBeTruthy();
+    expect(screen.queryByText('header.menu.3')).not.toBeTruthy();
   });
 
   it('closes mobile menu when home is clicked', () => {
@@ -109,10 +109,10 @@ describe('MobileHeader', () => {
     const homeButton = screen.getByRole('button', { name: /home/i });
 
     fireEvent.click(menuButton);
-    expect(screen.getByText('Collection')).toBeTruthy();
+    expect(screen.getByText('header.menu.1')).toBeTruthy();
 
     fireEvent.click(homeButton);
-    expect(screen.queryByText('Collection')).not.toBeTruthy();
+    expect(screen.queryByText('header.menu.1')).not.toBeTruthy();
   });
 
   it('handles keyboard navigation for menu button', () => {
@@ -147,10 +147,10 @@ describe('MobileHeader', () => {
     const menuButton = screen.getByRole('button', { name: /menu/i });
     fireEvent.click(menuButton);
 
-    expect(screen.getByText('Collection')).toBeTruthy();
-    expect(screen.getByText('Occasions')).toBeTruthy();
-    expect(screen.getByText('Showroom')).toBeTruthy();
-    expect(screen.getByText('Schedule')).toBeTruthy();
+    expect(screen.getByText('header.menu.1')).toBeTruthy();
+    expect(screen.getByText('header.menu.2')).toBeTruthy();
+    expect(screen.getByText('header.menu.3')).toBeTruthy();
+    expect(screen.getByText('header.menu.4')).toBeTruthy();
   });
 
   it('applies correct accessibility attributes', () => {
