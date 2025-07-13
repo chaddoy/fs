@@ -15,6 +15,10 @@ export const HEADING_FONT_SIZES = {
     desktop: 16,
     mobile: 16,
   },
+  h5: {
+    desktop: 14,
+    mobile: 14,
+  },
 };
 
 export const BODY_FONT_SIZES = {
@@ -29,3 +33,5 @@ export const BODY_FONT_SIZES = {
   '3xl': 48,
   '4xl': 60,
 };
+
+export const EYEBROW_FONT_SIZE = BODY_FONT_SIZES.xs;
