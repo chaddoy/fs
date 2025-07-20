@@ -11,8 +11,8 @@ jest.mock('@fs/intl', () => ({
         'hero.eyebrow': 'Eyebrow Text',
         'hero.title': 'Main Title\nSubtitle Line',
         'hero.subtitle': 'This is the subtitle.',
-        'hero.button.1': 'View Collection',
-        'hero.button.2': 'Visit Showroom',
+        'hero.button.0': 'Collection',
+        'hero.button.1': 'Showroom',
       };
       return translations[key] || key;
     },
@@ -44,10 +44,10 @@ describe('HeroContent', () => {
   it('renders both buttons with correct text', () => {
     render(<HeroContent />);
     expect(
-      screen.getByRole('button', { name: 'View Collection' })
+      screen.getByRole('button', { name: 'Collection' })
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: 'Visit Showroom' })
+      screen.getByRole('button', { name: 'Showroom' })
     ).toBeInTheDocument();
   });
 });

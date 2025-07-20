@@ -1,4 +1,4 @@
-import { <%= className %>Props } from './interface'
+import { <%= className %>Props } from './types'
 import clsx from 'clsx';
 
 export default function <%= className %>({ 

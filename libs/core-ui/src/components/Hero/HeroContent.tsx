@@ -56,10 +56,10 @@ export default function HeroContent() {
 
         <div className="flex gap-6">
           <Button size="lg" className="md:w-28 lg:w-max">
-            {t('hero.button.1')}
+            {t('hero.button.0')}
           </Button>
           <Button size="lg" variant="outline" className="md:w-28 lg:w-32">
-            {t('hero.button.2')}
+            {t('hero.button.1')}
           </Button>
         </div>
       </div>

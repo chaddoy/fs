@@ -93,13 +93,13 @@ describe('MobileHeader', () => {
 
     const menuButton = screen.getByRole('button', { name: /menu/i });
 
-    expect(screen.queryByText('header.menu.1')).not.toBeTruthy();
+    expect(screen.queryByText('header.menu.0.title')).not.toBeTruthy();
 
     fireEvent.click(menuButton);
-    expect(screen.getByText('header.menu.2')).toBeTruthy();
+    expect(screen.getByText('header.menu.1.title')).toBeTruthy();
 
     fireEvent.click(menuButton);
-    expect(screen.queryByText('header.menu.3')).not.toBeTruthy();
+    expect(screen.queryByText('header.menu.2.title')).not.toBeTruthy();
   });
 
   it('closes mobile menu when home is clicked', () => {
@@ -109,10 +109,10 @@ describe('MobileHeader', () => {
     const homeButton = screen.getByRole('button', { name: /home/i });
 
     fireEvent.click(menuButton);
-    expect(screen.getByText('header.menu.1')).toBeTruthy();
+    expect(screen.getByText('header.menu.0.title')).toBeTruthy();
 
     fireEvent.click(homeButton);
-    expect(screen.queryByText('header.menu.1')).not.toBeTruthy();
+    expect(screen.queryByText('header.menu.0.title')).not.toBeTruthy();
   });
 
   it('handles keyboard navigation for menu button', () => {
@@ -147,10 +147,10 @@ describe('MobileHeader', () => {
     const menuButton = screen.getByRole('button', { name: /menu/i });
     fireEvent.click(menuButton);
 
-    expect(screen.getByText('header.menu.1')).toBeTruthy();
-    expect(screen.getByText('header.menu.2')).toBeTruthy();
-    expect(screen.getByText('header.menu.3')).toBeTruthy();
-    expect(screen.getByText('header.menu.4')).toBeTruthy();
+    expect(screen.getByText('header.menu.0.title')).toBeTruthy();
+    expect(screen.getByText('header.menu.1.title')).toBeTruthy();
+    expect(screen.getByText('header.menu.2.title')).toBeTruthy();
+    expect(screen.getByText('header.menu.3.title')).toBeTruthy();
   });
 
   it('applies correct accessibility attributes', () => {
