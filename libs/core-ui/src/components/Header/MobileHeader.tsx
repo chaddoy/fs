@@ -4,7 +4,7 @@ import MobileMenuItem from './MobileMenuItem';
 import { Separator } from '@shadcn-ui';
 import { Menu } from 'lucide-react';
 import clsx from 'clsx';
-import { HeaderProps } from './interface';
+import { HeaderProps } from './types';
 import { useState } from 'react';
 import { useIntl } from '@fs/intl';
 import { H2, H5 } from '../Typography';

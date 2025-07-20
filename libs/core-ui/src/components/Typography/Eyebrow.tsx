@@ -1,4 +1,4 @@
-import { EyebrowProps } from './interface';
+import { EyebrowProps } from './types';
 
 import clsx from 'clsx';
 

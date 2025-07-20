@@ -1,5 +1,5 @@
 import { ChevronDown } from 'lucide-react';
-import { MenuItemProps } from './interface';
+import { MenuItemProps } from './types';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useIntl } from '@fs/intl';

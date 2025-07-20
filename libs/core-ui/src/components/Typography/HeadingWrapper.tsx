@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
 import FontCard from './FontCard';
-import { HeadingProps } from './interface';
+import { HeadingProps } from './types';
 import { getHeadingFontSizes } from './utils';
 
 export default function HeadingWrapper({

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { P } from './Paragraph';
-import { ParagraphSize } from './interface';
+import { ParagraphSize } from './types';
 
 describe('Paragraph (P)', () => {
   it('renders a <p> tag', () => {

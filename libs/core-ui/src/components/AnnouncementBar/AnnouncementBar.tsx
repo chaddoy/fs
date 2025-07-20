@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { AnnouncementBarProps } from './interface';
+import { AnnouncementBarProps } from './types';
 import { P } from '../Typography';
 
 export default function AnnouncementBar({

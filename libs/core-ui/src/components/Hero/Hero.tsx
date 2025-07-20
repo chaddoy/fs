@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { HeroProps } from './interface';
+import { HeroProps } from './types';
 import HeroContent from './HeroContent';
 import HeroCarousel from './HeroCarousel';
 

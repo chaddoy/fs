@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import Table from '@/components/Table';
-import { ColorTableProps } from './interface';
+import { ColorTableProps } from './types';
 import ColorTableToken from './TokenTableCell';
 import PaletteTableCell from './PaletteTableCell';
 import groupBy from 'lodash.groupby';

@@ -1,2 +1,2 @@
 export { default } from './AnnouncementBar';
-export * from './interface';
+export * from './types';

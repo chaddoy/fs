@@ -1,2 +1,2 @@
 export { default } from './Header';
-export * from './interface';
+export * from './types';

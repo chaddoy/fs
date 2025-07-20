@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { P as PComponent } from './Paragraph';
-import { HeadingProps } from './interface';
+import { HeadingProps } from './types';
 import FontCard from './FontCard';
 import { BODY_FONT_SIZES } from './constants';
 import { H2 } from './Headings';

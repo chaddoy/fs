@@ -1,4 +1,4 @@
-import {Row} from "../Table/interface";
+import { Row } from '../Table/types';
 
 export interface ColorTableProps {
   tokenId: string;

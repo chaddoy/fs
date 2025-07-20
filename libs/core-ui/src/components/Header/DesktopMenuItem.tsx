@@ -7,7 +7,7 @@ import {
   NavigationMenuIndicator,
   navigationMenuTriggerStyle,
 } from '@shadcn-ui/components/ui/navigation-menu';
-import { MenuItemProps } from './interface';
+import { MenuItemProps } from './types';
 import { useIntl } from '@fs/intl';
 import clsx from 'clsx';
 import styles from './DesktopMenuItem.module.css';

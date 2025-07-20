@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ParagraphProps } from './interface';
+import { ParagraphProps } from './types';
 
 export function P({
   children,

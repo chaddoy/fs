@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { HeaderProps } from './interface';
+import { HeaderProps } from './types';
 import MobileHeader from './MobileHeader';
 import DesktopHeader from './DesktopHeader';
 

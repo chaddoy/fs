@@ -5,7 +5,7 @@ import {
   H3 as H3Component,
   H4 as H4Component,
 } from './Headings';
-import { HeadingProps } from './interface';
+import { HeadingProps } from './types';
 import HeadingWrapper from './HeadingWrapper';
 
 const meta: Meta<HeadingProps> = {

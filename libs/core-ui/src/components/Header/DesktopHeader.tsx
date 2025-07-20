@@ -1,7 +1,7 @@
 import { useIntl } from '@fs/intl';
 import { Separator } from '@shadcn-ui';
 import { CONFIG, MENU_ITEMS } from './constants';
-import { HeaderProps } from './interface';
+import { HeaderProps } from './types';
 import DesktopMenuItem from './DesktopMenuItem';
 import clsx from 'clsx';
 import { H1, H4 } from '../Typography';

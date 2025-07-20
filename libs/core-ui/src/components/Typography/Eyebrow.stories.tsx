@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Eyebrow } from './Eyebrow';
-import { HeadingProps } from './interface';
+import { HeadingProps } from './types';
 
 const meta: Meta<HeadingProps> = {
   title: 'Typography/Eyebrow',

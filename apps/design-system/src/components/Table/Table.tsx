@@ -5,7 +5,7 @@ import {
   TableHeader,
   TableRow,
 } from '@shadcn-ui/components/ui/table';
-import { TableProps } from './interface';
+import { TableProps } from './types';
 
 export function Table({ columns = [], children }: TableProps) {
   return (

@@ -1,4 +1,4 @@
-import { HeadingProps } from './interface';
+import { HeadingProps } from './types';
 import clsx from 'clsx';
 
 export const DEFAULT_CLASSNAMES = 'font-medium font-headings text-default';

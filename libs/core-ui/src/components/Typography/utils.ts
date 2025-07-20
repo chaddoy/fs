@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { HeadingProps } from './interface';
+import { HeadingProps } from './types';
 import { H1, H2, H3 } from './Headings';
 import { HEADING_FONT_SIZES } from './constants';
 

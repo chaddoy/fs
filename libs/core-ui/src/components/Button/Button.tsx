@@ -1,7 +1,7 @@
 import { Loader2 } from 'lucide-react';
 import { Button as ShadcnButton } from '@shadcn-ui';
 import clsx from 'clsx';
-import { ButtonProps } from './interface';
+import { ButtonProps } from './types';
 import { isShadcnVariant } from './utils';
 import { ALL_VARIANT_STYLES } from './constants';
 
