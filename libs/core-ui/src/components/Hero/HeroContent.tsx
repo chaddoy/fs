@@ -13,7 +13,7 @@ export default function HeroContent() {
         'md:justify-center md:gap-4 md:pt-0 md:pb-0 md:w-[calc(80%-4px)]',
       ])}
     >
-      <Eyebrow className="md:hidden lg:block">{t('hero.eyebrow')}</Eyebrow>
+      <Eyebrow>{t('hero.eyebrow')}</Eyebrow>
 
       <div
         className={clsx([
@@ -21,7 +21,6 @@ export default function HeroContent() {
           'sm:gap-2',
           'md:gap-4',
           'lg:gap-6',
-          'xl:gap-10',
         ])}
       >
         <div className="flex flex-col items-center">

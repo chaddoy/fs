@@ -26,7 +26,7 @@ export default function HeroCarousel() {
         {DEFAULT_HERO_IMAGES.map((image, index) => (
           <CarouselItem key={index} className="pl-0">
             <Card className="rounded-none border-0">
-              <CardContent className="flex aspect-[3/2] items-center justify-center p-0 border-0">
+              <CardContent className="flex aspect-[9/9] items-center justify-center p-0 border-0">
                 <img
                   src={image}
                   alt={`Hero ${index + 1}`}
