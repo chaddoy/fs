@@ -8,7 +8,7 @@ export function H1({ mobile, className, children, ...props }: HeadingProps) {
     <h1
       className={clsx(
         DEFAULT_CLASSNAMES,
-        'text-2xl',
+        'text-2xl font-bold',
         `md:${mobile ? 'text-2xl' : 'text-[32px]'}`,
         className
       )}
@@ -24,7 +24,7 @@ export function H2({ mobile, className, children, ...props }: HeadingProps) {
     <h2
       className={clsx(
         DEFAULT_CLASSNAMES,
-        'text-lg',
+        'text-lg font-bold',
         `md:${mobile ? 'text-lg' : 'text-xl'}`,
         className
       )}
@@ -37,7 +37,10 @@ export function H2({ mobile, className, children, ...props }: HeadingProps) {
 
 export function H3({ mobile, className, children, ...props }: HeadingProps) {
   return (
-    <h3 className={clsx(DEFAULT_CLASSNAMES, 'text-lg', className)} {...props}>
+    <h3
+      className={clsx(DEFAULT_CLASSNAMES, 'text-lg font-semibold', className)}
+      {...props}
+    >
       {children}
     </h3>
   );
@@ -45,7 +48,10 @@ export function H3({ mobile, className, children, ...props }: HeadingProps) {
 
 export function H4({ mobile, className, children, ...props }: HeadingProps) {
   return (
-    <h4 className={clsx(DEFAULT_CLASSNAMES, 'text-base', className)} {...props}>
+    <h4
+      className={clsx(DEFAULT_CLASSNAMES, 'text-base font-semibold', className)}
+      {...props}
+    >
       {children}
     </h4>
   );
