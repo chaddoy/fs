@@ -5,7 +5,9 @@ import { ParagraphProps } from '../Typography';
 
 // Mock the Typography component
 jest.mock('../Typography', () => ({
-  P: ({ children, ...props }: ParagraphProps) => <p {...props}>{children}</p>,
+  P: ({ children, bold: _, ...props }: ParagraphProps) => (
+    <p {...props}>{children}</p>
+  ),
 }));
 
 describe('ProductCard', () => {
@@ -18,7 +20,7 @@ describe('ProductCard', () => {
 
   it('renders the image with correct src and alt', () => {
     render(<ProductCard {...defaultProps} />);
-    const img = screen.getByRole('img');
+    const img = screen.getByTestId('product-card-image');
     expect(img).toHaveAttribute('src', defaultProps.image);
     expect(img).toHaveAttribute('alt', defaultProps.name);
   });
@@ -62,7 +64,7 @@ describe('ProductCard', () => {
   });
 
   it('renders empty alt if name is not a string', () => {
-    render(<ProductCard {...defaultProps} name={null as any} />);
+    render(<ProductCard {...defaultProps} name={null} />);
     const img = screen.getByTestId('product-card-image');
     expect(img).toHaveAttribute('alt', '');
   });

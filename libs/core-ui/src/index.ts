@@ -7,3 +7,4 @@ export * from './components/Typography';
 export * from './components/RentalGuide';
 export * from './components/SectionHeader';
 export * from './components/ProductCard';
+export * from './components/SectionBanner';
