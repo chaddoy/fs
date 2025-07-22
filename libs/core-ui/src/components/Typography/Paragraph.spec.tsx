@@ -29,7 +29,7 @@ describe('Paragraph (P)', () => {
   it('applies bold class when bold is true', () => {
     render(<P bold>Bold paragraph</P>);
     const el = screen.getByText('Bold paragraph');
-    expect(el).toHaveClass('font-medium');
+    expect(el).toHaveClass('font-semibold');
     expect(el).not.toHaveClass('font-normal');
   });
 

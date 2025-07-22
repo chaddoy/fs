@@ -15,7 +15,7 @@ export function P({
         'text-default',
         `font-${font}`,
         !bold && 'font-normal',
-        bold && 'font-medium',
+        bold && 'font-semibold',
         size === '3xs' && 'text-xs',
         size === '2xs' && 'text-sm',
         size === 'xs' && 'text-base',

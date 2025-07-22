@@ -6,3 +6,4 @@ export * from './components/Hero';
 export * from './components/Typography';
 export * from './components/RentalGuide';
 export * from './components/SectionHeader';
+export * from './components/ProductCard';

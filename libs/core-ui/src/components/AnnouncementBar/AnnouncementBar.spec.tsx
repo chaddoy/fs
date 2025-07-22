@@ -35,7 +35,7 @@ describe('AnnouncementBar', () => {
     const classList = textParent?.getAttribute('class') || '';
 
     expect(classList).toContain(
-      'text-default font-body font-medium text-sm text-inverse truncate'
+      'text-default font-body font-semibold text-sm text-inverse truncate'
     );
   });
 
