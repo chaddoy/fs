@@ -8,10 +8,10 @@ describe('Headings', () => {
     const el = screen.getByText('Heading 1');
     expect(el.tagName).toBe('H1');
     expect(el).toHaveClass(
-      'font-medium',
+      'font-bold',
       'font-headings',
       'text-default',
-      'text-2xl',
+      'text-3xl',
       'md:text-[32px]'
     );
   });
@@ -19,7 +19,7 @@ describe('Headings', () => {
   it('renders H1 with mobile prop', () => {
     render(<H1 mobile>Mobile Heading 1</H1>);
     const el = screen.getByText('Mobile Heading 1');
-    expect(el).toHaveClass('text-2xl', 'md:text-2xl');
+    expect(el).toHaveClass('text-3xl', 'md:text-2xl');
   });
 
   it('renders H2 with correct tag and classes', () => {
@@ -27,7 +27,7 @@ describe('Headings', () => {
     const el = screen.getByText('Heading 2');
     expect(el.tagName).toBe('H2');
     expect(el).toHaveClass(
-      'font-medium',
+      'font-bold',
       'font-headings',
       'text-default',
       'text-lg',
@@ -46,7 +46,7 @@ describe('Headings', () => {
     const el = screen.getByText('Heading 3');
     expect(el.tagName).toBe('H3');
     expect(el).toHaveClass(
-      'font-medium',
+      'font-bold',
       'font-headings',
       'text-default',
       'text-lg'
@@ -58,7 +58,7 @@ describe('Headings', () => {
     const el = screen.getByText('Heading 4');
     expect(el.tagName).toBe('H4');
     expect(el).toHaveClass(
-      'font-medium',
+      'font-semibold',
       'font-headings',
       'text-default',
       'text-base'

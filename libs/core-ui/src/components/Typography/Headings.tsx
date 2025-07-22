@@ -1,14 +1,14 @@
 import { HeadingProps } from './types';
 import clsx from 'clsx';
 
-export const DEFAULT_CLASSNAMES = 'font-medium font-headings text-default';
+export const DEFAULT_CLASSNAMES = 'font-headings text-default';
 
 export function H1({ mobile, className, children, ...props }: HeadingProps) {
   return (
     <h1
       className={clsx(
         DEFAULT_CLASSNAMES,
-        'text-2xl font-bold',
+        'text-3xl font-bold',
         `md:${mobile ? 'text-2xl' : 'text-[32px]'}`,
         className
       )}
@@ -38,7 +38,7 @@ export function H2({ mobile, className, children, ...props }: HeadingProps) {
 export function H3({ mobile, className, children, ...props }: HeadingProps) {
   return (
     <h3
-      className={clsx(DEFAULT_CLASSNAMES, 'text-lg font-semibold', className)}
+      className={clsx(DEFAULT_CLASSNAMES, 'text-lg font-bold', className)}
       {...props}
     >
       {children}
