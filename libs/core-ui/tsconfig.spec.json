@@ -3,7 +3,13 @@
   "compilerOptions": {
     "outDir": "./out-tsc/jest",
     "jsx": "react-jsx",
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "lib": ["dom", "dom.iterable", "es6"],
+    "paths": {
+      "@shadcn-ui": ["../shadcn-ui/src/index.ts"],
+      "@shadcn-ui/*": ["../shadcn-ui/src/*"],
+      "@fs/intl": ["../shared/intl/src/index.ts"]
+    }
   },
   "include": [
     "jest.config.ts",
@@ -15,11 +21,18 @@
     "src/**/*.spec.js",
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "../shadcn-ui/src/**/*"
   ],
   "references": [
     {
       "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "../shared/intl"
+    },
+    {
+      "path": "../shadcn-ui"
     }
   ]
 }

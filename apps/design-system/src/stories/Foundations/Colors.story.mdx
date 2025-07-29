@@ -3,7 +3,7 @@ import { MDXPage, MDXHeader, MDXBody, MDXLinks, MDXLink } from '@/components/MDX
 import { ColorPalette, ColorItem } from '@storybook/blocks';
 import palette from '@core-ui/tokens/color/palette';
 import ColorTable from '@/components/ColorTable';
-import tokens from '@core-ui/tokens';
+import { descriptiveTokens } from '@core-ui/tokens';
 
 <Meta title="Foundations/Colors" />
 
@@ -30,28 +30,28 @@ import tokens from '@core-ui/tokens';
 
     <MDXBody>
       ### Text
-      <ColorTable tokenId="text" tokens={tokens.color.light.text} />
+      <ColorTable tokenId="text" tokens={descriptiveTokens.color.light.text} />
 
       ### Link
-      <ColorTable tokenId="link" tokens={tokens.color.light.link} />
+      <ColorTable tokenId="link" tokens={descriptiveTokens.color.light.link} />
 
       ### Icon
-      <ColorTable tokenId="icon" tokens={tokens.color.light.icon} />
+      <ColorTable tokenId="icon" tokens={descriptiveTokens.color.light.icon} />
 
       ### Border
-      <ColorTable tokenId="border" tokens={tokens.color.light.border} />
+      <ColorTable tokenId="border" tokens={descriptiveTokens.color.light.border} />
 
       ### Background
-      <ColorTable tokenId="background" tokens={tokens.color.light.background} />
+      <ColorTable tokenId="background" tokens={descriptiveTokens.color.light.background} />
 
       ### Blanket
-      <ColorTable tokenId="blanket" tokens={tokens.color.light.blanket} />
+      <ColorTable tokenId="blanket" tokens={descriptiveTokens.color.light.blanket} />
 
       ### Interaction
-      <ColorTable tokenId="interaction" tokens={tokens.color.light.interaction} />
+      <ColorTable tokenId="interaction" tokens={descriptiveTokens.color.light.interaction} />
 
       ### Skeleton
-      <ColorTable tokenId="skeleton" tokens={tokens.color.light.skeleton} />
+      <ColorTable tokenId="skeleton" tokens={descriptiveTokens.color.light.skeleton} />
 
       ### Palette
       <ColorPalette>

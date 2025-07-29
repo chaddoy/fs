@@ -1,5 +1,13 @@
 {
   "name": "design-system",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "react": "19.0.0",
+    "react-intl": "^6.0.0",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
 }

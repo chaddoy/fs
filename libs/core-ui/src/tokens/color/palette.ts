@@ -71,6 +71,18 @@ const palette = {
     '800': '#915b00',
     '900': '#734800',
   },
+  royalPurple: {
+    '50': '#f0ebf3',
+    '100': '#d1c0d9',
+    '200': '#bba2c6',
+    '300': '#9d77ac',
+    '400': '#895d9c',
+    '500': '#6c3483',
+    '600': '#622f77',
+    '700': '#4d255d',
+    '800': '#3b1d48',
+    '900': '#2d1637',
+  },
   royalBlue: {
     '50': '#e8f1fb',
     '100': '#c8def4',
@@ -135,6 +147,10 @@ const palette = {
     white: '#ffffff',
     offWhite: '#f4f1e9',
     charcoal: '#1d1d1d',
+    lightestForestGreen: '#f1f5f3',
+    lighterForestGreen: '#e6edea',
+    lightForestGreen: '#dae4e1',
+    heavyForestGreen: '#031610',
   },
 };
 

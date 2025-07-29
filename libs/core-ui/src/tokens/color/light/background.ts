@@ -47,8 +47,16 @@ const createSemanticStateTokens = (
   pressedPalette: string
 ) => ({
   [baseKey]: createToken(baseValue, description, basePalette),
-  [`${baseKey}.hovered`]: createToken(hoveredValue, description, hoveredPalette),
-  [`${baseKey}.pressed`]: createToken(pressedValue, description, pressedPalette),
+  [`${baseKey}.hovered`]: createToken(
+    hoveredValue,
+    description,
+    hoveredPalette
+  ),
+  [`${baseKey}.pressed`]: createToken(
+    pressedValue,
+    description,
+    pressedPalette
+  ),
 });
 
 const createCustomTokens = (
@@ -115,7 +123,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '100',
     hoveredScale: '200',
     pressedScale: '300',
-    description: 'The default background for neutral elements, such as default buttons.',
+    description:
+      'The default background for neutral elements, such as default buttons.',
   },
   {
     key: 'neutral.subtle',
@@ -123,7 +132,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseValue: 'transparent',
     hoveredScale: '100',
     pressedScale: '200',
-    description: 'Use for the background of elements that appear to have no background in a resting state, such as subtle buttons and menu items.',
+    description:
+      'Use for the background of elements that appear to have no background in a resting state, such as subtle buttons and menu items.',
   },
   {
     key: 'neutral.bold',
@@ -131,7 +141,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '700',
     hoveredScale: '800',
     pressedScale: '900',
-    description: 'A vibrant background option for neutral UI elements, such as announcement banners.',
+    description:
+      'A vibrant background option for neutral UI elements, such as announcement banners.',
   },
   {
     key: 'selected',
@@ -139,7 +150,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '50',
     hoveredScale: '100',
     pressedScale: '200',
-    description: 'Use for the background of elements in a selected state, such as in opened dropdown buttons.',
+    description:
+      'Use for the background of elements in a selected state, such as in opened dropdown buttons.',
   },
   {
     key: 'selected.bold',
@@ -147,7 +159,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '600',
     hoveredScale: '700',
     pressedScale: '800',
-    description: 'Use for the backgrounds of elements in a selected state, such as checkboxes and radio buttons.',
+    description:
+      'Use for the backgrounds of elements in a selected state, such as checkboxes and radio buttons.',
   },
   {
     key: 'brand.subtlest',
@@ -155,7 +168,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '50',
     hoveredScale: '100',
     pressedScale: '200',
-    description: 'Use for the background of elements used to reinforce our brand, but with less emphasis.',
+    description:
+      'Use for the background of elements used to reinforce our brand, but with less emphasis.',
   },
   {
     key: 'brand.bold',
@@ -163,7 +177,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '600',
     hoveredScale: '700',
     pressedScale: '800',
-    description: 'Use for the background of elements used to reinforce our brand, but with more emphasis.',
+    description:
+      'Use for the background of elements used to reinforce our brand, but with more emphasis.',
   },
   {
     key: 'brand.boldest',
@@ -171,7 +186,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '900',
     hoveredScale: '800',
     pressedScale: '700',
-    description: 'Use for the background of elements used to reinforce our brand, that need to stand out a lot.',
+    description:
+      'Use for the background of elements used to reinforce our brand, that need to stand out a lot.',
   },
   {
     key: 'danger',
@@ -179,15 +195,17 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '50',
     hoveredScale: '100',
     pressedScale: '200',
-    description: 'Use for backgrounds communicating critical information, such in error section messages.',
+    description:
+      'Use for backgrounds communicating critical information, such in error section messages.',
   },
   {
     key: 'danger.bold',
     color: 'crimsonRed',
     baseScale: '600',
-    hoveredScale: '600',
+    hoveredScale: '700',
     pressedScale: '800',
-    description: 'A vibrant background option for communicating critical information, such as in danger buttons and error banners.',
+    description:
+      'A vibrant background option for communicating critical information, such as in danger buttons and error banners.',
   },
   {
     key: 'warning',
@@ -195,15 +213,17 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '50',
     hoveredScale: '100',
     pressedScale: '200',
-    description: 'Use for backgrounds communicating caution, such as in warning section messages.',
+    description:
+      'Use for backgrounds communicating caution, such as in warning section messages.',
   },
   {
     key: 'warning.bold',
     color: 'orangePeel',
-    baseScale: '200',
-    hoveredScale: '300',
-    pressedScale: '400',
-    description: 'A vibrant background option for communicating caution, such as in warning buttons and warning banners.',
+    baseScale: '400',
+    hoveredScale: '500',
+    pressedScale: '600',
+    description:
+      'A vibrant background option for communicating caution, such as in warning buttons and warning banners.',
   },
   {
     key: 'success',
@@ -211,31 +231,35 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '50',
     hoveredScale: '100',
     pressedScale: '200',
-    description: 'Use for backgrounds communicating a favorable outcome, such as in success section messages.',
+    description:
+      'Use for backgrounds communicating a favorable outcome, such as in success section messages.',
   },
   {
     key: 'success.bold',
     color: 'mossGreen',
-    baseScale: '200',
-    hoveredScale: '300',
-    pressedScale: '400',
-    description: 'A vibrant background option for communicating a favorable outcome, such as in checked toggles.',
-  },
-  {
-    key: 'discovery',
-    color: 'burntOrange',
-    baseScale: '50',
-    hoveredScale: '100',
-    pressedScale: '200',
-    description: 'Use for backgrounds communicating change or something new, such as in discovery section messages.',
-  },
-  {
-    key: 'discovery.bold',
-    color: 'burntOrange',
     baseScale: '600',
     hoveredScale: '700',
     pressedScale: '800',
-    description: 'A vibrant background option communicating change or something new, such as in onboarding spotlights.',
+    description:
+      'A vibrant background option for communicating a favorable outcome, such as in checked toggles.',
+  },
+  {
+    key: 'discovery',
+    color: 'royalPurple',
+    baseScale: '50',
+    hoveredScale: '100',
+    pressedScale: '200',
+    description:
+      'Use for backgrounds communicating change or something new, such as in discovery section messages.',
+  },
+  {
+    key: 'discovery.bold',
+    color: 'royalPurple',
+    baseScale: '600',
+    hoveredScale: '700',
+    pressedScale: '800',
+    description:
+      'A vibrant background option communicating change or something new, such as in onboarding spotlights.',
   },
   {
     key: 'information',
@@ -243,7 +267,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '50',
     hoveredScale: '100',
     pressedScale: '200',
-    description: 'Use for backgrounds communicating information or something in-progress, such as in information section messages.',
+    description:
+      'Use for backgrounds communicating information or something in-progress, such as in information section messages.',
   },
   {
     key: 'information.bold',
@@ -251,7 +276,8 @@ const semanticConfigs: SemanticConfig[] = [
     baseScale: '600',
     hoveredScale: '700',
     pressedScale: '800',
-    description: 'A vibrant background option for communicating information or something in-progress.',
+    description:
+      'A vibrant background option for communicating information or something in-progress.',
   },
 ];
 

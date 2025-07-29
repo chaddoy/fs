@@ -12,7 +12,8 @@
     "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
     "paths": {
       "@shadcn-ui": ["../shadcn-ui/src/index.ts"],
-      "@shadcn-ui/*": ["../shadcn-ui/src/*"]
+      "@shadcn-ui/*": ["../shadcn-ui/src/*"],
+      "@fs/intl": ["../shared/intl/src/index.ts"]
     }
   },
   "exclude": [
@@ -33,6 +34,9 @@
   ],
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
+    {
+      "path": "../shared/intl/tsconfig.lib.json"
+    },
     {
       "path": "../shadcn-ui"
     }

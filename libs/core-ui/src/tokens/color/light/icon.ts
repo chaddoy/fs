@@ -23,7 +23,8 @@ const semanticIconConfigs = [
   {
     key: 'selected',
     value: palette.forestGreen[600],
-    description: 'Use for icons in selected or opened states, such as those used in dropdown buttons.',
+    description:
+      'Use for icons in selected or opened states, such as those used in dropdown buttons.',
     palette: 'forestGreen/600',
   },
   {
@@ -35,13 +36,15 @@ const semanticIconConfigs = [
   {
     key: 'danger',
     value: palette.crimsonRed[600],
-    description: 'Use for icons communicating critical information, such as those used in error handing.',
+    description:
+      'Use for icons communicating critical information, such as those used in error handing.',
     palette: 'crimsonRed/600',
   },
   {
     key: 'warning',
     value: palette.orangePeel[500],
-    description: 'Use for icons communicating caution, such as those used in warning section messages.',
+    description:
+      'Use for icons communicating caution, such as those used in warning section messages.',
     palette: 'orangePeel/500',
   },
   {
@@ -53,19 +56,22 @@ const semanticIconConfigs = [
   {
     key: 'success',
     value: palette.mossGreen[500],
-    description: 'Use for icons communicating a favorable outcome, such as those used in success section messaged.',
+    description:
+      'Use for icons communicating a favorable outcome, such as those used in success section messaged.',
     palette: 'mossGreen/500',
   },
   {
     key: 'discovery',
-    value: palette.burntOrange[500],
-    description: 'Use for icons communicating change or something new, such as discovery section messages.',
-    palette: 'burntOrange/500',
+    value: palette.royalPurple[500],
+    description:
+      'Use for icons communicating change or something new, such as discovery section messages.',
+    palette: 'royalPurple/500',
   },
   {
     key: 'information',
     value: palette.royalBlue[500],
-    description: 'Use for icons communicating information or something in-progress, such as information section messages.',
+    description:
+      'Use for icons communicating information or something in-progress, such as information section messages.',
     palette: 'royalBlue/500',
   },
   {
@@ -84,7 +90,10 @@ const semanticIconConfigs = [
 
 const icon = {
   ...generateSemanticTokens(semanticIconConfigs),
-  ...getPaletteTokens(key => `Use for ${key} icons on non-bold backgrounds when there is no meaning tied to the color, such as file type icons.`),
+  ...getPaletteTokens(
+    (key) =>
+      `Use for ${key} icons on non-bold backgrounds when there is no meaning tied to the color, such as file type icons.`
+  ),
 };
 
 export default icon;

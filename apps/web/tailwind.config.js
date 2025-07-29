@@ -1,4 +1,5 @@
-const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+// const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+const tokens = require('../../libs/core-ui/src/tokens');
 
 // The above utility import will not work if you are using Next.js' --turbo.
 // Instead you will have to manually add the dependent paths to be included.
@@ -17,19 +18,29 @@ module.exports = {
     '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html,story.mdx}',
     '../../libs/shadcn-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
     '../../libs/core-ui/{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html,story.mdx}',
-    ...createGlobPatternsForDependencies(__dirname),
+    // ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
     extend: {
+      textColor: {
+        ...tokens.colors.light.text,
+      },
+      backgroundColor: {
+        ...tokens.colors.light.background,
+        interaction: {
+          ...tokens.colors.light.interaction,
+        },
+      },
+      borderColor: {
+        ...tokens.colors.light.border,
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
       colors: {
-        forestGreen: {
-          50: '#f3f5f0',
-        },
+        ...tokens.colors.palette,
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -70,6 +81,18 @@ module.exports = {
           4: 'hsl(var(--chart-4))',
           5: 'hsl(var(--chart-5))',
         },
+      },
+      fontFamily: {
+        ...tokens.fontFamily,
+
+        barlowCondensed: ['Barlow Condensed', 'sans-serif'],
+        robotoCondensed: ['Roboto Condensed', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        merriweather: ['Merriweather', 'serif'],
+        playfairDisplay: ['Playfair Display', 'serif'],
+        inter: ['Inter', 'sans-serif'],
+        cormorantGaramond: ['Cormorant Garamond', 'serif'],
+        ibmPlexSans: ['IBM Plex Sans', 'sans-serif'],
       },
     },
   },

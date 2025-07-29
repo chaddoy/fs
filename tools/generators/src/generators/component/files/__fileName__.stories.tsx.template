@@ -5,7 +5,7 @@ const meta: Meta<typeof <%= className %>> = {
   title: '<%= storyGroup %>/<%= className %>',
   component: <%= className %>,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
   },
   tags: ['autodocs'],
   argTypes: {
